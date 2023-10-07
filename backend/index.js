@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import router from "./routes/index.js";
 import morgan from "morgan";
 dotenv.config();
+import { initDBConnection } from './db/db.js';
+
+
 const app = express();
 const port = 3000;
 
@@ -19,5 +22,6 @@ app.use(router);
 //listening
 console.log(process.env.TEST);
 app.listen(port, () => {
+  initDBConnection();
   console.log(`Server runing on port: ${port}`);
 });
