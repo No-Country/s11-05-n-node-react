@@ -2,8 +2,6 @@
 
 #### **LetsPlay**
 
-
-
 ## Tecnologías utilizadas 💻
 
 #### **LetsPlay** 
@@ -13,7 +11,6 @@
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
 |:---:|:---:|
 | **Karen Carranza**| **Wualfre Arroyo**|
-
 
 #### 🧑💻 Developers:
 
