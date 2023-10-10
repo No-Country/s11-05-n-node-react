@@ -3,12 +3,12 @@ import cors from "cors";
 import router from "./routes/index.js";
 import morgan from "morgan";
 import { initDBConnection } from "./db/db.js";
-import { config } from "./config/config.js";
+import { development } from "./config/config.js";
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const port = config[process.env.NODE_ENV].port;
+const port = development[process.env.NODE_ENV].port;
 
 //config
 app.use(express.static("public"));

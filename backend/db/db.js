@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import { config } from "../config/config.js";
+import { development } from "../config/config.js";
 
 export const initDBConnection = () => {
-  const DB_CONNECTION_STRING = config.dev.db_url;
+  const DB_CONNECTION_STRING = development.dev.db_url;
   mongoose.set("strictQuery", false); // cambiar a true para probar consultas con datos que no estan en el schema
   mongoose
     .connect(DB_CONNECTION_STRING)

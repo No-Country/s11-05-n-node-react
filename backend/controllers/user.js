@@ -1,18 +1,15 @@
 import User from "../db/userModels.js";
-import becryt from "bcrypt";
+import becrypt from "bcrypt";
 
 const createUser = async (req, res) => {
   const { nickName, email, password } = req.body;
   try {
-    const valid = User.find({ email });
-    if (valid.nickName == nickName || valid.email == email) {
-      return res
-        .status(409)
-        .send({ message: "Email o nickname no pueden estar repetido" });
-    }
-    let passwordhash = becryt.hashSync(password, 10);
+    const valid = await User.find({ email });
+    const existingUser = await User.findOne({ $or: [{ email }, { nickName }] });
 
-    const user = new User({ nickName, email, passwordhash });
+    let passwordhash = becrypt.hashSync(password, 10);
+
+    const newUser = new User({ nickName, email, passwordhash });
 
     let userCreate = await user.save();
 

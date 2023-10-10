@@ -1,13 +1,18 @@
 import { validationResult } from "express-validator";
 
-const validateResult = (req, res, next) => {
+const ValidatorGeneral = (req, res, next) => {
   try {
-    validationResult(req).throw();
-    return next();
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      return next();
+    }
+
+    return res.status(403).json({ errors: errors.array() });
   } catch (err) {
     res.status(403);
     res.send({ error: err.array() });
   }
 };
 
-export { validateResult };
+export { ValidatorGeneral };
