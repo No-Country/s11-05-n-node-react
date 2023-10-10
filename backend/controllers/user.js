@@ -11,7 +11,7 @@ const createUser = async (req, res) => {
 
     const newUser = new User({ nickName, email, passwordhash });
 
-    let userCreate = await user.save();
+    let userCreate = await newUser.save();
 
     res.status(200).send({ message: "Usuario creado" });
   } catch (error) {
