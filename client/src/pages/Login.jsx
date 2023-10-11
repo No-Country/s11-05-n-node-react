@@ -4,40 +4,27 @@ import { BsFacebook } from "react-icons/bs";
 import { useState } from "react";
 
 function Login() {
-  
-  const[username,setUsername]= useState('')
-  const[password,setPassword]= useState('')
-
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
+    if (![username, password].includes("")) {
+      //Aquí generamos el error
 
-    if(![username,password].includes('')) {
-
-      //Aquí generamos el error 
-
-      return
-      
+      return;
     }
 
-
-    // Aquí solicitud  post 
-
-
-
-
-
-    
+    // Aquí solicitud  post
   };
 
   return (
-    <section className="w-full h-screen flex bg-background ">
-      <div className="w-6/12 h-screen"></div>
+    <section className="w-full h-screen flex bg-[#C5CBDE] ">
+      <div className="md:w-6/12 lg:w-6/12 xl:w-6/12  w-0  h-full"></div>
 
-      <div className="w-6/12 h-screen flex justify-center items-center text-center  ">
-        <div className="w-auto bg-login p-[71px] rounded-2xl shadow-md">
+      <div className="md:w-6/12  lg:w-6/12 xl:w-6/12 w-full  h-full flex justify-center items-center text-center  ">
+        <div className="md:w-auto lg:w-auto xl:w-auto w-11/12 m-auto  bg-[#F1F3FF] p-[71px] rounded-2xl shadow-md">
           <div className="text-center">
-            <h1 className="text-black text-5xl font-bold">Let’s play</h1>
+            <h1 className="text-black md:text-5xl  text-2xl  font-bold">Let’s play</h1>
 
             <h2 className="mt-12 mb-12 text-sm  ">
               Iniciar sesión con correo electrónico
@@ -45,37 +32,30 @@ function Login() {
           </div>
 
           <form className="flex flex-col gap-6">
-            {/* email input  */}
             <div className="flex flex-col relative">
-              <label className=" bg-login absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
+              <label className=" bg-[#F1F3FF] absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
                 Correo electrónico
               </label>
               <input
                 type="email"
-                className="h-12 p-[ 8px 0px 8px 16px] border bg-transparent rounded-sm border-black"
-
+                className="h-12 pl-2 border bg-transparent rounded-sm border-black "
                 value={username}
-                
-                onChange={(e)=> {
-
-                  setUsername(e.target.value)
+                onChange={(e) => {
+                  setUsername(e.target.value);
                 }}
               />
             </div>
 
-            {/* password input  */}
             <div className="flex flex-col relative">
-              <label className=" bg-login absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
+              <label className=" bg-[#F1F3FF] absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
                 Contraseña
               </label>
               <input
                 type="password"
-                className="h-12 border bg-transparent p-[ 8px 0px 8px 16px] rounded-sm border-black"
-
+                className="h-12 border bg-transparent  rounded-sm border-black pl-2"
                 value={password}
-                onChange={(e)=> {
-
-                  setPassword(e.target.value)
+                onChange={(e) => {
+                  setPassword(e.target.value);
                 }}
               />
               <Link
