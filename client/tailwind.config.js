@@ -6,6 +6,16 @@ export default {
       fontFamily: {
         Poppins: ['"Poppins"'],
       },
+
+
+      colors:{
+
+        login :'#F1F3FF',
+        background :'#C5CBDE',
+        links:'#4A9DFF',
+        buttons:'#79747E',
+
+      }
     },
   },
   plugins: [],
