@@ -1,6 +1,10 @@
+import HeaderLanding from "../components/Landing/HeaderLanding/HeaderLanding"
+
 const Landing = () => {
   return (
-    <div>Landing</div>
+    <div className="flex w-full">
+      <HeaderLanding/>
+    </div>
   )
 }
 
