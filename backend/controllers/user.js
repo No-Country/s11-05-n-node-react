@@ -48,4 +48,16 @@ const Auth = async (req, res) => {
   }
 };
 
-export { createUser,Auth };
+const deleteUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await User.findByIdAndDelete(id);
+
+   res.status(200).json({ message: "User successfully deleted", user: user });
+  } catch (error) {
+    res.status(500).json({ message: "Error when deleting user" });
+  }
+}
+
+
+export { createUser,Auth, deleteUser};
