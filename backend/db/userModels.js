@@ -1,56 +1,74 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
-const userSchema = new Schema({
+const userSchema = new Schema(
+  {
+    avatar: {
+      type: String,
+    },
+
     firstName: {
-        type: String, 
-       
-        
-    }, 
+      type: String,
+    },
 
     lastName: {
-        type: String, 
-        
+      type: String,
     },
 
-    email:{
-        type: String,
-        require: true,
-        unique: true
+    nickName: {
+      type: String,
     },
 
-    password: {
-        type: String, 
-        
-    },    
+    email: {
+      type: String,
+      require: true,
+    },
 
-    hasAllData: {
-        type: Boolean, 
+    category: [
+      {
+        name: String,
+        playes: String,
+      },
+    ],
+
+    passwordhash: {
+      type: String,
+    },
+
+    myTeams: [
+      {
+        type: Boolean,
         default: false,
-        
-    },                                                    
+      },
+    ],
+    friends: {
+      type: String,
+    },
 
     cellNumber: {
-        type: Number, 
-       
+      type: Number,
     },
-    
-    dateOfBirth: Date,                                        
-    
+
+    dateOfBirth: Date,
+
     verificationCode: {
-         type: String
+      type: String,
     },
-    
-    emailStatus: { 
-        type: String,
-        default: "UNVERIFIED" 
-    },                                                      
-            
-    nationality: {
-        type: String,
-    }
-}, /* {
-    timestamps:true
-} */)
+
+    emailStatus: {
+      type: String,
+      default: "UNVERIFIED",
+    },
+
+    age: {
+      type: Number,
+    },
+
+    ubicatin: {
+      country: String,
+      city: String,
+    },
+  },
+  { timestamps: true }
+);
 
 export default model("User", userSchema);
-
