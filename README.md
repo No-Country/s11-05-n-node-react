@@ -66,7 +66,7 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 
 
 ## Plan de pruebas
-
+Les dejamos el plan de pruebas que hicimos: Plan de pruebas
 
 ## Reporte de Testing
-
+Si les interesa sabes los resultados de los test, aca estan todos manualmente conseguidos: Resporte de testing Si le interesa lo automatizado, aca podes verlos: Automatización
