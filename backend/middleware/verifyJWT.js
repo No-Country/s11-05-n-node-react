@@ -15,6 +15,6 @@ const verifyJWT = (req, res, next) => {
     }
 }
 
-module.exports = {
+export  {
     verifyJWT
 }
