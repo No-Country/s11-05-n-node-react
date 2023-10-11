@@ -1,5 +1,6 @@
 import User from "../db/userModels.js";
 import becrypt from "bcrypt";
+import {createTokenJWT} from'../util/createTokenJwt.js'
 
 const createUser = async (req, res) => {
   const { nickName, email, password } = req.body;
@@ -20,4 +21,31 @@ const createUser = async (req, res) => {
   }
 };
 
-export { createUser };
+
+const Auth = async (req, res) => {
+  const { nickName, email, password } = req.body;
+  try {
+
+    const findUser = email 
+      ? await User.findOne({ email }) 
+      : await User.findOne({ nickName })
+    
+    if (!findUser) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    const passwordMatch =  becrypt.compareSync(password, findUser.passwordhash);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: 'Contraseña incorrecta' });
+    }
+    delete findUser.passwordhash 
+    const tokenJWT = createTokenJWT('1h',{findUser})
+    
+    res.status(200).send({ message: "Inicio de Sesion Exitoso",tokenJWT });
+  } catch (error) {
+    res.status(409).send({ message: "El usuario no pudo iniciar Sesion" });
+  }
+};
+
+export { createUser,Auth };
