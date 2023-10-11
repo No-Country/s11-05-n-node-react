@@ -29,7 +29,7 @@ const Advantages = () => {
         <span className="flex w-full justify-center text-[2.25rem] my-32">
           ¿Por que es mejor con Lets play?
         </span>
-        <div className="flex h-full justify-between gap-6">
+        <div className="flex justify-between gap-6">
           {dataCard.map((card) => {
             return (
               <div
