@@ -7,13 +7,19 @@ const createUser = async (req, res) => {
     const valid = await User.find({ email });
     const existingUser = await User.findOne({ $or: [{ email }, { nickName }] });
 
+    if (existingUser) {
+      return res
+        .status(409)
+        .send({ message: "email o nick ya existe en la base de datos" });
+    }
+
     let passwordhash = becrypt.hashSync(password, 10);
 
     const newUser = new User({ nickName, email, passwordhash });
 
     let userCreate = await newUser.save();
 
-    res.status(200).send({ message: "Usuario creado" });
+    return res.status(200).send({ message: "Usuario creado" });
   } catch (error) {
     console.log(error.message);
     res.status(409).send({ message: "El usuario no pudo ser registrado" });
