@@ -58,9 +58,7 @@ const userSchema = new Schema(
       type: String,
       default: "UNVERIFIED",
     },
-    nationality: {
-      type: String,
-    },
+
     age: {
       type: Number,
     },
