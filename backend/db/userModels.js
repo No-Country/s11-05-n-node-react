@@ -63,7 +63,7 @@ const userSchema = new Schema(
       type: Number,
     },
 
-    ubicatin: {
+    ubication: {
       country: String,
       city: String,
     },
