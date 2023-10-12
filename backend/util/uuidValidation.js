@@ -1,11 +1,9 @@
 import { Types } from "mongoose";
 const ObjectId =  Types.ObjectId;
 
-const idValidation = (req,res,next)=>{
-    const {id} = req.params;
-    if(isValidMongoDBUUID(id)) return next();
-    const message='ID invalido en consulta por parametro';
-    res.status(400).json({message: message});
+const uuidValidation = (id)=>{
+    if(isValidMongoDBUUID(id)) return;
+    throw new Error('ID invalido en consulta por parametro');
 }
 function isValidMongoDBUUID(id){
     if(ObjectId.isValid(id)){
@@ -15,4 +13,4 @@ function isValidMongoDBUUID(id){
     }
     return false;
 }
-export {idValidation}
+export {uuidValidation}

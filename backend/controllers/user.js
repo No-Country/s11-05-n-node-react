@@ -1,5 +1,6 @@
 import User from "../db/userModels.js";
 import becrypt from "bcrypt";
+import { uuidValidation } from "../util/uuidValidation.js";
 
 const createUser = async (req, res) => {
   const { nickName, email, password } = req.body;
@@ -37,10 +38,10 @@ const getUsers = async (req, res) => {
 const getUser = async (req, res) => {
   const {id} =req.params;
   try {
+    uuidValidation(id);
     const user = await User.findById(id);
   user?res.status(200).json(user):res.status(404).json({ message: "Usuario no encontrado" });
   } catch (error) {
-    console.log(error.message);
     res.status(408).send({ message: "Error busqueda por id Usuario" });   
   }  
 }
