@@ -3,7 +3,7 @@ const Register = () => {
 		<>
 			<section className='w-full h-screen flex items-center justify-center bg-[#C5CBDE]'>
 				<div className='w-screen h-screen flex flex-col items-center justify-center'>
-					<div className='w-11/12 max-w-4xl mx-auto bg-[#F1F3FF] px-20 py-10 rounded-2xl shadow-md'>
+					<div className='w-11/12 max-w-3xl mx-auto bg-[#F1F3FF] p-20 rounded-2xl shadow-md'>
 						<h1 className='text-black md:text-5xl text-2xl font-bold mb-4'>Regístrate</h1>
 						<p className='text-black text-sm font-medium mb-6'>
 							Crea tu usuario en Let&apos;s play y comienza con la diversión
@@ -62,7 +62,7 @@ const Register = () => {
 								</div>
 							</div>
 							<div className='flex flex-col'>
-								<label className='flex items-center text-sm text-gray-600 w-3/5'>
+								<label className='flex items-center text-xs text-gray-600 w-3/5 py-2'>
 									<input type='checkbox' className='mr-2' />
 									Acepto los Términos y condiciones y autorizo el uso de mis datos de acuerdo a la
 									Declaración de Privacidad.
