@@ -6,7 +6,7 @@ const route = Router();
 
 route.post("/create", userCreateValidator, ValidatorGeneral, createUser);
 route.post("/auth", AuthValidator, ValidatorGeneral, Auth);
-route.delete("/:id", deleteUser )
+route.delete("/delete/:id", deleteUser )
 
 
 export default route;
