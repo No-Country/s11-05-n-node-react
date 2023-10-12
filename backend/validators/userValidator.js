@@ -1,4 +1,4 @@
-import { check , param } from "express-validator";
+import { check } from "express-validator";
 
 const userCreateValidator = [
   check("nickName", "El nickName es obligatorio").exists().notEmpty().trim(),
