@@ -39,10 +39,12 @@ const Auth = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
-    delete findUser.passwordhash 
-    const tokenJWT = createTokenJWT('1h',{findUser})
     
-    res.status(200).send({ message: "Inicio de Sesion Exitoso",tokenJWT });
+    delete findUser.passwordhash
+
+    const tokenJWT = createTokenJWT('1h',{_id:findUser._id})
+    
+    res.status(200).send({ message: "Inicio de Sesion Exitoso",tokenJWT,userData:findUser });
   } catch (error) {
     res.status(409).send({ message: "El usuario no pudo iniciar Sesion" });
   }
