@@ -85,6 +85,25 @@ const Auth = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    await User.findByIdAndDelete(id);
+
+   res.status(200).json({ message: "User successfully deleted" });
+  } catch (error) {
+    res.status(500).json({ message: "Error when deleting user" });
+  }
+}
+
+
+export { createUser,Auth, deleteUser};
 
 const edithUser = async (req, res) => {
 
@@ -122,5 +141,5 @@ const edithUser = async (req, res) => {
 
 };
 
-export { createUser,Auth, getUsers, getUser};
+export { createUser,Auth, getUsers, getUser, edithUser};
 
