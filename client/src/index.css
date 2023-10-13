@@ -1,38 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: "Poppins";
+  font-family: "Poppins";
 }
 
-.fillMobile{
-    background-size: 90% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+.fillMobile {
+  background-size: 90% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-
-.fillDesktop{
-    background-size: 80% 85%;
-    background-repeat: no-repeat;
-    background-position: 50% 35%;
-    transition: background-image .5s;
+.fillDesktop {
+  background-size: 80% 85%;
+  background-repeat: no-repeat;
+  background-position: 50% 35%;
+  transition: background-image 0.5s;
 }
 
-.pressable{
+.pressable {
   cursor: pointer;
 }
 
-.pressable:active{
-  animation: pressable 2s cubic-bezier(0,0,.2,1);
+.pressable:active {
+  animation: pressable 2s cubic-bezier(0, 0, 0.2, 1);
 }
 
 @keyframes pressable {
   0% {
-    transform: scale(.98);
+    transform: scale(0.98);
   }
 
   40% {

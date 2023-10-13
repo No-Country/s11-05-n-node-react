@@ -6,13 +6,11 @@ const HeaderLanding = () => {
           <div className="flex flex-col h-full justify-between">
             <div>
               <h1 className="font-bold text-[6rem]">Let’s play</h1>
-              <span className="text-[2.25rem] ml-10">
-                ¿Con quién quieres jugar hoy?
-              </span>
+              <span className="text-[2.25rem] ml-10">¿Con quién quieres jugar hoy?</span>
             </div>
             <p className="text-[1.25rem] max-w-2xl leading-6 ">
-              Con Let’s play encuentra compañeros para tus juegos online o
-              deportes, de manera rápida y sencilla
+              Con Let’s play encuentra compañeros para tus juegos online o deportes, de manera
+              rápida y sencilla
             </p>
             <button className="bg-[#bebebe] w-[30.9375rem] h-[3rem] rounded-xl text-white mt-10">
               Empecemos
