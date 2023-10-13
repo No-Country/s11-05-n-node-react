@@ -4,19 +4,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        Poppins: ['"Poppins"'],
+        Poppins: ['"Poppins"']
       },
 
-
-      colors:{
-
-        login :'#F1F3FF',
-        background :'#C5CBDE',
-        links:'#4A9DFF',
-        buttons:'#79747E',
-
+      colors: {
+        login: "#F1F3FF",
+        background: "#C5CBDE",
+        links: "#4A9DFF",
+        buttons: "#79747E"
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 };
