@@ -1,12 +1,11 @@
 import User from "../db/userModels.js";
 import becrypt from "bcrypt";
-import {createTokenJWT} from'../util/createTokenJwt.js';
+import { createTokenJWT } from "../util/createTokenJwt.js";
 import jwt from "jsonwebtoken";
 import { config } from "../config/config.js";
 import dotenv from "dotenv";
 dotenv.config();
 import { uuidValidation } from "../util/uuidValidation.js";
-import {createTokenJWT} from'../util/createTokenJwt.js'
 
 const createUser = async (req, res) => {
   const { nickName, email, password } = req.body;
@@ -18,7 +17,7 @@ const createUser = async (req, res) => {
       return res
         .status(409)
         .send({ message: "email o nick ya existe en la base de datos" });
-    };
+    }
 
     let passwordhash = becrypt.hashSync(password, 10);
 
@@ -33,53 +32,54 @@ const createUser = async (req, res) => {
   }
 };
 const getUsers = async (req, res) => {
-  const {email} =req.query;
+  const { email } = req.query;
   let data;
   try {
-      if(email) {
-        data = await User.findOne({email});
-        data? res.status(200).json(data) : res.status(404).json({message:"email no encontrado"});
-      }
-      else  data = await User.find();
-      res.status(200).json(data);
+    if (email) {
+      data = await User.findOne({ email });
+      data
+        ? res.status(200).json(data)
+        : res.status(404).json({ message: "email no encontrado" });
+    } else data = await User.find();
+    res.status(200).json(data);
   } catch (error) {
     console.log(error.message);
-    res.status(408).send({ message: "Error en la consulta" });   
+    res.status(408).send({ message: "Error en la consulta" });
   }
-}
+};
 const getUser = async (req, res) => {
-  const {id} =req.params;
+  const { id } = req.params;
   try {
     uuidValidation(id);
     const user = await User.findById(id);
-  user?res.status(200).json(user):res.status(404).json({ message: "Usuario no encontrado" });
+    user
+      ? res.status(200).json(user)
+      : res.status(404).json({ message: "Usuario no encontrado" });
   } catch (error) {
-    res.status(408).send({ message: "Error busqueda por id Usuario" });   
-  }  
-}
-
+    res.status(408).send({ message: "Error busqueda por id Usuario" });
+  }
+};
 
 const Auth = async (req, res) => {
   const { nickName, email, password } = req.body;
   try {
+    const findUser = email
+      ? await User.findOne({ email })
+      : await User.findOne({ nickName });
 
-    const findUser = email 
-      ? await User.findOne({ email }) 
-      : await User.findOne({ nickName })
-    
     if (!findUser) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+      return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
-    const passwordMatch =  becrypt.compareSync(password, findUser.passwordhash);
+    const passwordMatch = becrypt.compareSync(password, findUser.passwordhash);
 
     if (!passwordMatch) {
-      return res.status(401).json({ message: 'Contraseña incorrecta' });
+      return res.status(401).json({ message: "Contraseña incorrecta" });
     }
-    delete findUser.passwordhash 
-    const tokenJWT = createTokenJWT('1h',{findUser})
-    
-    res.status(200).send({ message: "Inicio de Sesion Exitoso",tokenJWT });
+    delete findUser.passwordhash;
+    const tokenJWT = createTokenJWT("1h", { findUser });
+
+    res.status(200).send({ message: "Inicio de Sesion Exitoso", tokenJWT });
   } catch (error) {
     res.status(409).send({ message: "El usuario no pudo iniciar Sesion" });
   }
@@ -96,21 +96,17 @@ const deleteUser = async (req, res) => {
 
     await User.findByIdAndDelete(id);
 
-   res.status(200).json({ message: "User successfully deleted" });
+    res.status(200).json({ message: "User successfully deleted" });
   } catch (error) {
     res.status(500).json({ message: "Error when deleting user" });
   }
-}
-
-
-export { createUser,Auth, deleteUser};
+};
 
 const edithUser = async (req, res) => {
-
   const token = req.headers.authorization;
 
   if (!token) {
-    return res.status(401).json({ message: 'Token no proporcionado' });
+    return res.status(401).json({ message: "Token no proporcionado" });
   }
   const decoded = jwt.verify(token, config[process.env.NODE_ENV].jwt_secret);
 
@@ -128,18 +124,15 @@ const edithUser = async (req, res) => {
     return acc;
   }, {});
 
-   try {
-
+  try {
     const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited);
-   
-    res.status(200).send({ mensaje: "Usuario modificado con éxito", userEdited });
 
+    res
+      .status(200)
+      .send({ mensaje: "Usuario modificado con éxito", userEdited });
   } catch (error) {
-
     res.status(500).send({ mensaje: "Error al actualizar el usuario" });
   }
-
 };
 
-export { createUser,Auth, getUsers, getUser, edithUser};
-
+export { createUser, Auth, getUsers, getUser, edithUser, deleteUser };
