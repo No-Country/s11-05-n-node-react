@@ -7,3 +7,39 @@
 body {
     font-family: "Poppins";
 }
+
+.fillMobile{
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.fillDesktop{
+    background-size: 80% 85%;
+    background-repeat: no-repeat;
+    background-position: 50% 35%;
+    transition: background-image .5s;
+}
+
+.pressable{
+  cursor: pointer;
+}
+
+.pressable:active{
+  animation: pressable 2s cubic-bezier(0,0,.2,1);
+}
+
+@keyframes pressable {
+  0% {
+    transform: scale(.98);
+  }
+
+  40% {
+    transform: scale(1.01);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

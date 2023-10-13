@@ -1,10 +1,11 @@
 # s11-05-n-node-react
 
 #### **LetsPlay**
+Es una pagina o una aplicación de moviles para agendar partidos presenciales o virtuales o para encontrar un jugador que falta en el equipo.
 
 ## Tecnologías utilizadas 💻
 
-#### **LetsPlay** 
+#### **LetsPlay** fue desarrollada utilizando tecnologías de vanguardia para ofrecer una experiencia de usuario excepcional:
 
 #### 🎨 UX/UI:
 
@@ -65,7 +66,7 @@
 
 
 ## Plan de pruebas
-
+Les dejamos el plan de pruebas que hicimos: Plan de pruebas
 
 ## Reporte de Testing
-
+Si les interesa sabes los resultados de los test, aca estan todos manualmente conseguidos: Resporte de testing Si le interesa lo automatizado, aca podes verlos: Automatización
