@@ -1,5 +1,10 @@
 import User from "../db/userModels.js";
 import becrypt from "bcrypt";
+import {createTokenJWT} from'../util/createTokenJwt.js';
+import jwt from "jsonwebtoken";
+import { config } from "../config/config.js";
+import dotenv from "dotenv";
+dotenv.config();
 import { uuidValidation } from "../util/uuidValidation.js";
 import {createTokenJWT} from'../util/createTokenJwt.js'
 
@@ -8,6 +13,12 @@ const createUser = async (req, res) => {
   try {
     const valid = await User.find({ email });
     const existingUser = await User.findOne({ $or: [{ email }, { nickName }] });
+
+    if (existingUser) {
+      return res
+        .status(409)
+        .send({ message: "email o nick ya existe en la base de datos" });
+    };
 
     let passwordhash = becrypt.hashSync(password, 10);
 
@@ -74,4 +85,42 @@ const Auth = async (req, res) => {
   }
 };
 
+
+const edithUser = async (req, res) => {
+
+  const token = req.headers.authorization;
+
+  if (!token) {
+    return res.status(401).json({ message: 'Token no proporcionado' });
+  }
+  const decoded = jwt.verify(token, config[process.env.NODE_ENV].jwt_secret);
+
+  const userId = decoded.findUser._id;
+  const user = await User.findById(userId);
+
+  if (!user) {
+    return res.status(404).send({ mensaje: "Usuario no encontrado" });
+  }
+
+  const userEdited = Object.keys(req.body).reduce((acc, key) => {
+    if (key in user) {
+      acc[key] = req.body[key];
+    }
+    return acc;
+  }, {});
+
+   try {
+
+    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited);
+   
+    res.status(200).send({ mensaje: "Usuario modificado con éxito", userEdited });
+
+  } catch (error) {
+
+    res.status(500).send({ mensaje: "Error al actualizar el usuario" });
+  }
+
+};
+
 export { createUser,Auth, getUsers, getUser};
+

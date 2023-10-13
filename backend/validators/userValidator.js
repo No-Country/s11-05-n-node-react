@@ -35,4 +35,21 @@ const AuthValidator = [
     }),
 ];
 
-export { userCreateValidator,AuthValidator };
+const edithUserValidator = [
+  check("firstName", "El nombre no es válido").optional().notEmpty().trim(),
+  check("lastName", "El apellido no es válido").optional().notEmpty().trim(),
+  check("nickName", "El nickName no es válido").optional().notEmpty().trim(),
+  check("category", "El nombre de la categoría no es válido").optional().notEmpty().trim(),
+  check("category", "El número de jugadores de la categoría no es válido").optional().notEmpty().trim(),
+  check("myTeams", "El campo myTeams no es válido").optional().notEmpty().trim(),
+  check("friends", "Los amigos no son válidos").optional().notEmpty().trim(),
+  check("cellNumber", "El número de celular no es válido").optional().isNumeric(),
+  check("dateOfBirth", "La fecha de nacimiento no es válida").optional().isISO8601(),
+  check("age", "La edad no es válida").optional().isNumeric(),
+  check("ubicatin", "El país no es válido").optional().notEmpty().trim(),
+  check("ubication", "La ciudad no es válida").optional().notEmpty().trim(),
+  check("email", "El correo no es válido").exists().isEmail().trim(),
+  
+];
+
+export { userCreateValidator,AuthValidator, edithUserValidator };
