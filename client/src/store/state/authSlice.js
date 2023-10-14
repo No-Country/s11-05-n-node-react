@@ -33,14 +33,11 @@ export const authSlice = createSlice({
     setLogout: () => {
       clearLocalStorage("auth");
       return initialAuth;
-    },
-    setUserAddress: (state, action) => {
-      state.user.address = action.payload;
     }
   }
 });
 
-export const { setLogin, setPosition, setLogout, setUserAddress } = authSlice.actions;
+export const { setLogin, setLogout } = authSlice.actions;
 
 export default authSlice.reducer;
 
