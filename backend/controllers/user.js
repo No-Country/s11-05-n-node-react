@@ -60,7 +60,7 @@ const getUser = async (req, res) => {
   }
 };
 
-const Auth = async (req, res) => {
+const auth = async (req, res) => {
   const { nickName, email, password } = req.body;
   try {
     const findUser = email
@@ -76,10 +76,12 @@ const Auth = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
-    delete findUser.passwordhash;
-    const tokenJWT = createTokenJWT("1h", { findUser });
+    
+    delete findUser.passwordhash
 
-    res.status(200).send({ message: "Inicio de Sesion Exitoso", tokenJWT });
+    const tokenJWT = createTokenJWT('1h',{_id:findUser._id})
+    
+    res.status(200).send({ message: "Inicio de Sesion Exitoso",tokenJWT,userData:findUser });
   } catch (error) {
     res.status(409).send({ message: "El usuario no pudo iniciar Sesion" });
   }
@@ -135,4 +137,4 @@ const edithUser = async (req, res) => {
   }
 };
 
-export { createUser, Auth, getUsers, getUser, edithUser, deleteUser };
+export { createUser, auth, getUsers, getUser, edithUser, deleteUser };
