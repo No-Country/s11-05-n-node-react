@@ -8,7 +8,7 @@ const teamSchema = new Schema(
     name: {
       type: tring,
     },
-    integrantes: [{ type: Types.ObjectId, ref: "User" }],
+    integrantes: [{ type: Types.ObjectId, ref: "User" }], //Pruebas en query con populate
     category: {
       type: String,
     },
