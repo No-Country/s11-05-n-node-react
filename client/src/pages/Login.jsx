@@ -2,12 +2,18 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../store/state/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -19,29 +25,29 @@ function Login() {
   const isEmailValid = email => emailRegex.test(email);
   const isPasswordValid = password => passwordRegex.test(password);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (!username || !password) {
-      // Verificar que ningún campo esté vacío y generar un error si es así
       console.log("Por favor, complete todos los campos.");
       return;
     }
 
     if (!isEmailValid(username)) {
-      // Verificar la validez del correo electrónico
       console.log("Correo electrónico inválido.");
       return;
     }
 
     if (!isPasswordValid(password)) {
-      // Verificar la validez de la contraseña
       console.log("Contraseña inválida.");
       return;
     }
 
-    // Si se superan todas las validaciones, realizar la solicitud POST
-    // Aquí puedes agregar el código para la solicitud POST
+    const isLogin = await dispatch(loginUser({ email: username, password: password }));
+
+    if (isLogin.login) {
+      navigate("/home");
+    }
   };
 
   return (
@@ -83,6 +89,7 @@ function Login() {
                   setPassword(e.target.value);
                 }}
               />
+
               <span
                 className="absolute top-2 right-2 cursor-pointer"
                 onClick={togglePasswordVisibility}
