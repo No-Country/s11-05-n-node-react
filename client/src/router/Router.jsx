@@ -7,6 +7,7 @@ const Home = lazy(() => import("../pages/Home"));
 const Landing = lazy(() => import("../pages/Landing"));
 const Register = lazy(() => import("../pages/Register"));
 const Profile = lazy(() => import("../pages/Profile"));
+const Onboarding = lazy(() => import("../components/Onboarding/Onboarding"));
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/home/onboarding" element={<Onboarding />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
