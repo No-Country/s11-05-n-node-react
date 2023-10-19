@@ -4,18 +4,22 @@ const userSchema = new Schema(
   {
     avatar: {
       type: String,
+      default: null
     },
 
     firstName: {
       type: String,
+      default: null
     },
 
     lastName: {
       type: String,
+      default: null
     },
 
     nickName: {
       type: String,
+      default: null
     },
 
     email: {
@@ -25,13 +29,14 @@ const userSchema = new Schema(
 
     category: [
       {
-        name: String,
-        playes: String,
+        name: { type: String, default: null },
+        playes: { type: String, default: null },
       },
     ],
 
     passwordhash: {
       type: String,
+      default: null
     },
 
     myTeams: [
@@ -42,16 +47,22 @@ const userSchema = new Schema(
     ],
     friends: {
       type: String,
+      default: null
     },
 
     cellNumber: {
       type: Number,
+      default: null
     },
 
-    dateOfBirth: Date,
+    dateOfBirth: {
+      type: Date,
+      default: null
+    },
 
     verificationCode: {
       type: String,
+      default: null
     },
 
     emailStatus: {
@@ -61,11 +72,19 @@ const userSchema = new Schema(
 
     age: {
       type: Number,
+      default: null
     },
 
     ubication: {
-      country: String,
-      city: String,
+      country: {
+        type: String,
+        default: null
+      },
+      city: {
+        type: String,
+        default: null
+      },
+
     },
   },
   { timestamps: true }
