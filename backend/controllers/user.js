@@ -104,7 +104,7 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const edithUser = async (req, res) => {
+const editUser = async (req, res) => {
   const userId = req.userId;
 
   try {
