@@ -77,7 +77,7 @@ const auth = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
     
-    delete findUser.passwordhash
+    findUser.passwordhash = null
 
     const tokenJWT = createTokenJWT('1h',{_id:findUser._id})
     
