@@ -1,4 +1,4 @@
-import User from "../db/userModels.js";
+import User from "../db/userModel.js";
 import becrypt from "bcrypt";
 import { createTokenJWT } from "../util/createTokenJwt.js";
 import jwt from "jsonwebtoken";
