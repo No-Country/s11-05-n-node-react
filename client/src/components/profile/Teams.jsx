@@ -1,3 +1,5 @@
+import { Children } from "react";
+
 export default function Teams() {
   const data = [
     {
