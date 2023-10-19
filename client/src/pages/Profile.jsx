@@ -215,7 +215,7 @@ function Profile() {
               alt={"Foto de Perfil de " + user?.firstName + " - " + user?.lastName}
               loading='lazy'
             />
-            <button className='absolute top-5 -right-3 bg-white p-1.5 rounded-full'>
+            <button className='absolute top-5 -right-3 bg-white p-1.5 rounded-full' aria-label='Cambiar Foto de Perfil'>
               <BsFillCameraFill size="24" />
             </button>
           </div>
@@ -230,12 +230,12 @@ function Profile() {
         <div className="flex items-center gap-5 w-fit">
           <span>Vista del perfil: Publico</span>
 
-          <button className='p-1.5 bg-white rounded-full' onClick={() => setEditProfile(!editProfile)}>
+          <button className='p-1.5 bg-white rounded-full' onClick={() => setEditProfile(!editProfile)} aria-label='Editar Perfil'>
             <BsPencilFill size="18" />
           </button>
         </div>
 
-        <button className='absolute top-5 right-5 bg-white p-1.5 rounded-full'>
+        <button className='absolute top-5 right-5 bg-white p-1.5 rounded-full' aria-label='Cambiar Fondo de Perfil'>
           <BsFillCameraFill size="24" />
         </button>
       </section>
