@@ -12,7 +12,7 @@ route.post("/create", userCreateValidator, ValidatorGeneral, createUser);
 route.post("/auth", AuthValidator, ValidatorGeneral, auth);
 
 route.delete("/delete/:id", deleteUser )
-route.patch("/edithUser", edithUserValidator,verifyJWT,  ValidatorGeneral, edithUser);
+route.patch("/editUser", edithUserValidator,verifyJWT,  ValidatorGeneral, edithUser);
 
 
 
