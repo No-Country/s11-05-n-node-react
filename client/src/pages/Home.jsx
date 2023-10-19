@@ -1,27 +1,8 @@
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
 import SidebarHome from "../components/SidebarHome/SidebarHome";
 
 import HeaderHome from "../components/HeaderHome/HeaderHome";
-// import {
-//   RiMapPinUserFill,
-//   RiEqualizerFill,
-//   RiTeamFill,
-//   RiTrophyFill,
-//   RiLogoutBoxRLine,
-//   RiUserFill,
-//   RiCheckboxBlankCircleFill,
-//   RiArrowUpSLine,
-//   RiMenu3Fill,
-//   RiCloseLine,
-//   RiNotification3Line,
-// } from "react-icons/ri";
-
-
 
 const Home = () => {
-
-
   return (
     <>
       <div className="">
@@ -33,7 +14,6 @@ const Home = () => {
           <h1>Bienvenido a Let’s play aqui va el contenido del home</h1>
         </section>
       </div>
-
     </>
   );
 };
