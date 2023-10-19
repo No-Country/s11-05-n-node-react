@@ -18,9 +18,9 @@ const Router = () => {
               <Route index element={<Landing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/profile" element={<Profile />} />
             </Route>
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </Suspense>
