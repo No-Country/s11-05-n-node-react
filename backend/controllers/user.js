@@ -130,4 +130,4 @@ const editUser = async (req, res) => {
 
 
 
-export { createUser, auth, getUsers, getUser, edithUser, deleteUser };
+export { createUser, auth, getUsers, getUser, editUser, deleteUser };
