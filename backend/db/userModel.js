@@ -33,7 +33,7 @@ const userSchema = new Schema(
         playes: { type: String, default: null },
       },
     ],
-
+    
     passwordhash: {
       type: String,
       default: null
