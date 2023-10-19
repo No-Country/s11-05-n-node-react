@@ -8,7 +8,7 @@ const verifyJWT = (req, res, next) => {
         const { authorization } = req.headers;
         if (!authorization) { throw new Error('Not authorization header inside the request') }
         const token = authorization.split(' ')[1]
-        jwt.verify(token, process.env.JWT_SECRET)
+        req.userId = jwt.verify(token, process.env.JWT_SECRET)._id
         next()
     } catch (error) {
         return res.status(400).json({ error: "JWT", message: error.message }).end()
