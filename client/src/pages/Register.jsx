@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { validateRegister } from "../utils/ValidateRegister";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { postRequest } from "../services/httpRequest";
+import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+
+import clearStateErrors from "../hooks/clearStateErrors";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +12,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setrepeatPassword] = useState("");
   const [errores, setErrores] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const navigate = useNavigate();
 
@@ -29,16 +36,12 @@ const Register = () => {
       } catch (error) {
         setErrores("Error al intentar registrarse");
         console.log(error.message);
-        setTimeout(() => {
-          setErrores("");
-        }, 2000);
+        clearStateErrors("", setErrores);
       }
     } else {
       setErrores(validate.msg);
 
-      setTimeout(() => {
-        setErrores("");
-      }, 2000);
+      clearStateErrors("", setErrores);
     }
   };
 
@@ -85,21 +88,25 @@ const Register = () => {
                 </div>
               </div>
               <div className="flex flex-row gap-6">
-                <div className="flex flex-1 flex-col relative">
-                  <label
-                    className="bg-[#F1F3FF] absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm"
-                    style={{ top: "-0.1rem" }}
-                  >
-                    &nbsp;Contraseña&nbsp;
+                <div className="flex flex-col relative w-[48%]">
+                  <label className="bg-[#F1F3FF] absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
+                    Contraseña
                   </label>
                   <input
-                    type="password"
-                    className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
+                    type={showPassword ? "text" : "password"}
+                    className="h-12 border bg-transparent rounded-sm border-black pl-2"
+                    value={password}
                     onChange={e => {
                       setPassword(e.target.value);
-                      console.log(e.target.value);
                     }}
                   />
+
+                  <span
+                    className="absolute top-2 right-2 cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? <BsEyeFill /> : <BsEyeSlashFill />}
+                  </span>
                 </div>
                 <div className="flex flex-1 flex-col relative">
                   <label
@@ -109,7 +116,7 @@ const Register = () => {
                     &nbsp;Confirmar contraseña&nbsp;
                   </label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
                     onChange={e => {
                       setrepeatPassword(e.target.value);
@@ -132,6 +139,12 @@ const Register = () => {
                 Crear cuenta
               </button>
             </form>
+            <p className="text-center mt-9 text-sm">
+              ¿Ya tiene una cuenta?{" "}
+              <Link to={"/login"} className="text-links">
+                Ingresar ahora
+              </Link>
+            </p>
           </div>
         </div>
       </section>
