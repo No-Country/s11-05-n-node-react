@@ -4,6 +4,9 @@ import { createUser,auth,getUser, getUsers, editUser, deleteUser } from "../cont
 import { ValidatorGeneral } from "../middleware/validatorGeneral.js";
 import { userCreateValidator,AuthValidator, edithUserValidator } from "../validators/userValidator.js";
 import { verifyJWT } from "../middleware/verifyJWT.js";
+import { upload } from "../middleware/multerAvatar.js";
+import { postAvatar } from "../controllers/uploadController.js"
+
 const route = Router();
 
 route.get('/', getUsers);
@@ -13,7 +16,7 @@ route.post("/auth", AuthValidator, ValidatorGeneral, auth);
 
 route.delete("/delete/:id", deleteUser )
 route.patch("/editUser", edithUserValidator,verifyJWT,  ValidatorGeneral, editUser);
-
+route.post('/upload/:id', upload.single('avatar'), postAvatar );
 
 
 export default route;
