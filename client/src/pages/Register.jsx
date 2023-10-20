@@ -1,4 +1,47 @@
+import { useState } from "react";
+import { validateRegister } from "../utils/ValidateRegister";
+import { useNavigate } from "react-router-dom";
+import { postRequest } from "../services/httpRequest";
+
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setrepeatPassword] = useState("");
+  const [errores, setErrores] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    const validate = validateRegister(username, email, password, repeatPassword);
+
+    if (validate.status) {
+      try {
+        const response = await postRequest(
+          { nickName: username, email: email, password: password },
+          "/user/create"
+        );
+
+        console.log(response);
+        navigate("/login");
+      } catch (error) {
+        setErrores("Error al intentar registrarse");
+        console.log(error.message);
+        setTimeout(() => {
+          setErrores("");
+        }, 2000);
+      }
+    } else {
+      setErrores(validate.msg);
+
+      setTimeout(() => {
+        setErrores("");
+      }, 2000);
+    }
+  };
+
   return (
     <>
       <section className="w-full h-screen flex items-center justify-center bg-[#C5CBDE]">
@@ -8,7 +51,7 @@ const Register = () => {
             <p className="text-black text-sm font-medium mb-6">
               Crea tu usuario en Let&apos;s play y comienza con la diversión
             </p>
-            <form className="flex flex-col gap-6">
+            <form className="flex flex-col gap-6 " onSubmit={handleSubmit}>
               <div className="flex flex-row gap-6 pt-5 py-3">
                 <div className="flex flex-1 flex-col relative">
                   <label
@@ -20,6 +63,9 @@ const Register = () => {
                   <input
                     type="text"
                     className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
+                    onChange={e => {
+                      setUsername(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="flex flex-1 flex-col relative ">
@@ -32,6 +78,9 @@ const Register = () => {
                   <input
                     type="email"
                     className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
+                    onChange={e => {
+                      setEmail(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -46,6 +95,10 @@ const Register = () => {
                   <input
                     type="password"
                     className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
+                    onChange={e => {
+                      setPassword(e.target.value);
+                      console.log(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="flex flex-1 flex-col relative">
@@ -58,6 +111,11 @@ const Register = () => {
                   <input
                     type="password"
                     className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
+                    onChange={e => {
+                      setrepeatPassword(e.target.value);
+
+                      console.log(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -68,6 +126,8 @@ const Register = () => {
                   Declaración de Privacidad.
                 </label>
               </div>
+
+              {errores && <p>{errores} </p>}
               <button className="bg-gray-500 text-white h-12 w-5/12 rounded-sm hover:bg-blue-600 self-start">
                 Crear cuenta
               </button>

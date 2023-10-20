@@ -1,8 +1,6 @@
-import User from "../db/userModels.js";
+import User from "../db/userModel.js";
 import becrypt from "bcrypt";
 import { createTokenJWT } from "../util/createTokenJwt.js";
-import jwt from "jsonwebtoken";
-import { config } from "../config/config.js";
 import dotenv from "dotenv";
 dotenv.config();
 import { uuidValidation } from "../util/uuidValidation.js";
@@ -64,8 +62,8 @@ const auth = async (req, res) => {
   const { nickName, email, password } = req.body;
   try {
     const findUser = email
-      ? await User.findOne({ email })
-      : await User.findOne({ nickName });
+      ? await User.findOne({ email }).select('-passwordHash')
+      : await User.findOne({ nickName }).select('-passwordHash')
 
     if (!findUser) {
       return res.status(404).json({ message: "Usuario no encontrado" });
@@ -76,8 +74,7 @@ const auth = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
-    
-    findUser.passwordhash = null
+
 
     const tokenJWT = createTokenJWT('1h',{_id:findUser._id})
     
@@ -104,37 +101,30 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const edithUser = async (req, res) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: "Token no proporcionado" });
-  }
-  const decoded = jwt.verify(token, config[process.env.NODE_ENV].jwt_secret);
-
-  const userId = decoded.findUser._id;
-  const user = await User.findById(userId);
-
-  if (!user) {
-    return res.status(404).send({ mensaje: "Usuario no encontrado" });
-  }
-
-  const userEdited = Object.keys(req.body).reduce((acc, key) => {
-    if (key in user) {
-      acc[key] = req.body[key];
-    }
-    return acc;
-  }, {});
+const editUser = async (req, res) => {
+  const userId = req.userId;
 
   try {
-    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited);
+    const user = await User.findById(userId);
 
-    res
-      .status(200)
-      .send({ mensaje: "Usuario modificado con éxito", userEdited });
+    if (!user) {
+      return res.status(404).send({ mensaje: "Usuario no encontrado" });
+    }
+
+    const userEdited = req.body; // Obtener todas las propiedades del cuerpo de la solicitud
+
+    console.log(userEdited);
+
+    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited, { new: true });
+
+    res.status(200).send({ mensaje: "Usuario modificado con éxito", userPatch });
   } catch (error) {
     res.status(500).send({ mensaje: "Error al actualizar el usuario" });
   }
 };
 
-export { createUser, auth, getUsers, getUser, edithUser, deleteUser };
+
+
+
+
+export { createUser, auth, getUsers, getUser, editUser, deleteUser };
