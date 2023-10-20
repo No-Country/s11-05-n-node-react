@@ -103,7 +103,7 @@ function Profile() {
             </span>
             <span className="font-semibold opacity-80">
               {user?.age ? user?.age + " Años - " : "99 Años"}{" "}
-              {user?.ubication.country || "Nowhere - "} {user?.ubication.city || "Worldwide"}
+              {user?.ubication?.country || "Nowhere - "} {user?.ubication?.city || "Worldwide"}
             </span>
           </div>
         </div>
