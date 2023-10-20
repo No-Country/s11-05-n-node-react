@@ -1,4 +1,9 @@
-import { check } from "express-validator";
+import { check,param } from "express-validator";
+
+const getTeamValidator = [
+  param('id','Debe tener el id del team a buscar').notEmpty()
+]
+
 
 const teamValidator = [
     check("name", "El nombre del equipo no es válido")
@@ -27,4 +32,4 @@ const teamValidator = [
     }),
 ];
 
-export { teamValidator };
+export { teamValidator,getTeamValidator };
