@@ -104,37 +104,30 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const edithUser = async (req, res) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: "Token no proporcionado" });
-  }
-  const decoded = jwt.verify(token, config[process.env.NODE_ENV].jwt_secret);
-
-  const userId = decoded.findUser._id;
-  const user = await User.findById(userId);
-
-  if (!user) {
-    return res.status(404).send({ mensaje: "Usuario no encontrado" });
-  }
-
-  const userEdited = Object.keys(req.body).reduce((acc, key) => {
-    if (key in user) {
-      acc[key] = req.body[key];
-    }
-    return acc;
-  }, {});
+const editUser = async (req, res) => {
+  const userId = req.userId;
 
   try {
-    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited);
+    const user = await User.findById(userId);
 
-    res
-      .status(200)
-      .send({ mensaje: "Usuario modificado con éxito", userEdited });
+    if (!user) {
+      return res.status(404).send({ mensaje: "Usuario no encontrado" });
+    }
+
+    const userEdited = req.body; // Obtener todas las propiedades del cuerpo de la solicitud
+
+    console.log(userEdited);
+
+    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited, { new: true });
+
+    res.status(200).send({ mensaje: "Usuario modificado con éxito", userPatch });
   } catch (error) {
     res.status(500).send({ mensaje: "Error al actualizar el usuario" });
   }
 };
 
-export { createUser, auth, getUsers, getUser, edithUser, deleteUser };
+
+
+
+
+export { createUser, auth, getUsers, getUser, editUser, deleteUser };
