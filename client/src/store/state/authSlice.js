@@ -7,9 +7,8 @@ import {
 import { postRequest } from "../../services/httpRequest.js";
 
 export const initialAuth = {
-  message: "",
-  tokenJWT: "",
-  userData: {
+  token: "",
+  user: {
     _id: "",
     nickName: "",
     email: "",
@@ -45,7 +44,7 @@ export const loginUser = dataLogin => async dispatch => {
   try {
     const auth = await postRequest(dataLogin, "/user/auth");
     if (auth.tokenJWT !== "") {
-      dispatch(setLogin(auth));
+      dispatch(setLogin({ token: auth.tokenJWT, user: auth.userData }));
       const authInStorage = { token: auth.tokenJWT, user: auth.userData };
       setLocalStorage("auth", authInStorage);
       return { login: true, msg: auth.message };

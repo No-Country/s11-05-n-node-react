@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   RiMapPinUserFill,
   RiEqualizerFill,
@@ -12,20 +12,25 @@ import {
   RiMenu3Fill,
   RiCloseLine
 } from "react-icons/ri";
+import { setLogout } from "../../store/state/authSlice";
+import { useDispatch } from "react-redux";
 
 const links = [
   {
-    to: "/",
+    to: "/home/profile",
     label: "Perfil",
     icon: <RiUserFill className="w-[25px] h-[25px] rounded-full bg-[#babbbd] text-[#1E1F24]" />
   },
-  { to: "/", label: "Crear Equipo", icon: <RiTeamFill /> },
-  { to: "/", label: "Evento/Torneo", icon: <RiTrophyFill /> },
-  { to: "/", label: "Partidos", icon: <RiMapPinUserFill /> }
+  { to: "/create", label: "Crear Equipo", icon: <RiTeamFill /> },
+  { to: "/events", label: "Evento/Torneo", icon: <RiTrophyFill /> },
+  { to: "/matches", label: "Partidos", icon: <RiMapPinUserFill /> }
 ];
 
 const SidebarHome = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const toggle = () => {
     setOpen(!open);
@@ -89,7 +94,13 @@ const SidebarHome = () => {
         </div>
 
         <div>
-          <button className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold">
+          <button
+            onClick={() => {
+              dispatch(setLogout());
+              navigate("/");
+            }}
+            className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold"
+          >
             <RiLogoutBoxRLine />
             Salir
           </button>

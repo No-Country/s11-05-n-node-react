@@ -1,8 +1,6 @@
 import User from "../db/userModel.js";
 import becrypt from "bcrypt";
 import { createTokenJWT } from "../util/createTokenJwt.js";
-import jwt from "jsonwebtoken";
-import { config } from "../config/config.js";
 import dotenv from "dotenv";
 dotenv.config();
 import { uuidValidation } from "../util/uuidValidation.js";
@@ -64,8 +62,8 @@ const auth = async (req, res) => {
   const { nickName, email, password } = req.body;
   try {
     const findUser = email
-      ? await User.findOne({ email })
-      : await User.findOne({ nickName });
+      ? await User.findOne({ email }).select('-passwordHash')
+      : await User.findOne({ nickName }).select('-passwordHash')
 
     if (!findUser) {
       return res.status(404).json({ message: "Usuario no encontrado" });
@@ -76,8 +74,7 @@ const auth = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
-    
-    findUser.passwordhash = null
+
 
     const tokenJWT = createTokenJWT('1h',{_id:findUser._id})
     
