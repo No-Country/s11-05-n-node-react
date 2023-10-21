@@ -1,7 +1,9 @@
 import { RiCheckboxBlankCircleFill, RiNotification3Line } from "react-icons/ri";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const HeaderHome = () => {
+  const user = useSelector(state => state.auth.user);
   return (
     <>
       <header className="p-2 flex justify-end h-20 border-b border-gray-300 bg-[rgb(17,19,24)] fixed top-0 left-0 w-full z-[49]">
@@ -14,12 +16,12 @@ const HeaderHome = () => {
           </li>
           <li>
             <Link className="flex items-center text-[#e6e1dd] gap-4">
+              {user?.firstName || user?.nickName}
               <img
-                src="https://img.freepik.com/free-photo/happiness-wellbeing-confidence-concept-cheerful-attractive-african-american-woman-curly-haircut-cross-arms-chest-self-assured-powerful-pose-smiling-determined-wear-yellow-sweater_176420-35063.jpg?w=99&t=st=1697435327~exp=1697435927~hmac=499506810bf3f5b33da3c3578bf10bf31a748d140d51d983368abfadc5b85ec8"
+                src={user?.avatar || "/img/profile_default.webp"}
                 className="w-[55px] h-[55px] rounded-full object-cover ring-2 ring-gray-300"
                 alt="avatar"
               />
-              maya
             </Link>
           </li>
         </ul>

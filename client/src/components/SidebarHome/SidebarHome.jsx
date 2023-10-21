@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   RiMapPinUserFill,
   RiEqualizerFill,
@@ -12,6 +12,8 @@ import {
   RiMenu3Fill,
   RiCloseLine
 } from "react-icons/ri";
+import { setLogout } from "../../store/state/authSlice";
+import { useDispatch } from "react-redux";
 
 const links = [
   {
@@ -26,6 +28,9 @@ const links = [
 
 const SidebarHome = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const toggle = () => {
     setOpen(!open);
@@ -89,7 +94,13 @@ const SidebarHome = () => {
         </div>
 
         <div>
-          <button className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold">
+          <button
+            onClick={() => {
+              dispatch(setLogout());
+              navigate("/");
+            }}
+            className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold"
+          >
             <RiLogoutBoxRLine />
             Salir
           </button>
