@@ -29,8 +29,9 @@ const userSchema = new Schema(
 
     category: [
       {
-        name: { type: String, default: null },
-        playes: { type: String, default: null },
+        type: Schema.Types.ObjectId,
+        ref: "category",
+        default: null,
       },
     ],
 
@@ -41,8 +42,9 @@ const userSchema = new Schema(
 
     myTeams: [
       {
-        type: Boolean,
-        default: false,
+        type: Schema.Types.ObjectId,
+        ref: "team",
+        default: null,
       },
     ],
     friends: [
@@ -70,6 +72,7 @@ const userSchema = new Schema(
 
     status: {
       type: Boolean,
+      default: false,
     },
 
     age: {
