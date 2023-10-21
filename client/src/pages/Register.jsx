@@ -120,8 +120,6 @@ const Register = () => {
                     className="h-12 pl-2 border bg-transparent rounded-sm border-black w-full focus:outline-none focus:ring"
                     onChange={e => {
                       setrepeatPassword(e.target.value);
-
-                      console.log(e.target.value);
                     }}
                   />
                 </div>

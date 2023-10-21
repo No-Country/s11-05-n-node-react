@@ -1,7 +1,7 @@
 function clearStateErrors(error, state) {
   setTimeout(() => {
     state(error);
-  }, 1500);
+  }, 3000);
 }
 
 export default clearStateErrors;

@@ -16,7 +16,14 @@ export const validateRegister = (username, email, password, repeatPassword) => {
   if (!passwordRegex.test(password)) {
     console.log("Contraseña inválida");
 
-    return { msg: "Contraseña inválida", status: false };
+    return {
+      msg: `Tu contraseña debe cumplir con las siguientes reglas:
+
+    Debe contener al menos una letra minúscula (a-z).
+    Debe contener al menos una letra mayúscula (A-Z).
+    Debe tener una longitud mínima de 6 caracteres.`,
+      status: false
+    };
   }
 
   if (password !== repeatPassword) {
