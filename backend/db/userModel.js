@@ -42,8 +42,9 @@ const userSchema = new Schema(
 
     myTeams: [
       {
-        type: Boolean,
-        default: false,
+        type: Schema.Types.ObjectId,
+        ref: "team",
+        default: null,
       },
     ],
     friends: [
