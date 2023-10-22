@@ -5,10 +5,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../store/state/authSlice";
 import { useNavigate } from "react-router-dom";
+import clearStateErrors from "../hooks/clearStateErrors";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errores, setErrores] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -29,17 +31,23 @@ function Login() {
     e.preventDefault();
 
     if (!username || !password) {
-      console.log("Por favor, complete todos los campos.");
+  
+      setErrores("Por favor, complete todos los campos.");
+      clearStateErrors("", setErrores);
       return;
     }
 
     if (!isEmailValid(username)) {
-      console.log("Correo electrónico inválido.");
+     
+      setErrores("Correo electrónico inválido.");
+      clearStateErrors("", setErrores);
       return;
     }
 
     if (!isPasswordValid(password)) {
-      console.log("Contraseña inválida.");
+     
+      setErrores("Contraseña inválida.");
+      clearStateErrors("", setErrores);
       return;
     }
 
@@ -100,7 +108,7 @@ function Login() {
             <Link to={"/recover"} className="text-links text-center text-xs mt-1 ">
               ¿Olvidó su contraseña?
             </Link>
-
+            {errores && <p>{errores} </p>}
             <button className="py-4 px-6 bg-buttons text-white text-[16px] rounded-md">
               Iniciar sesión{" "}
             </button>
