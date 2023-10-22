@@ -31,21 +31,21 @@ function Login() {
     e.preventDefault();
 
     if (!username || !password) {
-      console.log("Por favor, complete todos los campos.");
+  
       setErrores("Por favor, complete todos los campos.");
       clearStateErrors("", setErrores);
       return;
     }
 
     if (!isEmailValid(username)) {
-      console.log("Correo electrónico inválido.");
+     
       setErrores("Correo electrónico inválido.");
       clearStateErrors("", setErrores);
       return;
     }
 
     if (!isPasswordValid(password)) {
-      console.log("Contraseña inválida.");
+     
       setErrores("Contraseña inválida.");
       clearStateErrors("", setErrores);
       return;
