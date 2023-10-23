@@ -4,6 +4,7 @@ import {
   getTeams,
   createTeam,
   getUserTeams,
+  changeTeam,
   deleteTeam,
 } from "../controllers/team.js";
 import { ValidatorGeneral } from "../middleware/validatorGeneral.js";
@@ -26,6 +27,7 @@ route.post(
   ValidatorGeneral,
   createTeam
 );
+route.put("/:id", teamValidator,verifyJWT,  ValidatorGeneral, changeTeam);
 route.delete(
   "/deletTeam/:id",
   verifyJWT,

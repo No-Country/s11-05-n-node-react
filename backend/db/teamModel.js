@@ -16,12 +16,11 @@ const teamSchema = new Schema(
     },
     players: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        default: null,
-      },
-    ], //Pruebas en query con populate
-    category: {
+        type: Schema.Types.ObjectId, ref: "User", default: null
+      }
+    ]
+    , //Pruebas en query con populate
+     category: {
       type: String, //cambiar posterior cuando este creada la entidad category
     },
   },
