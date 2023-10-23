@@ -39,29 +39,48 @@ const getUserTeams = async (req, res) => {
   };
 
 
-const createTeam = async (req, res) => {
-  try {
-    const {
-      name,
-      image,
-      players
-    } = req.body;
-
-    // Crear el equipo con el capitán establecido como req.userId
-    const newTeam = new Team({
-      captain: req.userId,
-      name,
-      image,
-      players, // deben pasarse del front los id de usuarios ya registrados 
-     
-    });
-
-    await newTeam.save();
-
-    res.status(201).json(newTeam);
+  const createTeam = async (req, res) => {
+    try {
+      const {
+        name,
+        image,
+        players
+      } = req.body;
+  
+      // Crear el equipo con el capitán establecido como req.userId
+      const newTeam = new Team({
+        captain: req.userId,
+        name,
+        image,
+        players, // deben pasarse del front los id de usuarios ya registrados 
+       
+      });
+  
+      await newTeam.save();
+  
+      res.status(201).json(newTeam);
+    } catch (error) {
+      res.status(409).send({ message: "Creación de equipo inválido" });
+    }
+  };
+const changeTeam = async (req, res) => {
+  const { id } = req.params;
+  const {
+    captainId,
+    name,
+    image,
+    players
+  } = req.body;
+try {
+      const teamFound = await Team.findById(id).populate({ path: 'captain players', select: '-passwordhash' }).exec();
+      if (!teamFound) {
+          throw new Error('Team no encontrado');
+      }
+      const changedTeam = Team.findByIdAndUpdate(id, { captainId, name, image, players }, {new: true}).exec();
+      res.status(201).json({ message: "Equipo modificado", team:{changedTeam} });
   } catch (error) {
-    res.status(409).send({ message: "Creación de equipo inválido" });
+      res.status(500).send({ message: "Error en Controlador de Equipo actualizando" });
   }
 };
-
-export {createTeam, getTeam, getTeams,getUserTeams };
+    
+export {changeTeam, createTeam, getTeam, getTeams,getUserTeams };
