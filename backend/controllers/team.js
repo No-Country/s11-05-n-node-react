@@ -1,10 +1,13 @@
 import Team from "../db/teamModel.js";
-import user from "../db/userModel.js";
+
 const getTeam = async (req, res) => {
   const { id } = req.params;
   try {
     const teamFound = await Team.findById(id)
-      .populate({ path: "captain players", select: "-passwordhash" })
+    .populate({
+      path: "captain players",
+      select: "firstName lastName nickName email",
+    })
       .exec();
     if (!teamFound) {
       throw new Error("Team no encontrado");
@@ -18,7 +21,10 @@ const getTeam = async (req, res) => {
 const getTeams = async (req, res) => {
   try {
     const allTeams = await Team.find()
-      .populate({ path: "captain players", select: "-passwordhash" })
+    .populate({
+      path: "captain players",
+      select: "firstName lastName nickName email",
+    })
       .exec();
     res.status(200).json({ message: "Equipos encontrados", allTeams });
   } catch (error) {
@@ -34,8 +40,11 @@ const getUserTeams = async (req, res) => {
     const userTeams = await Team.find({
       $or: [{ captain: req.userId }, { players: req.userId }],
     })
-      .populate({ path: "captain players", select: "-passwordhash" })
-      .exec();
+    .populate({
+      path: "captain players",
+      select: "firstName lastName nickName email",
+    })
+    .exec();
     res
       .status(200)
       .json({ message: "Equipos del usuario encontrados", userTeams });
