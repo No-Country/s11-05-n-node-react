@@ -15,13 +15,16 @@ import {
   edithUserValidator,
 } from "../validators/userValidator.js";
 import { verifyJWT } from "../middleware/verifyJWT.js";
+import { upload } from "../middleware/multerAvatar.js";
+import { postAvatar } from "../controllers/uploadController.js"
+
 const route = Router();
 
 route.get("/", verifyJWT, getUsers);
 route.get("/:id", verifyJWT, getUser);
 route.post("/create", userCreateValidator, ValidatorGeneral, createUser);
 route.post("/auth", AuthValidator, ValidatorGeneral, auth);
-
+route.post('/upload/:id', upload.single('avatar'), postAvatar );
 route.delete("/delete/:id", deleteUser);
 route.patch(
   "/editUser",
