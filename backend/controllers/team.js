@@ -1,5 +1,5 @@
 import Team from "../db/teamModel.js";
-import user from "../db/userModel.js";
+//import user from "../db/userModel.js";
 const getTeam = async (req, res) => {
   const { id } = req.params;
   try {
@@ -62,11 +62,34 @@ const createTeam = async (req, res) => {
     await newTeam.save();
 
     res.status(201).json(newTeam);
+
   } catch (error) {
-    res.status(409).send({ message: "Creación de equipo inválido" });
+      res.status(500).send({ message: "Error en Controlador de Equipo actualizando" });
+      //res.status(409).send({ message: "Creación de equipo inválido" });
   }
 };
 
+const changeTeam = async (req, res) => {
+  const { id } = req.params;
+  const {
+    captainId,
+    name,
+    image,
+    players
+  } = req.body;
+try {
+      const teamFound = await Team.findById(id).populate({ path: 'captain players', select: '-passwordhash' }).exec();
+      if (!teamFound) {
+          throw new Error('Team no encontrado');
+      }
+      const changedTeam = Team.findByIdAndUpdate(id, { captainId, name, image, players }, {new: true}).exec();
+      res.status(201).json({ message: "Equipo modificado", team:{changedTeam} });
+
+  } catch (error) {
+      res.status(500).send({ message: "Error en Controlador de Equipo actualizando" });
+  }
+};
+  
 const deleteTeam = async (req, res) => {
   const { userId } = req;
   const { id } = req.params;
@@ -87,4 +110,4 @@ const deleteTeam = async (req, res) => {
   }
 };
 
-export { createTeam, getTeam, getTeams, getUserTeams, deleteTeam };
+export { changeTeam, createTeam, getTeam, getTeams, getUserTeams, deleteTeam };
