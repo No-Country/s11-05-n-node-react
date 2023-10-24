@@ -51,7 +51,7 @@ function Login() {
     const isLogin = await dispatch(loginUser({ email: username, password: password }));
 
     if (isLogin.login) {
-      if (isLogin.user.emailStatus === "true") return navigate("/home");
+      if (isLogin.user.status) return navigate("/home");
       navigate("/onboarding");
     }
   };
