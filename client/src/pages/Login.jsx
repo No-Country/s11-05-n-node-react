@@ -31,21 +31,18 @@ function Login() {
     e.preventDefault();
 
     if (!username || !password) {
-  
       setErrores("Por favor, complete todos los campos.");
       clearStateErrors("", setErrores);
       return;
     }
 
     if (!isEmailValid(username)) {
-     
       setErrores("Correo electrónico inválido.");
       clearStateErrors("", setErrores);
       return;
     }
 
     if (!isPasswordValid(password)) {
-     
       setErrores("Contraseña inválida.");
       clearStateErrors("", setErrores);
       return;
@@ -54,7 +51,8 @@ function Login() {
     const isLogin = await dispatch(loginUser({ email: username, password: password }));
 
     if (isLogin.login) {
-      navigate("/home");
+      if (isLogin.user.emailStatus === "true") return navigate("/home");
+      navigate("/onboarding");
     }
   };
 

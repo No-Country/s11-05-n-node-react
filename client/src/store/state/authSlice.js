@@ -47,7 +47,7 @@ export const loginUser = dataLogin => async dispatch => {
       dispatch(setLogin({ token: auth.tokenJWT, user: auth.userData }));
       const authInStorage = { token: auth.tokenJWT, user: auth.userData };
       setLocalStorage("auth", authInStorage);
-      return { login: true, msg: auth.message };
+      return { login: true, msg: auth.message, user: auth.userData };
     }
     return { login: false };
   } catch (error) {
