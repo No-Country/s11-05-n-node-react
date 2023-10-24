@@ -5,6 +5,8 @@ import morgan from "morgan";
 import { initDBConnection } from "./db/db.js";
 import { config } from "./config/config.js";
 import dotenv from "dotenv";
+import resetPass from "./routes/resetPass.js";
+
 dotenv.config();
 
 const app = express();
@@ -18,6 +20,7 @@ app.use(cors("*"));
 //middleware
 app.use(morgan("dev"));
 //routes
+app.use('/user', resetPass);
 app.use(router);
 //listening
 app.listen(port, () => {
