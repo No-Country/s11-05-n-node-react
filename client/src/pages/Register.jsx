@@ -35,7 +35,7 @@ const Register = () => {
         navigate("/login");
       } catch (error) {
         setErrores("Error al intentar registrarse");
-       
+
         clearStateErrors("", setErrores);
       }
     } else {

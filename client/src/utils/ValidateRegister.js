@@ -3,8 +3,6 @@ const emailRegex = /^[\w.-]+@[\w.-]+\.\w+$/;
 
 export const validateRegister = (username, email, password, repeatPassword) => {
   if ((!username.trim(), !password.trim(), !repeatPassword.trim(), !email.trim())) {
-  
-
     return { msg: "Debe completar todos los campos", status: false };
   }
 
@@ -14,8 +12,6 @@ export const validateRegister = (username, email, password, repeatPassword) => {
     return { msg: "Email inválido", status: false };
   }
   if (!passwordRegex.test(password)) {
-    
-
     return {
       msg: `Tu contraseña debe cumplir con las siguientes reglas:
 
@@ -27,8 +23,6 @@ export const validateRegister = (username, email, password, repeatPassword) => {
   }
 
   if (password !== repeatPassword) {
-
-
     return { msg: "Las contraseñas no coinciden ", status: false };
   }
 
