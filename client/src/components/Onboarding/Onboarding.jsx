@@ -128,7 +128,6 @@ const Onboarding = () => {
       setButtonName("Guardar");
       return setPageActive(2);
     }
-    console.log(pageActive);
     setPageActive(0);
   };
 
