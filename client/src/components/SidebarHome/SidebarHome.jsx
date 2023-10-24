@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 
 const links = [
   {
-    to: "/home/profile",
+    to: "/profile",
     label: "Perfil",
     icon: <RiUserFill className="w-[25px] h-[25px] rounded-full bg-[#babbbd] text-[#1E1F24]" />
   },
@@ -97,7 +97,7 @@ const SidebarHome = () => {
           <button
             onClick={() => {
               dispatch(setLogout());
-              navigate("/");
+              navigate("/home");
             }}
             className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold"
           >
