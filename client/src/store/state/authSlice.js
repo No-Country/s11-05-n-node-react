@@ -4,7 +4,7 @@ import {
   clearLocalStorage,
   setLocalStorage
 } from "../../utils/LocalStorageFunctions.js";
-import { postRequest } from "../../services/httpRequest.js";
+import { patchRequest, postRequest } from "../../services/httpRequest.js";
 
 export const initialAuth = {
   token: "",
@@ -53,5 +53,47 @@ export const loginUser = dataLogin => async dispatch => {
   } catch (error) {
     const msgError = error;
     return { login: false, msg: msgError.toString() };
+  }
+};
+
+export const uploadPicture = (file, user) => async dispatch => {
+  try {
+    const formData = new FormData();
+    formData.append("avatar", file);
+
+    const res = await postRequest(formData, `/user/upload/${user.user._id}`, "multipart/form-data");
+    if (res?.avatar) {
+      dispatch(setLogin({ ...user, user: { ...user.user, avatar: res.avatar } }));
+      setLocalStorage("auth", { ...user, user: { ...user.user, avatar: res.avatar } });
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+export const updateProfile = data => async dispatch => {
+  try {
+    const preserve = {
+      token: JSON.parse(localStorage.auth).token,
+      user: {
+        ...JSON.parse(localStorage.auth).user,
+        ...data
+      }
+    };
+
+    const res = await patchRequest(data, "/user/editUser");
+
+    if (res.mensaje == "Usuario modificado con éxito") {
+      dispatch(setLogin(preserve));
+      setLocalStorage("auth", preserve);
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.log(error);
+    return false;
   }
 };
