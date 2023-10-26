@@ -147,14 +147,12 @@ const addPlayer = async (req, res) => {
   const teamId = req.params.id; 
   const userId = req.userId;
   const { player } = req.body; // Recibimos un solo jugador a agregar
-  console.log(teamId)
-  console.log(userId)
   try {
     const teamFound = await Team.findById(teamId);
     if (!teamFound) {
       throw new Error('Equipo no encontrado');
     }
-    console.log(teamFound)
+   
     if (userId != teamFound.captain) {
       res.status(401).send({ message: "Usuario no autorizado" });
       return; 
