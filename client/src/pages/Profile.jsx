@@ -10,11 +10,12 @@ import Friends from "../components/profile/Friends";
 import FormProfile from "../components/profile/FormProfile";
 import { Dialog, Transition } from "@headlessui/react";
 import { uploadPicture } from "../store/state/authSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 function Profile() {
   const [uploading, setUploading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [editProfile, setEditProfile] = useState(true);
+  const [editProfile, setEditProfile] = useState(false);
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
 
@@ -34,15 +35,22 @@ function Profile() {
   const uploadAvatar = async () => {
     setUploading(true);
     const res = await dispatch(uploadPicture(avatar, userData));
-
+    
     if (res) {
+      toast.success("Cambios Guardados 🥳");
       cancelUpload();
       setIsOpen(false);
+    }
+    else
+    {
+      toast.error("Hubo un error al guardar.");
     }
     setUploading(false);
   };
 
   return (
+    <>
+    <Toaster />
     <section className="flex flex-col gap-5 max-w-screen-2xl w-full mx-auto mb-10 pb-5 rounded-lg bg-white">
       <section
         className="flex py-16 px-[5%] justify-between gap-10 flex-wrap items-center relative"
@@ -108,7 +116,7 @@ function Profile() {
                     <small className="font-medium">Cambiar foto de perfil</small>
                     {avatar ? (
                       <img
-                        className="mx-auto aspect-square w-[128px] h-full object-contain rounded-full mt-5"
+                        className="bg-black mx-auto aspect-square w-[128px] h-full object-contain rounded-full mt-5"
                         src={URL.createObjectURL(avatar)}
                         alt="Uploaded Page"
                         loading="lazy"
@@ -189,6 +197,7 @@ function Profile() {
         )}
       </section>
     </section>
+    </>
   );
 }
 

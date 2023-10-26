@@ -106,7 +106,7 @@ export default function FormProfile({ user }) {
 
             <label htmlFor="city">Ciudad</label>
             <input
-              defaultValue={user?.city || ""}
+              defaultValue={user?.ubication?.city || ""}
               name="city"
               id="city"
               type="text"
