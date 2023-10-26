@@ -32,11 +32,20 @@ export const authSlice = createSlice({
     setLogout: () => {
       clearLocalStorage("auth");
       return initialAuth;
+    },
+    setUpdateUser: (state, action) => {
+      state.user = action.payload.user;
+    },
+    setUpdateAvatar: (state, action) => {
+      state.user = {
+        ...state.user,
+        avatar: action.payload.user.avatar
+      };
     }
   }
 });
 
-export const { setLogin, setLogout } = authSlice.actions;
+export const { setLogin, setLogout, setUpdateUser, setUpdateAvatar } = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -56,15 +65,18 @@ export const loginUser = dataLogin => async dispatch => {
   }
 };
 
-export const uploadPicture = (file, user) => async dispatch => {
+export const uploadPicture = (file, id) => async dispatch => {
   try {
     const formData = new FormData();
     formData.append("avatar", file);
 
-    const res = await postRequest(formData, `/user/upload/${user.user._id}`, "multipart/form-data");
+    const res = await postRequest(formData, `/user/upload/${id}`, "multipart/form-data");
     if (res?.avatar) {
-      dispatch(setLogin({ ...user, user: { ...user.user, avatar: res.avatar } }));
-      setLocalStorage("auth", { ...user, user: { ...user.user, avatar: res.avatar } });
+      dispatch(setUpdateAvatar({ user: { avatar: res.avatar } }));
+      setLocalStorage("auth", {
+        token: JSON.parse(localStorage.auth).token,
+        user: { ...JSON.parse(localStorage.auth).user, avatar: res.avatar }
+      });
       return true;
     }
     return false;
@@ -76,19 +88,14 @@ export const uploadPicture = (file, user) => async dispatch => {
 
 export const updateProfile = data => async dispatch => {
   try {
-    const preserve = {
-      token: JSON.parse(localStorage.auth).token,
-      user: {
-        ...JSON.parse(localStorage.auth).user,
-        ...data
-      }
-    };
-
     const res = await patchRequest(data, "/user/editUser");
 
-    if (res.mensaje == "Usuario modificado con éxito") {
-      dispatch(setLogin(preserve));
-      setLocalStorage("auth", preserve);
+    if (res?.userPatch) {
+      dispatch(setUpdateUser({ user: res.userPatch }));
+      setLocalStorage("auth", {
+        token: JSON.parse(localStorage.auth).token,
+        user: res.userPatch
+      });
       return true;
     }
     return false;

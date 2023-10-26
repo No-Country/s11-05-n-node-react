@@ -20,7 +20,6 @@ function Profile() {
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.auth.user);
-  const userData = useSelector(state => state.auth);
 
   const changeAvatar = e => {
     setAvatar(e.target.files[0]);
@@ -34,7 +33,7 @@ function Profile() {
 
   const uploadAvatar = async () => {
     setUploading(true);
-    const res = await dispatch(uploadPicture(avatar, userData));
+    const res = await dispatch(uploadPicture(avatar, user._id));
 
     if (res) {
       toast.success("Foto Guardada 🥳");
@@ -156,7 +155,7 @@ function Profile() {
                 </small>
               </span>
               <span className="font-semibold opacity-80">
-                {user?.age ? user?.age + " Años - " : "99 Años"}{" "}
+                {user?.age ? user?.age + " Años - " : "21 Años"}{" "}
                 {user?.ubication?.country || "Nowhere"} - {user?.ubication?.city || "Worldwide"}
               </span>
             </div>
