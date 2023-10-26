@@ -4,15 +4,18 @@ import TeamBuilding from "../components/HomeComponents/TeamBuilding";
 const Home = () => {
   return (
     <>
-      <section className="flex flex-col md:flex-row gap-4 w-full">
+      <section className="flex flex-col lg:flex-row gap-4 w-full">
 
-        <div className="w-full sm:-1/2 bg-red-500">
+        <div className="w-full p-4">
           <RelatedSearch />
           <TeamBuilding />
         </div>
 
-        <div className="w-full sm:w-1/2 bg-lime-600">
-          aqui va el diseño de la seccion
+        <div className="w-full p-4">
+          <h3 className="font-bold">
+
+            aqui va el otro diseño de la seccion
+          </h3>
         </div>
 
       </section>
