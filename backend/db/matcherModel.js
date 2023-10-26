@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const userSchema = new Schema(
+const matcherSchema = new Schema(
   {
     nameTeams: [
       {
@@ -55,4 +55,4 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-export default model("User", userSchema);
+export default model("Matcher", matcherSchema);
