@@ -20,10 +20,10 @@ const teamValidator = [
       return true;
     }),
 
-  check("image", "La URL de la imagen del equipo no es válida")
-    .notEmpty()
-    //.isURL()
-    .trim(),
+  // check("image", "La URL de la imagen del equipo no es válida")
+  //   .notEmpty()
+  //   .isURL()
+  //   .trim(),
 
   check("players", "La lista de jugadores no es válida").custom((value) => {
     return true;
