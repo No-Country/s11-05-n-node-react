@@ -4,7 +4,7 @@ import {
   clearLocalStorage,
   setLocalStorage
 } from "../../utils/LocalStorageFunctions.js";
-import { patchRequest, postRequest } from "../../services/httpRequest.js";
+import { deleteRequest, patchRequest, postRequest } from "../../services/httpRequest.js";
 
 export const initialAuth = {
   token: "",
@@ -89,16 +89,30 @@ export const uploadPicture = (file, id) => async dispatch => {
 export const updateProfile = data => async dispatch => {
   try {
     const res = await patchRequest(data, "/user/editUser");
-
     if (res?.userPatch) {
       dispatch(setUpdateUser({ user: res.userPatch }));
       setLocalStorage("auth", {
         token: JSON.parse(localStorage.auth).token,
         user: res.userPatch
       });
-      return true;
+      return {ok: true};
     }
+    return res;
+  } catch (error) {
+    console.log(error);
     return false;
+  }
+};
+
+export const deleteProfile = id => async dispatch => {
+  try {
+    const res = await deleteRequest("/user/delete/"+id);
+
+    if (res?.status === 200) {
+      dispatch(setLogout());
+      dispatch(setLogin({}));
+    }
+    return res?.status;
   } catch (error) {
     console.log(error);
     return false;
