@@ -113,6 +113,11 @@ const editUser = async (req, res) => {
 
     const userEdited = req.body; // Obtener todas las propiedades del cuerpo de la solicitud
 
+    // Evitar la edición del correo
+    if (userEdited.email) {
+          return res.status(400).send({ mensaje: "No puedes editar el correo" });
+    }
+
     console.log(userEdited);
 
     const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited, { new: true });
