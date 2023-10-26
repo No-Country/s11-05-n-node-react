@@ -7,9 +7,9 @@ export const AuthGuard = ({ privateValidation }) => {
 
   if (!token && privateValidation) return <Outlet />;
 
-  if (!token) return <Navigate replace to={"/home"} />;
+  if (!token) return <Navigate replace to={"/"} />;
 
-  return <Navigate replace to={"/home"} />;
+  return <Navigate replace to={"/"} />;
 };
 
 export default AuthGuard;
