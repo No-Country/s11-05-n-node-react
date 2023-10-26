@@ -47,12 +47,8 @@ const matcherSchema = new Schema(
       type: Number,
       default: null,
     },
-    substitutes_in_team: {
-      type: Number,
-      default: null,
-    },
   },
   { timestamps: true }
 );
 
-export default model("Matcher", matcherSchema);
+export default model("Match", matcherSchema);
