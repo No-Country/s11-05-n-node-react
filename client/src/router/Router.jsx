@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { RequireAuth } from "./RequireAuth";
 import AuthGuard from "./AuthGuard";
 
+import Team from "../pages/Team";
+
 const Login = lazy(() => import("../pages/Login"));
 const HomeLayout = lazy(() => import("../components/HomeLayout/HomeLayout"));
 const Home = lazy(() => import("../pages/Home"));
@@ -18,28 +20,32 @@ const Router = () => {
         <BrowserRouter>
           <Routes>
             <Route element={<AuthGuard privateValidation={true} />}>
-              <Route path="/" element={<Landing />} />
+              <Route path="/home" element={<Landing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Route>
             <Route
-              path="onboarding"
+              path="/onboarding"
               element={
                 <RequireAuth>
                   <Onboarding />
                 </RequireAuth>
               }
             />
-            <Route
-              path="/home"
-              element={
-                <RequireAuth>
-                  <HomeLayout />
-                </RequireAuth>
-              }
-            >
-              <Route index element={<Home />} />
-              <Route path="profile" element={<Profile />} />
+            <Route>
+              <Route
+                path="/"
+                element={
+                  <RequireAuth>
+                    <HomeLayout />
+                  </RequireAuth>
+                }
+              >
+                <Route index={true} element={<Home />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/create" element={<Team />} />
+                {/* Aqui sigan poniendo las paginas  para que tomen el layout del home layout  */}
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>

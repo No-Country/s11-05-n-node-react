@@ -18,7 +18,7 @@ const links = [
   { to: "/home", label: "Inicio", icon: <RiHome2Line className="w-[16px] h-[16px]" /> },
 
   {
-    to: "/home/profile",
+    to: "/profile",
     label: "Perfil",
     icon: <RiUserFill className="w-[16px] h-[16px]" />
   },
@@ -78,7 +78,7 @@ const SidebarHome = () => {
           <button
             onClick={() => {
               dispatch(setLogout());
-              navigate("/");
+              navigate("/home");
             }}
             className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold"
           >
