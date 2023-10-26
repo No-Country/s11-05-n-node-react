@@ -37,7 +37,7 @@ function Profile() {
     const res = await dispatch(uploadPicture(avatar, userData));
 
     if (res) {
-      toast.success("Cambios Guardados 🥳");
+      toast.success("Foto Guardada 🥳");
       cancelUpload();
       setIsOpen(false);
     } else {
