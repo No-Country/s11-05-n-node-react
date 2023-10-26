@@ -143,4 +143,37 @@ const getMyteams= async (req, res) => {  // obtener los teams en los cuales soy 
   }
 };
 
-export { changeTeam, createTeam, getTeam, getTeams, getUserTeams, deleteTeam, getMyteams };
+const addPlayer = async (req, res) => {
+  const teamId = req.params.id; 
+  const userId = req.userId;
+  const { player } = req.body; // Recibimos un solo jugador a agregar
+  console.log(teamId)
+  console.log(userId)
+  try {
+    const teamFound = await Team.findById(teamId);
+    if (!teamFound) {
+      throw new Error('Equipo no encontrado');
+    }
+    console.log(teamFound)
+    if (userId != teamFound.captain) {
+      res.status(401).send({ message: "Usuario no autorizado" });
+      return; 
+    }
+
+    if (!player) {
+      res.status(400).send({ message: "La solicitud debe incluir un jugador para agregar" });
+      return; 
+    }
+    
+    teamFound.players.push(player);
+
+    const changedTeam = await teamFound.save(); 
+
+    res.status(201).json({ message: "Equipo modificado", team: changedTeam });
+  } catch (error) {
+    res.status(500).send({ message: "Error en el controlador de agregar jugadores a mi equipo" });
+  }
+};
+
+
+export { changeTeam, createTeam, getTeam, getTeams, getUserTeams, deleteTeam, getMyteams, addPlayer };

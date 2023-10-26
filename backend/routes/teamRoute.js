@@ -7,6 +7,7 @@ import {
   changeTeam,
   deleteTeam,
   getMyteams,
+  addPlayer,
 } from "../controllers/team.js";
 import { ValidatorGeneral } from "../middleware/validatorGeneral.js";
 import { verifyJWT } from "../middleware/verifyJWT.js";
@@ -20,6 +21,7 @@ const route = Router();
 
 route.get("/", verifyJWT, getTeams);
 route.get("/getMyteams", verifyJWT, getMyteams);
+route.patch("/addPlayer/:id", verifyJWT, addPlayer);
 route.get("/me", verifyJWT, getUserTeams);
 route.get("/:id", verifyJWT, getTeamValidator, ValidatorGeneral, getTeam);
 route.post(
