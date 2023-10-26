@@ -65,6 +65,30 @@ export const patchRequest = async (dataSend, endpoint) => {
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      if (error.response) {
+        return error.response.data;
+      } else {
+        throw new Error(error.message);
+      }
+    } else {
+      return "An unexpected error occurred";
+    }
+  }
+};
+
+export const deleteRequest = async endpoint => {
+  try {
+    const { data, status } = await axios.delete(URL + endpoint, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: getToken()
+      }
+    });
+
+    return { data, status };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
       throw new Error(error.message);
     } else {
       return "An unexpected error occurred";

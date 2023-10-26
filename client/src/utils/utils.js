@@ -6,3 +6,14 @@ export function CalculateAge(date) {
   let currentAge = Math.floor(difference / 31557600000);
   return currentAge;
 }
+
+export const SortErrors = errors => {
+  const data = errors.reduce((acc, error) => {
+    return {
+      ...acc,
+      [error.path]: error.msg
+    };
+  }, {});
+
+  return data;
+};
