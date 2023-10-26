@@ -95,7 +95,7 @@ export const updateProfile = data => async dispatch => {
         token: JSON.parse(localStorage.auth).token,
         user: res.userPatch
       });
-      return {ok: true};
+      return { ok: true };
     }
     return res;
   } catch (error) {
@@ -106,7 +106,7 @@ export const updateProfile = data => async dispatch => {
 
 export const deleteProfile = id => async dispatch => {
   try {
-    const res = await deleteRequest("/user/delete/"+id);
+    const res = await deleteRequest("/user/delete/" + id);
 
     if (res?.status === 200) {
       dispatch(setLogout());

@@ -7,13 +7,13 @@ export function CalculateAge(date) {
   return currentAge;
 }
 
-export const SortErrors = (errors) => {
+export const SortErrors = errors => {
   const data = errors.reduce((acc, error) => {
     return {
       ...acc,
-      [error.path]: error.msg,
+      [error.path]: error.msg
     };
   }, {});
-  
-  return data
+
+  return data;
 };

@@ -24,8 +24,16 @@ const links = [
   },
   { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[16px] h-[16px]" /> },
   { to: "/matches", label: "Partidos", icon: <GiSoccerField className="w-[19px] h-[19px]" /> },
-  { to: "/partidas", label: "Partidas", icon: <IoGameControllerOutline className="w-[16px] h-[16px]" /> },
-  { to: "/events", label: "Evento/Torneo", icon: <RiCalendarEventFill className="w-[16px] h-[16px]" /> },
+  {
+    to: "/partidas",
+    label: "Partidas",
+    icon: <IoGameControllerOutline className="w-[16px] h-[16px]" />
+  },
+  {
+    to: "/events",
+    label: "Evento/Torneo",
+    icon: <RiCalendarEventFill className="w-[16px] h-[16px]" />
+  }
 ];
 
 const SidebarHome = () => {
@@ -40,8 +48,9 @@ const SidebarHome = () => {
   return (
     <>
       <section
-        className={`bg-[#1E1F24] text-[#babbbd] fixed ${open ? "-left-0" : "-left-full"
-          }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all z-50`}
+        className={`bg-[#1E1F24] text-[#babbbd] fixed ${
+          open ? "-left-0" : "-left-full"
+        }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all z-50`}
       >
         <div>
           <nav>
@@ -67,10 +76,7 @@ const SidebarHome = () => {
 
             {/* Error en consola */}
 
-            <div className="flex flex-col w-full gap-4 py-4 rounded-lg font-bold text-[1rem]">
-
-
-            </div>
+            <div className="flex flex-col w-full gap-4 py-4 rounded-lg font-bold text-[1rem]"></div>
           </nav>
         </div>
 

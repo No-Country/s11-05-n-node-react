@@ -66,7 +66,7 @@ export const patchRequest = async (dataSend, endpoint) => {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.response) {
-        return error.response.data
+        return error.response.data;
       } else {
         throw new Error(error.message);
       }
@@ -76,7 +76,7 @@ export const patchRequest = async (dataSend, endpoint) => {
   }
 };
 
-export const deleteRequest = async (endpoint) => {
+export const deleteRequest = async endpoint => {
   try {
     const { data, status } = await axios.delete(URL + endpoint, {
       headers: {
@@ -86,7 +86,7 @@ export const deleteRequest = async (endpoint) => {
       }
     });
 
-    return {data, status};
+    return { data, status };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.message);
