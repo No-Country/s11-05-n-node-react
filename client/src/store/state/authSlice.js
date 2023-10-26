@@ -4,7 +4,7 @@ import {
   clearLocalStorage,
   setLocalStorage
 } from "../../utils/LocalStorageFunctions.js";
-import { postRequest } from "../../services/httpRequest.js";
+import { deleteRequest, patchRequest, postRequest } from "../../services/httpRequest.js";
 
 export const initialAuth = {
   token: "",
@@ -32,11 +32,20 @@ export const authSlice = createSlice({
     setLogout: () => {
       clearLocalStorage("auth");
       return initialAuth;
+    },
+    setUpdateUser: (state, action) => {
+      state.user = action.payload.user;
+    },
+    setUpdateAvatar: (state, action) => {
+      state.user = {
+        ...state.user,
+        avatar: action.payload.user.avatar
+      };
     }
   }
 });
 
-export const { setLogin, setLogout } = authSlice.actions;
+export const { setLogin, setLogout, setUpdateUser, setUpdateAvatar } = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -53,5 +62,59 @@ export const loginUser = dataLogin => async dispatch => {
   } catch (error) {
     const msgError = error;
     return { login: false, msg: msgError.toString() };
+  }
+};
+
+export const uploadPicture = (file, id) => async dispatch => {
+  try {
+    const formData = new FormData();
+    formData.append("avatar", file);
+
+    const res = await postRequest(formData, `/user/upload/${id}`, "multipart/form-data");
+    if (res?.avatar) {
+      dispatch(setUpdateAvatar({ user: { avatar: res.avatar } }));
+      setLocalStorage("auth", {
+        token: JSON.parse(localStorage.auth).token,
+        user: { ...JSON.parse(localStorage.auth).user, avatar: res.avatar }
+      });
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+export const updateProfile = data => async dispatch => {
+  try {
+    const res = await patchRequest(data, "/user/editUser");
+    if (res?.userPatch) {
+      dispatch(setUpdateUser({ user: res.userPatch }));
+      setLocalStorage("auth", {
+        token: JSON.parse(localStorage.auth).token,
+        user: res.userPatch
+      });
+      return { ok: true };
+    }
+    return res;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+export const deleteProfile = id => async dispatch => {
+  try {
+    const res = await deleteRequest("/user/delete/" + id);
+
+    if (res?.status === 200) {
+      dispatch(setLogout());
+      dispatch(setLogin({}));
+    }
+    return res?.status;
+  } catch (error) {
+    console.log(error);
+    return false;
   }
 };

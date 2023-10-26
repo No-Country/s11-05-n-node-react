@@ -1,29 +1,39 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  RiMapPinUserFill,
-  RiEqualizerFill,
   RiTeamFill,
-  RiTrophyFill,
   RiLogoutBoxRLine,
   RiUserFill,
-  RiCheckboxBlankCircleFill,
-  RiArrowUpSLine,
   RiMenu3Fill,
-  RiCloseLine
+  RiCloseLine,
+  RiCalendarEventFill,
+  RiHome2Line
 } from "react-icons/ri";
+import { GiSoccerField } from "react-icons/gi";
+import { IoGameControllerOutline } from "react-icons/io5";
 import { setLogout } from "../../store/state/authSlice";
 import { useDispatch } from "react-redux";
 
 const links = [
+  { to: "/home", label: "Inicio", icon: <RiHome2Line className="w-[16px] h-[16px]" /> },
+
   {
-    to: "/home/profile",
+    to: "/profile",
     label: "Perfil",
-    icon: <RiUserFill className="w-[25px] h-[25px] rounded-full bg-[#babbbd] text-[#1E1F24]" />
+    icon: <RiUserFill className="w-[16px] h-[16px]" />
   },
-  { to: "/create", label: "Crear Equipo", icon: <RiTeamFill /> },
-  { to: "/events", label: "Evento/Torneo", icon: <RiTrophyFill /> },
-  { to: "/matches", label: "Partidos", icon: <RiMapPinUserFill /> }
+  { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[16px] h-[16px]" /> },
+  { to: "/matches", label: "Partidos", icon: <GiSoccerField className="w-[19px] h-[19px]" /> },
+  {
+    to: "/partidas",
+    label: "Partidas",
+    icon: <IoGameControllerOutline className="w-[16px] h-[16px]" />
+  },
+  {
+    to: "/events",
+    label: "Evento/Torneo",
+    icon: <RiCalendarEventFill className="w-[16px] h-[16px]" />
+  }
 ];
 
 const SidebarHome = () => {
@@ -66,30 +76,7 @@ const SidebarHome = () => {
 
             {/* Error en consola */}
 
-            <div className="flex flex-col w-full gap-4 py-4 rounded-lg font-bold text-[1rem]">
-              <span className="flex justify-between items-center gap-4 ml-2">
-                {" "}
-                <RiEqualizerFill />
-                <div className=" w-full flex flex- items-center justify-between">
-                  <span className="  hover:text-white">Ajustes</span>
-                  <RiArrowUpSLine className=" flex " />
-                </div>
-              </span>
-              <nav className="flex flex-col border-l border-[#343538] ml-4">
-                <Link className="relative pl-7 py-2  hover:text-white ">
-                  <RiCheckboxBlankCircleFill className="absolute -left-[6px] text-[#fa9146] text-xs top-[50%] -translate-y-[50%] p-[3px] bg-[#1E1F24] rounded-full" />
-                  Plan
-                </Link>
-                <Link className="relative pl-7 py-2  hover:text-white ">
-                  <RiCheckboxBlankCircleFill className="absolute -left-[6px] text-#d9dadf] text-xs top-[50%] -translate-y-[50%] p-[3px] bg-[#1E1F24] rounded-full" />
-                  Seguridad
-                </Link>
-                <Link className="relative pl-7 py-2  hover:text-white ">
-                  <RiCheckboxBlankCircleFill className="absolute -left-[6px] text-#d9dadf] text-xs top-[50%] -translate-y-[50%] p-[3px] bg-[#1E1F24] rounded-full" />
-                  Otro
-                </Link>
-              </nav>
-            </div>
+            <div className="flex flex-col w-full gap-4 py-4 rounded-lg font-bold text-[1rem]"></div>
           </nav>
         </div>
 
@@ -97,7 +84,7 @@ const SidebarHome = () => {
           <button
             onClick={() => {
               dispatch(setLogout());
-              navigate("/");
+              navigate("/home");
             }}
             className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold"
           >

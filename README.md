@@ -1,11 +1,11 @@
 # s11-05-n-node-react
 
-#### **LetsPlay**
+#### **Let´s Play**
 Es una pagina o una aplicación de moviles para agendar partidos presenciales o virtuales o para encontrar un jugador que falta en el equipo.
 
 ## Tecnologías utilizadas 💻
 
-#### **LetsPlay** fue desarrollada utilizando tecnologías de vanguardia para ofrecer una experiencia de usuario excepcional:
+#### **Let´s Play** fue desarrollada utilizando tecnologías de vanguardia para ofrecer una experiencia de usuario excepcional:
 
 #### 🎨 UX/UI:
 
@@ -20,7 +20,7 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
 |:---:|:---:|:---:|:---:|
 | **Alexander Mamani**| **Dario Elguero**| **Exequiel Schiavo**| **Victor Fernandez**|
-| <a href="https://www.linkedin.com/in/kevin-borge-9b1372163/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/franco-salda%C3%B1o"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/nicol%C3%A1s-ludue%C3%B1o-937bb8208/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://www.linkedin.com/in/alexander-mamani/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/franco-salda%C3%B1o"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/nicol%C3%A1s-ludue%C3%B1o-937bb8208/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
  #### 🛠️ Tech Stack:
  
