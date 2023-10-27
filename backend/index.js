@@ -20,7 +20,7 @@ app.use(cors("*"));
 //middleware
 app.use(morgan("dev"));
 //routes
-app.use('/user', resetPass);
+app.use(resetPass);
 app.use(router);
 //listening
 app.listen(port, () => {

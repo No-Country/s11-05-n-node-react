@@ -49,7 +49,10 @@ const edithUserValidator = [
   check("ubicatin", "El país no es válido").optional().notEmpty().trim(),
   check("ubication", "La ciudad no es válida").optional().notEmpty().trim(),
   check("email", "El correo no es válido").exists().isEmail().trim(),
-  
 ];
 
-export { userCreateValidator,AuthValidator, edithUserValidator };
+const resetPassValidator = [
+  check("email", "El correo no es valido").exists().isEmail().trim()
+];
+
+export { userCreateValidator,AuthValidator, edithUserValidator, resetPassValidator };
