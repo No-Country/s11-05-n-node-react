@@ -1,14 +1,7 @@
-import mongoose from 'mongoose';
 import User from "../db/userModel.js";
-import { config } from "../config/config.js";
 import { faker } from '@faker-js/faker';
 import becrypt from "bcrypt";
 
-
-await mongoose.connect(config[process.env.NODE_ENV].db_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 const generateFakeUser = () => {
   return {

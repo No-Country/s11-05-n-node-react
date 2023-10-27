@@ -1,8 +1,6 @@
-import mongoose from 'mongoose';
 import User from "../db/userModel.js";
 import Category from "../db/categoryModel.js";
 import Team from '../db/teamModel.js';
-import { config } from '../config/config.js';
 import { faker } from '@faker-js/faker';
 
 

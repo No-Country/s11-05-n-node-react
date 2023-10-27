@@ -1,11 +1,4 @@
-import mongoose from 'mongoose';
 import Category from '../db/categoryModel.js';
-import { config } from "../config/config.js";
-
-await mongoose.connect(config[process.env.NODE_ENV].db_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 const categories = [
     {

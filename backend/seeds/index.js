@@ -7,8 +7,6 @@ import { config } from '../config/config.js';
 /*dropea la base de datos y luego la vuelve a subir, se hace para borrar la infomacion vieja tanto la data como los esquemas */
 const connectToDatabase = async () => {
     try {
-        //cierra la conexion para actualizar los esquemas
-        await mongoose.connection.close();
         await mongoose.connect(config[process.env.NODE_ENV].db_url, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
