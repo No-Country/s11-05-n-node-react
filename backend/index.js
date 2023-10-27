@@ -5,6 +5,7 @@ import morgan from "morgan";
 import { initDBConnection } from "./db/db.js";
 import { config } from "./config/config.js";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
