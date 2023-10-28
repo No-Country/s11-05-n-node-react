@@ -29,6 +29,7 @@ const createUser = async (req, res) => {
     res.status(409).send({ message: "El usuario no pudo ser registrado" });
   }
 };
+
 const getUsers = async (req, res) => {
   const { email } = req.query;
   let data;
