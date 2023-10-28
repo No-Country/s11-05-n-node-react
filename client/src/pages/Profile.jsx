@@ -113,7 +113,7 @@ function Profile() {
                       <small className="font-medium">Cambiar foto de perfil</small>
                       {avatar ? (
                         <img
-                          className="bg-black mx-auto aspect-square w-[128px] h-full object-contain rounded-full mt-5"
+                          className="bg-black mx-auto aspect-square w-[128px] h-full object-cover rounded-full mt-5"
                           src={URL.createObjectURL(avatar)}
                           alt="Uploaded Page"
                           loading="lazy"
