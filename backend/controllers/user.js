@@ -132,32 +132,4 @@ const editUser = async (req, res) => {
   }
 };
 
-const addFriend = async (req, res) => {
-  const { userId, friendId } = req.params;
-
-  const friendAdd = await userModel.findOneAndUpdate(
-    { _id: userId },
-    { $push: { friends: friendId } }
-  );
-  res.status(200).send({ message: "friend add" });
-};
-
-const deleteFriend = async (req, res) => {
-  const { userId, friendId } = req.params;
-  const friendDel = await userModel.findOneAndUpdate(
-    { _id: userId },
-    { $pull: { friends: friendId } }
-  );
-  res.status(200).send({ message: "friend delete" });
-};
-
-export {
-  createUser,
-  auth,
-  getUsers,
-  getUser,
-  editUser,
-  deleteUser,
-  addFriend,
-  deleteFriend,
-};
+export { createUser, auth, getUsers, getUser, editUser, deleteUser };
