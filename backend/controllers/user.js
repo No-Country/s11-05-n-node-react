@@ -4,6 +4,7 @@ import { createTokenJWT } from "../util/createTokenJwt.js";
 import dotenv from "dotenv";
 dotenv.config();
 import { uuidValidation } from "../util/uuidValidation.js";
+import userModel from "../db/userModel.js";
 
 const createUser = async (req, res) => {
   const { nickName, email, password } = req.body;
@@ -63,8 +64,8 @@ const auth = async (req, res) => {
   const { nickName, email, password } = req.body;
   try {
     const findUser = email
-      ? await User.findOne({ email }).select('-passwordHash')
-      : await User.findOne({ nickName }).select('-passwordHash')
+      ? await User.findOne({ email }).select("-passwordHash")
+      : await User.findOne({ nickName }).select("-passwordHash");
 
     if (!findUser) {
       return res.status(404).json({ message: "Usuario no encontrado" });
@@ -76,10 +77,13 @@ const auth = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
 
+    const tokenJWT = createTokenJWT("1h", { _id: findUser._id });
 
-    const tokenJWT = createTokenJWT('1h',{_id:findUser._id})
-    
-    res.status(200).send({ message: "Inicio de Sesion Exitoso",tokenJWT,userData:findUser });
+    res.status(200).send({
+      message: "Inicio de Sesion Exitoso",
+      tokenJWT,
+      userData: findUser,
+    });
   } catch (error) {
     res.status(409).send({ message: "El usuario no pudo iniciar Sesion" });
   }
@@ -116,16 +120,44 @@ const editUser = async (req, res) => {
 
     console.log(userEdited);
 
-    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited, { new: true });
+    const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited, {
+      new: true,
+    });
 
-    res.status(200).send({ mensaje: "Usuario modificado con éxito", userPatch });
+    res
+      .status(200)
+      .send({ mensaje: "Usuario modificado con éxito", userPatch });
   } catch (error) {
     res.status(500).send({ mensaje: "Error al actualizar el usuario" });
   }
 };
 
+const addFriend = async (req, res) => {
+  const { userId, friendId } = req.params;
 
+  const friendAdd = await userModel.findOneAndUpdate(
+    { _id: userId },
+    { $push: { friends: friendId } }
+  );
+  res.status(200).send({ message: "friend add" });
+};
 
+const deleteFriend = async (req, res) => {
+  const { userId, friendId } = req.params;
+  const friendDel = await userModel.findOneAndUpdate(
+    { _id: userId },
+    { $pull: { friends: friendId } }
+  );
+  res.status(200).send({ message: "friend delete" });
+};
 
-
-export { createUser, auth, getUsers, getUser, editUser, deleteUser };
+export {
+  createUser,
+  auth,
+  getUsers,
+  getUser,
+  editUser,
+  deleteUser,
+  addFriend,
+  deleteFriend,
+};
