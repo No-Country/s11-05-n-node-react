@@ -20,7 +20,7 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
 |:---:|:---:|:---:|:---:|
 | **Alexander Mamani**| **Dario Elguero**| **Exequiel Schiavo**| **Victor Fernandez**|
-| <a href="https://www.linkedin.com/in/alexander-mamani/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/franco-salda%C3%B1o"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/nicol%C3%A1s-ludue%C3%B1o-937bb8208/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://www.linkedin.com/in/alexander-mamani/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/dario-elguero/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/exequiel-schiavo"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/nicol%C3%A1s-ludue%C3%B1o-937bb8208/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
  #### 🛠️ Tech Stack:
  
@@ -31,6 +31,7 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | **Gustavo Cubilla**| **Hector Dario Sol**| **Manuel Miguel Blanor Guerrero Palma**| **Masiel Venegas**| **Yein España**| **Miguel Beltran**|
+| <a href="https://www.linkedin.com/in/cubilla-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/hectordariosol/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/miguel-guerrero-403939194/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/masielvenegas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/irene-vargas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/irene-vargas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
   #### 🛠️ Tech Stack:
  ![Python](https://img.shields.io/badge/Python-green?style=for-the-badge&logo=python) 
@@ -55,7 +56,7 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |
 |:---:|
 |  **Marcela Restrepo Ruiz**|
-| <a href="https://www.linkedin.com/in/cami-cataldi/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+| <a href="www.linkedin.com/in/m-rruiz"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 
 #### 🧑💻 TL:
 

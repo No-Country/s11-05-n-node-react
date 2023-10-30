@@ -46,10 +46,13 @@ const edithUserValidator = [
   check("cellNumber", "El número de celular no es válido").optional().isNumeric(),
   check("dateOfBirth", "La fecha de nacimiento no es válida").optional().isISO8601(),
   check("age", "La edad no es válida").optional().isNumeric(),
-  check("ubicatin", "El país no es válido").optional().notEmpty().trim(),
-  check("ubication", "La ciudad no es válida").optional().notEmpty().trim(),
+  check("ubication.country", "El país no es válido").optional().notEmpty().trim(),
+  check("ubication.city", "La ciudad no es válida").optional().notEmpty().trim(),
   check("email", "El correo no es válido").exists().isEmail().trim(),
-  
 ];
 
-export { userCreateValidator,AuthValidator, edithUserValidator };
+const resetPassValidator = [
+  check("email", "El correo no es valido").exists().isEmail().trim()
+];
+
+export { userCreateValidator,AuthValidator, edithUserValidator, resetPassValidator };

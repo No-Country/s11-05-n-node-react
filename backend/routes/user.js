@@ -8,6 +8,8 @@ import {
   editUser,
   deleteUser,
 } from "../controllers/user.js";
+import updatePassword from "../controllers/resetPassController.js";
+import {resetPassValidator} from "../validators/userValidator.js"
 import { ValidatorGeneral } from "../middleware/validatorGeneral.js";
 import {
   userCreateValidator,
@@ -26,6 +28,8 @@ route.post("/create", userCreateValidator, ValidatorGeneral, createUser);
 route.post("/auth", AuthValidator, ValidatorGeneral, auth);
 route.post('/upload/:id', upload.single('avatar'), postAvatar );
 route.delete("/delete/:id", deleteUser);
+route.post("/resetpass", resetPassValidator, ValidatorGeneral, updatePassword);
+
 route.patch(
   "/editUser",
   edithUserValidator,
