@@ -14,7 +14,7 @@ function LoadTeams() {
   return (
     <>
       <h2 className="font-semibold">Mis equipos</h2>
-      <div className="bg-blue-50 flex gap-8  p-6 w-full  shadow-md rounded-md">
+      <div className="flex flex-wrap bg-blue-50 gap-7  p-6 w-full  shadow-md rounded-md justify-center">
         {teams?.map(team => (
           <div key={team._id}>
             <TeamAvatar team={team} />
