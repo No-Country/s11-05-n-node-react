@@ -1,6 +1,6 @@
 import Category from "../db/categoryModel.js";
 
-const getCategorie = async (req, res) => {
+const getCategories = async (req, res) => {
   try {
     const category = await Category.find();
 
@@ -14,7 +14,7 @@ const getCategorie = async (req, res) => {
   }
 };
 
-const getCategories = async (req, res) => {
+const getCategorie = async (req, res) => {
   const categoryId = req.params;
   try {
     const category = await Category.findOne({ _id: categoryId });

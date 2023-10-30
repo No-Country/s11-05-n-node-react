@@ -4,10 +4,10 @@ const getTeam = async (req, res) => {
   const { id } = req.params;
   try {
     const teamFound = await Team.findById(id)
-    .populate({
-      path: "captain players",
-      select: "firstName lastName nickName email",
-    })
+      .populate({
+        path: "captain players",
+        select: "firstName lastName nickName email",
+      })
       .exec();
     if (!teamFound) {
       throw new Error("Team no encontrado");
@@ -21,10 +21,10 @@ const getTeam = async (req, res) => {
 const getTeams = async (req, res) => {
   try {
     const allTeams = await Team.find()
-    .populate({
-      path: "captain players",
-      select: "firstName lastName nickName email",
-    })
+      .populate({
+        path: "captain players",
+        select: "firstName lastName nickName email",
+      })
       .exec();
     res.status(200).json({ message: "Equipos encontrados", allTeams });
   } catch (error) {
@@ -40,11 +40,11 @@ const getUserTeams = async (req, res) => {
     const userTeams = await Team.find({
       $or: [{ captain: req.userId }, { players: req.userId }],
     })
-    .populate({
-      path: "captain players",
-      select: "firstName lastName nickName email",
-    })
-    .exec();
+      .populate({
+        path: "captain players",
+        select: "firstName lastName nickName email",
+      })
+      .exec();
     res
       .status(200)
       .json({ message: "Equipos del usuario encontrados", userTeams });
@@ -58,7 +58,7 @@ const getUserTeams = async (req, res) => {
 
 const createTeam = async (req, res) => {
   try {
-    const { name, image, players } = req.body;
+    const { name, image, players, category } = req.body;
 
     // Crear el equipo con el capitán establecido como req.userId
     const newTeam = new Team({
@@ -66,43 +66,50 @@ const createTeam = async (req, res) => {
       name,
       image,
       players, // deben pasarse del front los id de usuarios ya registrados
+      category,
     });
 
     await newTeam.save();
 
     res.status(201).json(newTeam);
-
   } catch (error) {
-      res.status(500).send({ message: "Error en Controlador de Equipo actualizando" });
-      //res.status(409).send({ message: "Creación de equipo inválido" });
+    res
+      .status(500)
+      .send({ message: "Error en Controlador de Equipo actualizando" });
+    //res.status(409).send({ message: "Creación de equipo inválido" });
   }
 };
 
 const changeTeam = async (req, res) => {
   const { id } = req.params;
   const userId = req.userId;
-  const {
-    name,
-    image,
-    players
-  } = req.body;
+  const { name, image, players, category } = req.body;
 
-try {
-      const teamFound = await Team.findById(id).populate({ path: 'captain players', select: '-passwordhash' }).exec();
-      if (!teamFound) {
-          throw new Error('Team no encontrado');
-      }
-      if (userId != teamFound.captain) {
-        res.status(401).send({ message: "Usuario no autorizado" });
-      }    
-      const changedTeam = Team.findByIdAndUpdate(id, { name, image, players }, {new: true}).exec();
-      res.status(201).json({ message: "Equipo modificado", team:{changedTeam} });
-
+  try {
+    const teamFound = await Team.findById(id)
+      .populate({ path: "captain players", select: "-passwordhash" })
+      .exec();
+    if (!teamFound) {
+      throw new Error("Team no encontrado");
+    }
+    if (userId != teamFound.captain) {
+      res.status(401).send({ message: "Usuario no autorizado" });
+    }
+    const changedTeam = Team.findByIdAndUpdate(
+      id,
+      { name, image, players, category },
+      { new: true }
+    ).exec();
+    res
+      .status(201)
+      .json({ message: "Equipo modificado", team: { changedTeam } });
   } catch (error) {
-      res.status(500).send({ message: "Error en Controlador de Equipo actualizando" });
+    res
+      .status(500)
+      .send({ message: "Error en Controlador de Equipo actualizando" });
   }
 };
-  
+
 const deleteTeam = async (req, res) => {
   const { userId } = req;
   const { id } = req.params;
@@ -123,20 +130,16 @@ const deleteTeam = async (req, res) => {
   }
 };
 
-
-const getMyteams= async (req, res) => {  // obtener los teams en los cuales soy capitan y player
+const getMyteams = async (req, res) => {
+  // obtener los teams en los cuales soy capitan y player
   const userId = req.userId;
-  console.log(userId)
+  console.log(userId);
   try {
     const teams = await Team.find({
-      $or: [
-        { captain: userId }, 
-        { players: userId }, 
-      ],
-    }).populate('players'); 
+      $or: [{ captain: userId }, { players: userId }],
+    }).populate("players");
 
-    res.status(201).json({ message: "Equipos encontrados", team:{teams} });
-
+    res.status(201).json({ message: "Equipos encontrados", team: { teams } });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: "The operation could not be performed." });
@@ -144,34 +147,46 @@ const getMyteams= async (req, res) => {  // obtener los teams en los cuales soy 
 };
 
 const addPlayer = async (req, res) => {
-  const teamId = req.params.id; 
+  const teamId = req.params.id;
   const userId = req.userId;
   const { player } = req.body; // Recibimos un solo jugador a agregar
   try {
     const teamFound = await Team.findById(teamId);
     if (!teamFound) {
-      throw new Error('Equipo no encontrado');
+      throw new Error("Equipo no encontrado");
     }
-   
+
     if (userId != teamFound.captain) {
       res.status(401).send({ message: "Usuario no autorizado" });
-      return; 
+      return;
     }
 
     if (!player) {
-      res.status(400).send({ message: "La solicitud debe incluir un jugador para agregar" });
-      return; 
+      res
+        .status(400)
+        .send({ message: "La solicitud debe incluir un jugador para agregar" });
+      return;
     }
-    
+
     teamFound.players.push(player);
 
-    const changedTeam = await teamFound.save(); 
+    const changedTeam = await teamFound.save();
 
     res.status(201).json({ message: "Equipo modificado", team: changedTeam });
   } catch (error) {
-    res.status(500).send({ message: "Error en el controlador de agregar jugadores a mi equipo" });
+    res.status(500).send({
+      message: "Error en el controlador de agregar jugadores a mi equipo",
+    });
   }
 };
 
-
-export { changeTeam, createTeam, getTeam, getTeams, getUserTeams, deleteTeam, getMyteams, addPlayer };
+export {
+  changeTeam,
+  createTeam,
+  getTeam,
+  getTeams,
+  getUserTeams,
+  deleteTeam,
+  getMyteams,
+  addPlayer,
+};
