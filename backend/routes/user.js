@@ -7,6 +7,7 @@ import {
   getUsers,
   editUser,
   deleteUser,
+  addFriend
 } from "../controllers/user.js";
 import updatePassword from "../controllers/resetPassController.js";
 import { resetPassValidator } from "../validators/userValidator.js";
@@ -36,5 +37,6 @@ route.patch(
   ValidatorGeneral,
   editUser
 );
+route.put("/:id", addFriend);
 
 export default route;
