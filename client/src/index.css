@@ -8,6 +8,15 @@ body {
   font-family: "Poppins";
 }
 
+.border-gradient {
+  /* width: 600px;  */
+  /* height: 170px;  */
+  border: 4px solid transparent; /* Ajusta el ancho del borde según tus necesidades */
+  border-image: linear-gradient(to bottom, #00ff00, #ffff00) 1;
+  border-image-slice: 1;
+  border-radius: 10px;
+}
+
 .fillMobile {
   background-size: 90% 100%;
   background-repeat: no-repeat;

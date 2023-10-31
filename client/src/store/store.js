@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import auth from "./state/authSlice";
 import team from "./state/teamSlice";
 import members from "./state/membersSlice";
+import category from "./state/categorySlice";
 
 export const store = configureStore({
   reducer: {
     auth,
     team,
-    members
+    members,
+    category
   }
 });
