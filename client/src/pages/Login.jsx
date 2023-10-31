@@ -57,25 +57,25 @@ function Login() {
   };
 
   return (
-    <section className="w-full h-screen flex bg-[#C5CBDE] ">
-      <div className="md:w-6/12 lg:w-6/12 xl:w-6/12  w-0  h-full"></div>
+    <section className="flex justify-end w-full h-screen bg-[#1E1E1E] relative">
+      <div className="h-[50rem] w-[50rem] background-circle fixed"></div>
 
-      <div className="md:w-6/12  lg:w-6/12 xl:w-6/12 w-full  h-full flex justify-center items-center text-center  ">
-        <div className="md:w-auto lg:w-auto xl:w-auto w-11/12 m-auto  bg-[#F1F3FF] p-[50px] rounded-2xl shadow-md">
+      <div className="md:w-6/12  lg:w-6/12 xl:w-6/12 w-full  h-full flex justify-center items-center text-center z-50 ">
+        <div className="md:w-auto lg:w-auto xl:w-auto w-11/12 m-auto  bg-black p-[50px] rounded-2xl shadow-md">
           <div className="text-center">
-            <h1 className="text-black md:text-5xl  text-2xl  font-bold">Let’s play</h1>
+            <h1 className="text-white md:text-5xl  text-2xl  font-bold">Let’s play</h1>
 
-            <h2 className="mt-7 mb-7 text-sm  ">Iniciar sesión con correo electrónico</h2>
+            <h2 className="mt-7 mb-7 text-sm text-white ">Iniciar sesión con correo electrónico</h2>
           </div>
 
           <form className="flex flex-col gap-6" onSubmit={e => handleSubmit(e)}>
             <div className="flex flex-col relative">
-              <label className=" bg-[#F1F3FF] absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
+              <label className=" bg-black absolute top-0 left-2 text-gray-200 transform -translate-y-2 transition-transform origin-top text-sm px-2">
                 Correo electrónico
               </label>
               <input
                 type="email"
-                className="h-12 pl-2 border bg-transparent rounded-sm border-black "
+                className="h-12 pl-2 border bg-black text-white rounded-sm border-white placeholder:bg-black placeholder:text-white"
                 value={username}
                 onChange={e => {
                   setUsername(e.target.value);
@@ -84,12 +84,12 @@ function Login() {
             </div>
 
             <div className="flex flex-col relative">
-              <label className="bg-[#F1F3FF] absolute top-0 left-2 text-gray-600 transform -translate-y-2 transition-transform origin-top text-sm">
+              <label className="bg-black absolute top-0 left-2 text-gray-200 transform -translate-y-2 transition-transform origin-top text-sm px-2">
                 Contraseña
               </label>
               <input
                 type={showPassword ? "text" : "password"}
-                className="h-12 border bg-transparent rounded-sm border-black pl-2"
+                className="h-12 border bg-transparent rounded-sm text-white border-white pl-2"
                 value={password}
                 onChange={e => {
                   setPassword(e.target.value);
@@ -112,18 +112,12 @@ function Login() {
             </button>
           </form>
 
-          <div className="flex mt-3 gap-1 items-center justify-center">
-            <div className="w-40 h-[1px] bg-black"></div>
-            <div className="w-2 h-2 border border-black bg-transparent rounded-full"></div>
-            <div className="w-40 h-[1px] bg-black"></div>
-          </div>
-
           <div className="w-full flex text-3xl justify-center gap-5 mt-9">
             <FcGoogle />
-            <BsFacebook />
+            <BsFacebook color="white" />
           </div>
 
-          <p className="text-center mt-9 text-sm">
+          <p className="text-center mt-9 text-sm text-white">
             ¿No tiene una cuenta?{" "}
             <Link to={"/register"} className="text-links">
               Registrarse ahora
