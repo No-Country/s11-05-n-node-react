@@ -1,63 +1,54 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function LandingBottom() {
-  const [desktopBG, setDesktopBG] = useState("bg_1.png");
+  const [customBG, setCustomBG] = useState(1);
 
   return (
     <>
-      <section className="mx-auto mt-40 grid w-[90%] max-w-screen-xl gap-10 rounded-3xl border border-black/[3%] px-10 py-12 shadow-xl md:grid-cols-2">
-        <img
-          src="img/landing_3.avif"
-          className="h-full w-full rounded-md object-cover"
-          alt="Foto de representación de varios deportes"
-        />
-        <div className="mx-auto my-auto flex h-fit flex-col gap-14 md:w-[80%]">
-          <span className="text-3xl font-bold md:text-4xl">
-            {"Instala Let's play o regístrate en web y vive tu propia experiencia"}
+      <section className="mx-auto mt-40 grid w-[90%] max-w-screen-xl rounded-3xl overflow-hidden lg:grid-cols-2">
+        <div className="relative">
+          <span className="block absolute w-full lg:w-[30%] lg:h-full h-[40%] lg:ml-auto inset-x-0 bottom-0 bg-gradient-to-t lg:bg-gradient-to-l from-black to-transparent"></span>
+          <img
+            src="https://th.bing.com/th/id/OIG.JP5dGcyHMBa5BVxyk7dC?pid=ImgGn"
+            className="h-full w-full object-cover"
+            alt="Foto de partido de futbol"
+          />
+        </div>
+        <div className="mx-auto my-auto flex items-center justify-center h-full flex-col lg:p-8 gap-20">
+          <span className="text-5xl lg:text-4xl font-semibold xl:text-6xl xl:max-w-[80%]">
+            {"Unite a Let's Play y disfruta de tu deporte favorito."}
           </span>
 
-          <button
-            type="button"
-            className="pressable -mb-8 rounded-lg bg-black py-2.5 text-lg font-semibold text-white md:text-xl"
-            aria-describedby="Unite a la pagina haciendo click aca"
+          <Link
+            to="/register"
+            aria-label="Empezar a Jugar"
+            className="block text-3xl py-5 px-8 bg-gradient-to-b from-[#B5FF16] to-green-600 w-fit text-black rounded-2xl font-medium pressable mx-auto"
           >
-            Empecemos
-          </button>
-
-          <div className="mx-auto grid max-w-sm grid-cols-2 items-center gap-5 max-md:place-items-end">
-            <img
-              src="/img/google_badge.png"
-              className="pressable object-contain"
-              alt="Descargalo en Google Play Store"
-            />
-            <img
-              src="/img/apple_badge.png"
-              className="pressable object-contain"
-              alt="Descargalo en la App Store"
-            />
-          </div>
+            Empeza a Jugar
+          </Link>
         </div>
       </section>
 
       <section className="mx-auto my-40 grid w-[90%] max-w-screen-xl gap-28 pb-44 md:grid-cols-2">
         <div>
           <button
-            onMouseOver={() => setDesktopBG("bg_2.png")}
-            className="max-w-xs rounded-3xl border border-black/[3%] p-7 text-xl font-medium shadow-xl transition duration-300 hover:scale-105"
+            onMouseOver={() => setCustomBG(2)}
+            className="max-w-xs rounded-3xl rounded-br-none text-black/90 bg-gradient-to-t from-white to-slate-200/90 py-7 px-3 text-xl font-semibold shadow-xl transition duration-300 hover:scale-105"
             aria-description="Crea tu cuenta de manera rapida y sencilla."
           >
             Crea tu cuenta de manera rapida y sencilla.
           </button>
           <button
-            onMouseOver={() => setDesktopBG("bg_1.png")}
-            className="mx-auto mt-5 block max-w-xs rounded-3xl border border-black/[3%] p-7 text-xl font-medium shadow-xl transition duration-300 hover:scale-105"
+            onMouseOver={() => setCustomBG(1)}
+            className="mx-auto mt-5 block max-w-xs rounded-3xl rounded-br-none text-black/90 bg-gradient-to-t from-white to-slate-200/90 py-7 px-3 text-xl font-semibold shadow-xl transition duration-300 hover:scale-105"
             aria-description="Arma tu equipo y agrega nuevos compañeros."
           >
             Arma tu equipo y agrega nuevos compañeros.
           </button>
           <button
-            onMouseOver={() => setDesktopBG("bg_2.png")}
-            className="ml-auto mt-5 block max-w-xs rounded-3xl border border-black/[3%] p-7 text-xl font-medium shadow-xl transition duration-300 hover:scale-105"
+            onMouseOver={() => setCustomBG(2)}
+            className="ml-auto mt-5 block max-w-xs rounded-3xl rounded-br-none text-black/90 bg-gradient-to-t from-white to-slate-200/90 py-7 px-3 text-xl font-semibold shadow-xl transition duration-300 hover:scale-105"
             aria-description="Planea y disfruta tus torneos en esta web."
           >
             Planea y disfruta tus torneos en esta web.
@@ -66,14 +57,14 @@ export default function LandingBottom() {
         <div className="relative w-full">
           <img
             src="img/iphone14.png"
-            style={{ backgroundImage: "url(img/phone.png)" }}
+            style={{ backgroundImage: `url(img/phone_${customBG}.png)` }}
             className="fillMobile w-full max-w-[196px] overflow-hidden rounded-3xl drop-shadow-2xl max-[420px]:max-w-[128px] md:rounded-[2.15rem]"
             alt="Pagina desde el celular"
           />
 
           <img
             src="img/macbook.png"
-            style={{ backgroundImage: `url(img/${desktopBG})` }}
+            style={{ backgroundImage: `url(img/bg_${customBG}.webp)` }}
             className="fillDesktop absolute -bottom-32 right-0 w-full max-w-lg drop-shadow-2xl"
             alt="Pagina desde la notebook"
           />
