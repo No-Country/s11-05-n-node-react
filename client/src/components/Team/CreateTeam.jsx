@@ -21,9 +21,8 @@ function CreateTeam({ setShow }) {
     try {
       const team = await dispatch(createTeam(newTeam));
       if (team.message) {
-        console.log("mewTeam", team.message);
-        setNewTeam({ ...newTeam, name: "", image: null });
-        dispatch(clearAllMembers());
+        await dispatch(clearAllMembers());
+        setNewTeam({ ...newTeam, name: " ", image: null });
       }
     } catch (error) {
       console.log(error);

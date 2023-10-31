@@ -6,7 +6,7 @@ const TeamAvatar = ({ team }) => {
     <>
       <div
         id={team._id}
-        className="flex w-16 h-16 justify-center items-center rounded-full border-2 border-blue-500 bg-slate-300 mt-4 relative"
+        className="flex w-16 h-16 justify-center items-center rounded-full border-2 border-blue-500 bg-slate-300 relative"
       >
         {team.image ? (
           <img
