@@ -89,7 +89,7 @@ const Onboarding = () => {
 
   return (
     <div className="grid place-content-center h-full my-auto place-items-center py-10">
-      <h1 className="text-white text-center text-5xl font-bold">
+      <h1 className="text-white text-center text-4xl sm:text-5xl font-bold max-sm:w-[80%] max-sm:mx-auto">
       <span className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">{"¡Bienvenid@ a Let's"}</span>{" "}
       <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
         Play!
@@ -114,7 +114,7 @@ const Onboarding = () => {
           title={"Selecciona tus deportes favoritos"}
         />
       )}
-      <section className="flex flex-col items-center gap-5 mt-10 w-[90%] mx-auto">
+      <section className="flex flex-col items-center justify-center gap-5 mt-10 w-[90%] mx-auto">
         <div className={"grid gap-4 font-medium text-lg"+(pageActive > 0? " grid-cols-2" : " grid-cols-1")}>
           {pageActive > 0 && (
             <button
@@ -127,7 +127,7 @@ const Onboarding = () => {
           <button
             className={` ${
               isButtonActive() ? "bg-gradient-to-b from-[#B5FF16] to-green-600 text-black/90" : "bg-gray-300"
-            } py-2 px-14 rounded-md pressable`}
+            } py-2 px-14 rounded-md pressable grid place-content-center`}
             onClick={handleClickNext}
             disabled={isButtonActive() ? "" : "disabled"}
           >
