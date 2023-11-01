@@ -148,10 +148,13 @@ function Profile() {
             </Transition>
 
             <div className="flex flex-col">
-              <span className="font-semibold text-xl md:text-2xl">
-                {user?.firstName || "John"} {user?.lastName || "Doe"}{" "}
+              <span className="font-semibold text-xl md:text-2xl capitalize">
+                {user?.firstName || ""} {user?.lastName || ""}
+                {user?.nickName && user?.firstName && user.lastName ? "" : user?.nickName}{" "}
                 <small className="text-sm opacity-80">
-                  {user?.nickName ? "(" + user?.nickName + ")" : ""}
+                  {user?.nickName && user?.firstName && user.lastName
+                    ? "(" + user?.nickName + ")"
+                    : ""}
                 </small>
               </span>
               <span className="font-semibold opacity-80">

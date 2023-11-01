@@ -6,15 +6,15 @@ import Footer from "../components/footer/Footer";
 
 const Landing = () => {
   return (
-    <>
+    <div className="bg-black">
       <Navbar />
-      <main className="pt-14 pb-4 flex flex-col w-full">
+      <main className="flex flex-col w-full bg-black text-white">
         <HeaderLanding />
         <Advantages />
         <BottomLanding />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

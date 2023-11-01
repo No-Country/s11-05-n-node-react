@@ -132,4 +132,53 @@ const editUser = async (req, res) => {
   }
 };
 
-export { createUser, auth, getUsers, getUser, editUser, deleteUser };
+const addFriend = async (req, res) => {
+  const id = req.params.id;
+  const friendEmail = req.body.friendEmail;
+  const friendNickName = req.body.friendNickName;
+
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Usuario no encontrado" });
+    }
+
+    const friend = await User.findOne({
+      $or: [{ email: friendEmail }, { nickName: friendNickName }],
+    });
+
+    if (!friend) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Amigo no encontrado" });
+    }
+
+    if (user.friends && user.friends.includes(friend._id)) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Este usuario ya es tu amigo" });
+    }
+
+    if (!user.friends) {
+      user.friends = [];
+    }
+    user.friends.push(friend._id);
+    await user.save();
+
+    res
+      .status(200)
+      .json({
+        success: true,
+        message: "Amigo agregado correctamente",
+        friendNickName: friend.nickName,
+        friendEmail: friend.email,
+      });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Error al agregar amigo" });
+  }
+};
+
+export { createUser, auth, getUsers, getUser, editUser, deleteUser, addFriend  };

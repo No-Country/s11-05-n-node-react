@@ -221,6 +221,14 @@ export default function FormProfile({ user }) {
 
             <section className="flex items-center justify-between gap-4 max-sm:mt-5 max-sm:flex-col w-full">
               <button
+                onClick={() => setIsOpen(true)}
+                className="py-1.5 px-3 bg-red-100 text-red-500 font-medium rounded-md sm:mt-5 w-full sm:w-fit"
+                type="button"
+              >
+                Eliminar Cuenta
+              </button>
+
+              <button
                 className={
                   "py-1.5 px-3 bg-black text-white font-medium rounded-md sm:mt-5 w-full sm:w-fit" +
                   (uploading ? " animate-pulse" : "")
@@ -229,14 +237,6 @@ export default function FormProfile({ user }) {
                 disabled={uploading}
               >
                 {uploading ? "Guardando..." : "Guardar"}
-              </button>
-
-              <button
-                onClick={() => setIsOpen(true)}
-                className="py-1.5 px-3 bg-red-100 text-red-500 font-medium rounded-md sm:mt-5 w-full sm:w-fit"
-                type="button"
-              >
-                Eliminar Cuenta
               </button>
             </section>
           </div>
