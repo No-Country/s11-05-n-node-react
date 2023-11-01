@@ -62,9 +62,13 @@ const getUser = async (req, res) => {
 
 const auth = async (req, res) => {
   const { nickName, email, password } = req.body;
+
   try {
     const findUser = email
-      ? await User.findOne({ email }).select("-passwordHash")
+      ? await User.findOne({ email })
+          .select("-passwordHash")
+          .populate({ path: "category" })
+          .exec()
       : await User.findOne({ nickName }).select("-passwordHash");
 
     if (!findUser) {
@@ -133,52 +137,48 @@ const editUser = async (req, res) => {
 };
 
 const addFriend = async (req, res) => {
-  const id = req.params.id;
-  const friendEmail = req.body.friendEmail;
-  const friendNickName = req.body.friendNickName;
-
+  const user = req.userId;
+  const friend = req.params.id;
   try {
-    const user = await User.findById(id);
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Usuario no encontrado" });
-    }
-
-    const friend = await User.findOne({
-      $or: [{ email: friendEmail }, { nickName: friendNickName }],
-    });
-
-    if (!friend) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Amigo no encontrado" });
-    }
-
-    if (user.friends && user.friends.includes(friend._id)) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Este usuario ya es tu amigo" });
-    }
-
-    if (!user.friends) {
-      user.friends = [];
-    }
-    user.friends.push(friend._id);
-    await user.save();
-
-    res
+    const friendAdd = await User.findByIdAndUpdate(
+      { _id: user },
+      { $push: { friends: friend } },
+      { new: true }
+    );
+    return res
       .status(200)
-      .json({
-        success: true,
-        message: "Amigo agregado correctamente",
-        friendNickName: friend.nickName,
-        friendEmail: friend.email,
-      });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: "Error al agregar amigo" });
+      .send({ message: "Amigo Agregado", friend: friendAdd.friends });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "no se pudo agregar al amigo" });
   }
 };
 
-export { createUser, auth, getUsers, getUser, editUser, deleteUser, addFriend  };
+const deleteFriend = async (req, res) => {
+  const user = req.userId;
+  const friend = req.params.id;
+  try {
+    const friendDelete = await User.findByIdAndUpdate(
+      { _id: user },
+      { $pull: { friends: friend } },
+      { new: true }
+    );
+    return res
+      .status(200)
+      .send({ message: "Amigo eliminado", friends: friendDelete.friends });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "no se pudo eliminar el amigo" });
+  }
+};
+
+export {
+  createUser,
+  auth,
+  getUsers,
+  getUser,
+  editUser,
+  deleteUser,
+  addFriend,
+  deleteFriend,
+};

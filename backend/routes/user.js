@@ -7,7 +7,8 @@ import {
   getUsers,
   editUser,
   deleteUser,
-  addFriend
+  addFriend,
+  deleteFriend,
 } from "../controllers/user.js";
 import updatePassword from "../controllers/resetPassController.js";
 import { resetPassValidator } from "../validators/userValidator.js";
@@ -37,6 +38,7 @@ route.patch(
   ValidatorGeneral,
   editUser
 );
-route.put("/:id", addFriend);
+route.put("/friend/:id", verifyJWT, addFriend);
+route.delete("/friend/:id", verifyJWT, deleteFriend);
 
 export default route;
