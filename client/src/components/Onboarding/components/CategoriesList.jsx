@@ -18,28 +18,31 @@ const CategoriesList = ({ categories, title }) => {
     }
   };
   return (
-    <div className="flex flex-col w-full items-center p-5 ">
-      <span className="text-base py-12 text-white">{title}</span>
-      <div className="flex w-full justify-center gap-10 flex-wrap">
+    <div className="flex flex-col w-[90%] items-center max-w-screen-xl mx-auto">
+      <span className="my-10 text-white font-medium text-lg">{title}</span>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-5 h-full">
         {categories?.map(cat => {
           return (
-            <div
+            <button
+              type="button"
               key={cat._id}
-              className={`bg-white flex relative w-[14.0625rem] h-[14.0625rem] rounded-3xl justify-center shadow-md shadow-green-400  cursor-pointer`}
+              className="w-full h-full max-h-[225px] p-1 rounded-2xl aspect-square overflow-hidden bg-gradient-to-b from-[#00ff00] to-[#ffff00]"
               onClick={() => addOrRemoveCategory(cat)}
             >
-              <img
-                src={
-                  cat.image ||
-                  "https://media.wired.com/photos/61f48f02d0e55ccbebd52d15/master/w_2560%2Cc_limit/Gear-Rant-Game-Family-Plans-1334436001.jpg"
-                }
-                alt="falta"
-                className={`w-full h-full rounded-3xl object-cover ${
-                  isSelected(cat) ? "opacity-40" : null
-                }`}
-              />
-              <p className="absolute text-xl font-semibold text-white bottom-3">{cat.name}</p>
-            </div>
+              <div className="relative w-full h-full">
+                <img
+                  src={
+                    cat.image ||
+                    "https://media.wired.com/photos/61f48f02d0e55ccbebd52d15/master/w_2560%2Cc_limit/Gear-Rant-Game-Family-Plans-1334436001.jpg"
+                  }
+                  alt="falta"
+                  className={`w-full h-full rounded-2xl object-cover ${
+                    isSelected(cat) ? "opacity-40" : null
+                  }`}
+                />
+                <p className="absolute text-xl font-semibold text-white bottom-3 inset-x-0">{cat.name}</p>
+              </div>
+            </button>
           );
         })}
       </div>

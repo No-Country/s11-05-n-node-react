@@ -88,8 +88,13 @@ const Onboarding = () => {
   }, []);
 
   return (
-    <div className="px-10 pt-10 bg-black">
-      <h1 className="flex w-full text-2xl font-bold text-green-400">¡Bienvenid@ a Let´s Play!</h1>
+    <div className="grid place-content-center h-full my-auto place-items-center py-10">
+      <h1 className="text-white text-center text-5xl font-bold">
+      <span className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">{"¡Bienvenid@ a Let's"}</span>{" "}
+      <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
+        Play!
+      </span>
+      </h1>
       {pageActive === 0 && (
         <CategoriesTypes
           typesCategories={typesCategories}
@@ -109,27 +114,27 @@ const Onboarding = () => {
           title={"Selecciona tus deportes favoritos"}
         />
       )}
-      <section className="flex flex-col items-center">
-        <div className="flex gap-4">
+      <section className="flex flex-col items-center gap-5 mt-10 w-[90%] mx-auto">
+        <div className={"grid gap-4 font-medium text-lg"+(pageActive > 0? " grid-cols-2" : " grid-cols-1")}>
           {pageActive > 0 && (
             <button
-              className="w-[240px] h-[40px] bg-gray-300 rounded-md mt-16"
+              className="py-2 px-14 bg-gray-200 rounded-md pressable"
               onClick={handleClickPrev}
             >
-              atras
+              Atras
             </button>
           )}
           <button
             className={` ${
-              isButtonActive() ? "bg-green-400" : "bg-gray-300"
-            } w-[240px] h-[40px]  rounded-md mt-16`}
+              isButtonActive() ? "bg-gradient-to-b from-[#B5FF16] to-green-600 text-black/90" : "bg-gray-300"
+            } py-2 px-14 rounded-md pressable`}
             onClick={handleClickNext}
             disabled={isButtonActive() ? "" : "disabled"}
           >
             {buttonName}
           </button>
         </div>
-        <button className="w-[240px] h-[40px] mt-1 text-blue-500" onClick={() => navigate("/home")}>
+        <button className="text-blue-500 pressable font-medium" onClick={() => navigate("/home")}>
           Omitir
         </button>
       </section>
