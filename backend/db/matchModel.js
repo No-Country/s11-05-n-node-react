@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
-const matchSchema = new mongoose.Schema(
+const matchSchema = new Schema(
   {
     nameTeams: [
       {
@@ -46,6 +46,4 @@ const matchSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Match = mongoose.model("Match", matchSchema);
-
-export default Match;
+export default model("Match", matchSchema);
