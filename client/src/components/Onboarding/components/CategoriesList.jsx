@@ -26,7 +26,7 @@ const CategoriesList = ({ categories, title }) => {
             <button
               type="button"
               key={cat._id}
-              className="w-full h-full max-h-[225px] p-1 rounded-2xl aspect-square overflow-hidden bg-gradient-to-b from-[#00ff00] to-[#ffff00]"
+              className="w-full h-full max-h-[225px] p-1 rounded-2xl aspect-square flex flex-col bg-gradient-to-b from-[#00ff00] to-[#ffff00]"
               onClick={() => addOrRemoveCategory(cat)}
             >
               <div className="relative w-full h-full">
