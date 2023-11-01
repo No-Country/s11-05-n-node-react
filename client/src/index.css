@@ -8,6 +8,15 @@ body {
   font-family: "Poppins";
 }
 
+
+.background-circle {
+  width: 80%;
+  height: 160%;
+  background: radial-gradient(circle at center, rgba(32, 252, 69, 0.904), transparent, #1e1e1e);
+  border-radius: 50%;
+  right: -350px;
+  bottom: -300px;
+}
 .border-gradient {
   /* width: 600px;  */
   /* height: 170px;  */
