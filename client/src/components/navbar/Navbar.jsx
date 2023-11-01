@@ -53,7 +53,7 @@ const Navbar = () => {
           <Link
             to="/register"
             className={
-              "flex items-center h-[38px] max-sm:justify-center max-md:text-center pressable bg-gradient-to-b from-[#B5FF16] to-green-600 text-black/90 py-1.5 px-3.5 rounded-lg" +
+              "flex items-center h-[38px] max-md:justify-center max-md:text-center pressable bg-gradient-to-b from-[#B5FF16] to-green-600 text-black/90 py-1.5 px-3.5 rounded-lg" +
               (openMenu ? "" : " max-md:hidden")
             }
             aria-label="Registrate"

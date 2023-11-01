@@ -32,7 +32,7 @@ const CategoriesList = ({ categories, title }) => {
               <div className="relative w-full h-full">
                 <img
                   src={
-                    cat.image ||
+                    cat?.image ||
                     "https://media.wired.com/photos/61f48f02d0e55ccbebd52d15/master/w_2560%2Cc_limit/Gear-Rant-Game-Family-Plans-1334436001.jpg"
                   }
                   alt="falta"
