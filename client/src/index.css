@@ -21,6 +21,7 @@ body {
   background-size: 90% 100%;
   background-repeat: no-repeat;
   background-position: center;
+  transition: background-image 0.5s;
 }
 
 .fillDesktop {
@@ -50,4 +51,29 @@ body {
   100% {
     transform: scale(1);
   }
+}
+
+.hamburger span {
+  width: 32px;
+  height: 2px;
+  display: block;
+  margin: 5px auto;
+  transition: all 0.3s cubic-bezier(0.52, 0.01, 0.16, 1);
+  background-color: #b5ff16;
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+.transition-height {
+  transition: height 0.5s;
 }
