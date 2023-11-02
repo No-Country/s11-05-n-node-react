@@ -1,34 +1,52 @@
 import { useState } from "react";
-import CreateTeam from "../components/Team/CreateTeam";
 import LoadTeams from "../components/Team/LoadTeams";
-import LoadPlayers from "../components/Team/LoadPlayers";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listMembers } from "../store/state/membersSlice";
 import { useParams } from "react-router-dom";
+import CreateMatches from "../components/Matches/CreateMatches";
+import { listTeams } from "../store/state/teamSlice";
+import LoadTeamsMatches from "../components/Matches/LoadTeamsMatches";
 
 function Matches() {
-  const members = useSelector(state => state.members.listMembers);
+  const teamSelected = useSelector(state => state.team.teamSelected);
+  const teams = useSelector(state => state.team.listTeams);
 
   const [show, setShow] = useState(false);
+
+  const [showTeam, setShowTeam] = useState([]);
 
   const dispatch = useDispatch();
   const { type } = useParams();
 
   useEffect(() => {
-    dispatch(dispatch(listMembers));
+    dispatch(dispatch(listTeams));
   }, []);
 
+  useEffect(() => {
+    if (teamSelected?._id) {
+      const teamEqual = teams?.filter(team => team?.category?._id === teamSelected?.category?._id);
+      setShowTeam(teamEqual);
+    }
+  }, [teamSelected]);
+
+  useEffect(() => {
+    if (type) {
+      setShowTeam(teams);
+    }
+  }, [type]);
+
   return (
-    <section className="flex  flex-col gap-5   max-w-screen-lg w-full mx-auto mb-10">
+    <section className="flex  flex-col max-w-screen-lg w-full ">
       <div className="flex flex-col gap-5">
-        <h2>My Teams {type}</h2>
-        <button onClick={() => setShow(!show)}>{!show ? "Add team" : "Close"} </button>
+        <h2 className="text-white text-lg">
+          {type === "sport" ? "Partidos Presenciales" : "Partidas Online"}
+        </h2>
         <LoadTeams type={type} />
+        <div className="flex gap-6">
+          <CreateMatches setShow={setShow} />
 
-        <CreateTeam setShow={setShow} />
-
-        {show ? <LoadPlayers members={members} /> : ""}
+          {show ? <LoadTeamsMatches teams={showTeam} type={type} /> : ""}
+        </div>
       </div>
     </section>
   );

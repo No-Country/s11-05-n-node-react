@@ -24,6 +24,8 @@ const getTeams = async (req, res) => {
       .populate({
         path: "captain players",
         select: "firstName lastName nickName email",
+      }).populate({
+        path: "category",
       })
       .exec();
     res.status(200).json({ message: "Equipos encontrados", allTeams });

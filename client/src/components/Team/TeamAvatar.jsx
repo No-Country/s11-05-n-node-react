@@ -3,13 +3,17 @@ import { RiTeamFill } from "react-icons/ri";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { BiFootball } from "react-icons/bi";
 import { BsOutlet } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { setTeamSelected } from "../../store/state/teamSlice";
 
 const TeamAvatar = ({ team }) => {
+  const dispatch = useDispatch();
   return (
     <>
       <div
         id={team._id}
-        className="flex w-16 h-16 justify-center items-center rounded-full border-2 border-blue-500 bg-slate-300 relative"
+        className="flex w-16 h-16 justify-center items-center rounded-full border-2 border-blue-500 bg-slate-300 cursor-pointer relative"
+        onClick={() => dispatch(setTeamSelected(team))}
       >
         {team.image ? (
           <img

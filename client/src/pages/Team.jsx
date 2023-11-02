@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listMembers } from "../store/state/membersSlice";
 
 function Team() {
-  const members = useSelector(state => state.members.listMembers);
+  const friends = useSelector(state => state.auth.user.friends);
 
   const [show, setShow] = useState(false);
 
@@ -23,7 +23,7 @@ function Team() {
       <div className="flex gap-5">
         <CreateTeam setShow={setShow} />
 
-        {show ? <LoadPlayers members={members} /> : ""}
+        {show ? <LoadPlayers members={friends} /> : ""}
       </div>
     </section>
   );
