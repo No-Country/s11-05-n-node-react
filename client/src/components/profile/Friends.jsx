@@ -8,14 +8,14 @@ export default function Friends({ friends }) {
   return (
     <section>
       <span className="font-semibold text-2xl">Amigos</span>
-      {friends.length > 0 && friends? (
+      {friends.length > 0 && friends ? (
         <div className="flex items-center gap-3 flex-wrap">
           {Children.toArray(
             friends.slice(0, 4).map(friend => (
               <div className="flex flex-col gap-1 items-center text-sm font-medium mt-2">
                 <img
                   onError={e => {
-                    e.target.src = "/img/profile_default.webp"
+                    e.target.src = "/img/profile_default.webp";
                   }}
                   className="w-full max-w-[56px] aspect-square object-cover rounded-full overflow-hidden"
                   src={friend?.avatar || "/img/profile_default.webp"}
@@ -32,7 +32,7 @@ export default function Friends({ friends }) {
                   <div className="flex flex-col gap-1 items-center text-sm font-medium mt-2">
                     <img
                       onError={e => {
-                        e.target.src = "/img/profile_default.webp"
+                        e.target.src = "/img/profile_default.webp";
                       }}
                       className="w-full max-w-[56px] aspect-square object-cover rounded-full overflow-hidden"
                       src={friend?.avatar || "/img/profile_default.webp"}
@@ -55,14 +55,14 @@ export default function Friends({ friends }) {
         </div>
       ) : (
         <>
-        <p className="font-medium mt-1">Tus amigos se veran reflejados en esta sección.</p>
-        <Link
-          to="/"
-          className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black py-1.5 px-3.5 rounded-md font-medium w-fit pressable mt-3"
-          type="button"
-        >
-          Agregar Amigos
-        </Link>
+          <p className="font-medium mt-1">Tus amigos se veran reflejados en esta sección.</p>
+          <Link
+            to="/"
+            className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black py-1.5 px-3.5 rounded-md font-medium w-fit pressable mt-3"
+            type="button"
+          >
+            Agregar Amigos
+          </Link>
         </>
       )}
     </section>

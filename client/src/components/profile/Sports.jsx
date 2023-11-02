@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Sports({ sports }) {
+export default function Sports({ sports, title }) {
   const [showMoreSports, setShowMoreSports] = useState(false);
 
   return (
     <div className="flex flex-col gap-1">
-      <span className="font-semibold text-2xl">Deportes</span>
+      <span className="font-semibold text-2xl">{title}</span>
       {sports?.length > 0 ? (
         <div className="flex items-center gap-3 flex-wrap">
           {sports?.slice(0, 4).map(category => (
