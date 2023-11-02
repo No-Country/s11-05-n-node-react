@@ -24,7 +24,7 @@ function ListFriends({ members, friends }) {
               );
             })
           ) : (
-            <span className=" text-white ">Aun no tienes favoritos</span>
+            <span className=" text-white ">Tus amigos apareceran aqui.</span>
           )}
         </div>
       </div>

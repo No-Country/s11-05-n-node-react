@@ -36,10 +36,8 @@ const Register = () => {
           document.querySelector('button[type="submit"]').innerText = "Crear cuenta";
           setTimeout(() => {
             navigate("/login");
-          }, 2000); 
-        }
-        else
-        {
+          }, 2000);
+        } else {
           toast.error(res.message);
           document.querySelector('button[type="submit"]').innerText = "Crear cuenta";
         }

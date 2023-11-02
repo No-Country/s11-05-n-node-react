@@ -118,7 +118,7 @@ function Login() {
                 {showPassword ? <BsEyeFill size={20} /> : <BsEyeSlashFill size={20} />}
               </span>
             </div>
-            
+
             {errores && (
               <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md text-center text-sm mx-auto">
                 {errores}{" "}
