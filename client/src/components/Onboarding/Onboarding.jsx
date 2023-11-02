@@ -88,7 +88,7 @@ const Onboarding = () => {
   }, []);
 
   return (
-    <div className="grid place-content-center h-full my-auto place-items-center py-10">
+    <div className="grid place-content-center h-full my-auto place-items-center py-10 background-circle">
       <h1 className="text-white text-center text-4xl sm:text-5xl font-bold max-sm:w-[80%] max-sm:mx-auto">
         <span className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">
           {"¡Bienvenid@ a Let's"}
