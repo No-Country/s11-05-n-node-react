@@ -52,8 +52,9 @@ const SidebarHome = () => {
   return (
     <>
       <section
-        className={`bg-[#101010] text-[#babbbd] fixed ${open ? "-left-0" : "-left-full"
-          }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all duration-300 z-50`}
+        className={`bg-[#101010] text-[#babbbd] fixed ${
+          open ? "-left-0" : "-left-full"
+        }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all duration-300 z-50`}
       >
         <div>
           <nav className="">

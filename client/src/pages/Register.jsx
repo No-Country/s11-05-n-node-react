@@ -162,7 +162,11 @@ const Register = () => {
             {errores && (
               <div className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md relative">
                 {errores}
-                <button className="absolute -right-3 -top-3 bg-red-100 p-1 rounded-full text-sm" type="button" onClick={() => setErrores(null)}>
+                <button
+                  className="absolute -right-3 -top-3 bg-red-100 p-1 rounded-full text-sm"
+                  type="button"
+                  onClick={() => setErrores(null)}
+                >
                   <RiCloseLine size={18} />
                 </button>
               </div>
