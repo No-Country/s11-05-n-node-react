@@ -19,6 +19,18 @@ function Profile() {
 
   const user = useSelector(state => state.auth.user);
 
+  const filterSport = array => {
+    const game = array.filter(e => e.type === "game");
+    const sport = array.filter(e => e.type === "sport");
+
+    return {
+      game,
+      sport
+    };
+  };
+
+  const sportsData = filterSport(user.category);
+
   const changeAvatar = e => {
     setAvatar(e.target.files[0]);
     setIsOpen(true);
@@ -182,7 +194,9 @@ function Profile() {
               <section className="flex flex-col gap-10">
                 <Friends friends={user?.friends} />
 
-                <Sports sports={user?.category} />
+                <Sports sports={sportsData.sport} title={"Deportes"} />
+
+                <Sports sports={sportsData.game} title={"Gaming"} />
               </section>
 
               <section className="flex flex-col gap-10">

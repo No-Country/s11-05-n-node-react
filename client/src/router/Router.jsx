@@ -24,8 +24,8 @@ export const LoadingSplash = () => {
         </span>
       </span>
     </div>
-  )
-}
+  );
+};
 
 const Router = () => {
   return (

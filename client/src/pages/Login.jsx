@@ -69,7 +69,6 @@ function Login() {
     <>
       <Toaster />
       <section className="relative max-w-screen-xl w-[95%] sm:w-[90%] mx-auto background-circle">
-
         <div className="ml-auto sm:max-w-sm w-full bg-neutral-950 my-16 p-10 sm:p-12 rounded-2xl shadow-md">
           <div className="text-center">
             <h1 className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white text-5xl font-bold">

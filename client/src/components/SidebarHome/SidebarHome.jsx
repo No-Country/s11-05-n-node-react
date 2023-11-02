@@ -42,7 +42,7 @@ const links = [
 
 const SidebarHome = () => {
   const [open, setOpen] = useState(false);
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -73,11 +73,12 @@ const SidebarHome = () => {
             <Link
               key={index}
               to={link.to}
-              className={(pathname === link.to? "text-white " : "hover:text-white ") + "flex items-center gap-4 py-4 font-bold text-[1rem]"}
+              className={
+                (pathname === link.to ? "text-white " : "hover:text-white ") +
+                "flex items-center gap-4 py-4 font-bold text-[1rem]"
+              }
             >
-              <span className="flex justify-center items-center hover:text-white">
-                {link.icon}
-              </span>
+              <span className="flex justify-center items-center hover:text-white">{link.icon}</span>
               {link.label}
             </Link>
           ))}
