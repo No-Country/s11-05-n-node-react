@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { listMyTeams } from "../../store/state/teamSlice";
-import TeamAvatar from "./TeamAvatar";
+import { useDispatch } from "react-redux";
+import { listTeams } from "../../store/state/teamSlice";
+import TeamAvatarMatches from "./TeamAvatarMatches";
 
-function LoadTeams({ type }) {
-  const teams = useSelector(state => state.team.myTeams);
+function LoadTeamsMatches({ teams, type }) {
   const dispatch = useDispatch();
   const showTeams = () => {
     if (type === "sport" || type === "game")
@@ -14,17 +13,16 @@ function LoadTeams({ type }) {
   };
 
   useEffect(() => {
-    dispatch(dispatch(listMyTeams));
+    dispatch(listTeams());
   }, []);
 
   return (
     <>
-      <h2 className="font-semibold text-white">Mis equipos</h2>
       <div className="flex flex-wrap bg-black gap-7 border border-white  p-6 w-full  shadow-md rounded-md justify-center">
-        {teams.length > 0 ? (
+        {teams?.length > 0 ? (
           showTeams()?.map(team => (
             <div key={team._id}>
-              <TeamAvatar team={team} />
+              <TeamAvatarMatches team={team} />
             </div>
           ))
         ) : (
@@ -35,4 +33,4 @@ function LoadTeams({ type }) {
   );
 }
 
-export default LoadTeams;
+export default LoadTeamsMatches;

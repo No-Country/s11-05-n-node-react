@@ -58,18 +58,18 @@ function CreateTeam({ setShow }) {
             name="name"
             value={newTeam.name}
             type="text "
-            className="max-w-[393px]  p-2 h-12 rounded-lg"
+            className="max-w-[393px] bg-white/5 border border-white/30 p-2 h-12 rounded-lg"
             onChange={e => handleChange(e)}
           />
         </div>
         <div className="flex flex-col w-[95%] gap-1">
           <label className="text-sm">Selecciona juego</label>
           <select
-            className="max-w-[393px] h-12 rounded-lg p-2"
+            className="max-w-[393px] h-12 rounded-lg p-2  bg-white/5 border border-white/30"
             name="category"
             onChange={e => handleChange(e)}
           >
-            <optgroup>
+            <optgroup className=" text-black">
               {categoriesList?.map(cat => (
                 <option key={cat._id} value={cat._id}>
                   {" "}
