@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import ListFriends from "../components/HomeComponents/ListFriends";
-import RelatedSearch from "../components/HomeComponents/RelatedSearch";
 import TeamBuilding from "../components/HomeComponents/TeamBuilding";
 import { useEffect } from "react";
 import { listMembers } from "../store/state/membersSlice";
@@ -18,13 +17,11 @@ const Home = () => {
   return (
     <>
       <section className="flex flex-col lg:flex-row gap-4 w-full">
-        <div className="w-full p-4 text-white">
-          <RelatedSearch />
+        <div className="w-full mt-4 px-4 text-white">
           <TeamBuilding />
         </div>
 
-        <div className="w-full p-4 text-white">
-          <h2 className=" font-bold mb-4"> Amigos</h2>
+        <div className="w-full mt-4 px-4 text-white">
           <ListFriends members={members} friends={friends} />
         </div>
       </section>

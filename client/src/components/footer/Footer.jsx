@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { IoMdContact } from "react-icons/io";
 import { HiUserGroup } from "react-icons/hi";
 
 const Footer = () => {
   return (
     <footer className="text-white">
-      <div className="max-w-screen-xl mx-auto py-10 flex max-md:flex-col max-md:gap-5 items-center justify-between w-[90%]">
+      <div className="max-w-screen-xl max-md:text-center mx-auto py-10 flex max-md:flex-col max-md:gap-5 items-center justify-between w-[90%]">
         <div className="flex flex-col gap-1">
           <Link to="/home" aria-describedby="Pagina de Inicio" className="font-bold text-2xl">
             <span>{"Let's"}</span>{" "}
@@ -20,19 +19,10 @@ const Footer = () => {
           <Link
             to="/aboutus"
             aria-describedby="Sobre nosotros"
-            className="flex items-center gap-1.5 font-semibold -mb-1 border-b-2 border-b-transparent hover:border-b-[#B5FF16] transition duration-150"
+            className="flex items-center gap-1.5 font-semibold -mb-1"
           >
             <HiUserGroup size={22} />
-            Sobre nosotros
-          </Link>
-
-          <Link
-            to="/contact"
-            aria-describedby="Contacto"
-            className="flex items-center gap-1.5 font-semibold -mb-1 border-b-2 border-b-transparent hover:border-b-[#B5FF16] transition duration-150"
-          >
-            <IoMdContact size={22} />
-            Contacto
+            Sobre Nosotros
           </Link>
         </div>
       </div>

@@ -34,19 +34,19 @@ const TeamBuilding = () => {
 
   return (
     <>
-      <h3 className="flex font-bold mt-8">Crea tu equipo</h3>
-      <div className="w-16 h-16 rounded-full bg-[#242424] relative my-6">
+      <h3 className="flex font-bold text-xl">Crea tu equipo</h3>
+      <div className="w-16 h-16 rounded-full bg-[#B5FF16] relative my-6">
         <button
           onClick={() => {
             navigate("/create");
           }}
-          className="absolute bottom-0 right-0"
+          className="absolute -bottom-1 -right-1 bg-white text-black p-1.5 rounded-full"
         >
           {" "}
           <MdOutlineAddBox />
         </button>
       </div>
-      <h2 className="flex font-bold mb-3">Busquedas relacionadas</h2>
+      <h2 className="flex font-bold mb-3 text-xl">Busquedas relacionadas</h2>
       <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-white/10 rounded-md">
         {articles.map((article, index) => (
           <article
