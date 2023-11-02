@@ -145,7 +145,7 @@ const addFriend = async (req, res) => {
       { $push: { friends: friend } },
       { new: true }
     ).populate({
-      path: "user",
+      path: "friends",
     });
     return res
       .status(200)
@@ -165,7 +165,7 @@ const deleteFriend = async (req, res) => {
       { $pull: { friends: friend } },
       { new: true }
     ).populate({
-      path: "user",
+      path: "friends",
     });
     return res
       .status(200)
