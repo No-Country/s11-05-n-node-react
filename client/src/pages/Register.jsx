@@ -26,20 +26,25 @@ const Register = () => {
 
     if (validate.status) {
       try {
-        const response = await postRequest(
+        const res = await postRequest(
           { nickName: username, email: email, password: password },
           "/user/create"
         );
 
-        console.log(response);
-        toast.success("Bienvenido");
-        document.querySelector('button[type="submit"]').innerText = "Crear cuenta";
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
+        if (res?.message === "Usuario creado") {
+          toast.success("Bienvenido");
+          document.querySelector('button[type="submit"]').innerText = "Crear cuenta";
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000); 
+        }
+        else
+        {
+          toast.error(res.message);  
+        }
       } catch (error) {
-        toast.error("Error al intentar registrarse");
-        setErrores("Error al intentar registrarse");
+        toast.error(error.message);
+        setErrores(error.message);
       }
     } else {
       setErrores(validate.msg);
@@ -51,11 +56,11 @@ const Register = () => {
     <>
       <Toaster />
       <section className="w-full flex flex-col items-center justify-center background-circle">
-        <div className="max-w-3xl mx-auto w-[95%] sm:w-[90%] bg-neutral-950 p-8 sm:p-12 md:p-16 rounded-2xl shadow-md my-16 text-white">
+        <div className="max-w-3xl mx-auto w-[95%] sm:w-[90%] bg-neutral-950 p-8 sm:p-12 md:p-16 rounded-2xl shadow-md my-12 text-white">
           <h1 className="md:text-5xl text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white pb-4">
             Regístrate
           </h1>
-          <p className="font-medium mb-6 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">
+          <p className="font-semibold text-lg mb-6 -mt-3 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">
             Crea tu usuario en <span>{"Let's"}</span>{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
               Play

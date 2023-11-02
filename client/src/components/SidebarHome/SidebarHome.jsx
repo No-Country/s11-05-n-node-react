@@ -6,37 +6,37 @@ import {
   RiUserFill,
   RiMenu3Fill,
   RiCloseLine,
-  RiCalendarEventFill,
   RiHome2Line
 } from "react-icons/ri";
 import { GiSoccerField } from "react-icons/gi";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { setLogout } from "../../store/state/authSlice";
 import { useDispatch } from "react-redux";
+import { HiUserGroup } from "react-icons/hi";
 
 const links = [
   { to: "/", label: "Inicio", icon: <RiHome2Line className="w-[24px] h-[24px]" /> },
 
   {
     to: "/profile",
-    label: "Perfil",
+    label: "Mi Perfil",
     icon: <RiUserFill className="w-[24px] h-[24px]" />
   },
-  { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[24px] h-[24px]" /> },
+  { to: "/create", label: "Mis Equipos", icon: <RiTeamFill className="w-[24px] h-[24px]" /> },
   {
     to: "/matches/sport",
-    label: "Partidos",
+    label: "Deportes",
     icon: <GiSoccerField className="w-[24px] h-[24px]" />
   },
   {
     to: "/matches/game",
-    label: "Partidas",
+    label: "Gaming",
     icon: <IoGameControllerOutline className="w-[24px] h-[24px]" />
   },
   {
-    to: "/events",
-    label: "Evento/Torneo",
-    icon: <RiCalendarEventFill className="w-[24px] h-[24px]" />
+    to: "/aboutus",
+    label: "Sobre Nosotros",
+    icon: <HiUserGroup className="w-[24px] h-[24px]" />
   }
 ];
 

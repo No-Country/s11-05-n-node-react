@@ -28,7 +28,7 @@ function LoadTeams({ type }) {
             </div>
           ))
         ) : (
-          <p>Aún no tienes equipos creados</p>
+          <p className="text-white">Aún no tienes equipos creados</p>
         )}
       </div>
     </>

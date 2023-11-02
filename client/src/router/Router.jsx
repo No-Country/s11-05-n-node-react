@@ -5,8 +5,6 @@ import AuthGuard from "./AuthGuard";
 
 import Team from "../pages/Team";
 import About from "../pages/About";
-import Help from "../pages/Help";
-import Contact from "../pages/Contact";
 
 const Login = lazy(() => import("../pages/Login"));
 const HomeLayout = lazy(() => import("../components/HomeLayout/HomeLayout"));
@@ -37,8 +35,6 @@ const Router = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/aboutus" element={<About />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/contact" element={<Contact />} />
             <Route element={<AuthGuard privateValidation={true} />}>
               <Route path="/home" element={<Landing />} />
               <Route path="/login" element={<Login />} />

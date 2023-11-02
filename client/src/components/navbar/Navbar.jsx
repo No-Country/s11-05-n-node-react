@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { CiGlobe, CiCircleQuestion } from "react-icons/ci";
 import { useState } from "react";
+import { HiUserGroup } from "react-icons/hi";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -28,26 +28,17 @@ const Navbar = () => {
 
         <div
           className={
-            "transition-height md:flex gap-3 md:gap-4 md:mt-1 overflow-hidden max-md:w-full max-md:flex-col max-md:order-3 font-medium" +
-            (openMenu ? " max-md:pt-5 max-md:h-[200px] flex" : " max-md:h-0")
+            "transition-height md:flex gap-5 md:gap-4 md:mt-1 overflow-hidden max-md:w-full max-md:flex-col max-md:order-3 font-medium" +
+            (openMenu ? " max-md:pt-5 max-md:h-[180px] flex" : " max-md:h-0")
           }
         >
           <Link
-            to="/help"
-            className={"flex items-center pressable gap-1.5" + (openMenu ? "" : " max-md:hidden")}
-            aria-label="Ayuda"
-          >
-            <CiCircleQuestion size={22} />
-            Ayuda
-          </Link>
-
-          <Link
-            to="/contact"
+            to="/aboutus"
             className={"flex items-center pressable gap-1.5" + (openMenu ? "" : " max-md:hidden")}
             aria-label="Contactanos"
           >
-            <CiGlobe size={22} />
-            Contactanos
+            <HiUserGroup size={22} />
+            Sobre Nosotros
           </Link>
 
           <Link

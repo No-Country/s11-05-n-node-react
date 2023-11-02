@@ -69,7 +69,7 @@ function Login() {
     <>
       <Toaster />
       <section className="relative max-w-screen-xl w-[95%] sm:w-[90%] mx-auto background-circle">
-        <div className="ml-auto sm:max-w-sm w-full bg-neutral-950 my-16 p-10 sm:p-12 rounded-2xl shadow-md">
+        <div className="ml-auto sm:max-w-sm w-full bg-neutral-950 my-16 p-10 sm:p-12 rounded-2xl xl:my-32 shadow-md">
           <div className="text-center">
             <h1 className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white text-5xl font-bold">
               <span>{"Let's"}</span>{" "}
@@ -118,9 +118,7 @@ function Login() {
                 {showPassword ? <BsEyeFill size={20} /> : <BsEyeSlashFill size={20} />}
               </span>
             </div>
-            <Link to={"/recover"} className="text-links text-center text-xs mt-1 font-medium">
-              ¿Olvidó su contraseña?
-            </Link>
+            
             {errores && (
               <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md text-center text-sm mx-auto">
                 {errores}{" "}
@@ -134,10 +132,10 @@ function Login() {
             </button>
           </form>
 
-          <p className="text-center mt-9 text-sm text-white font-medium">
+          <p className="text-center mt-6 text-sm text-white font-medium">
             ¿No tiene una cuenta?{" "}
             <Link to={"/register"} className="text-links">
-              Registrarse ahora
+              Registrate aca
             </Link>
           </p>
         </div>
