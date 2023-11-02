@@ -68,10 +68,9 @@ function Login() {
   return (
     <>
       <Toaster />
-      <section className="relative max-w-screen-xl w-[90%] mx-auto">
-        <span className="gradient"></span>
+      <section className="relative max-w-screen-xl w-[95%] sm:w-[90%] mx-auto background-circle">
 
-        <div className="ml-auto sm:max-w-sm w-full sm:bg-[#151515] my-16 p-10 sm:p-12 rounded-2xl shadow-md">
+        <div className="ml-auto sm:max-w-sm w-full bg-neutral-950 my-16 p-10 sm:p-12 rounded-2xl shadow-md">
           <div className="text-center">
             <h1 className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white text-5xl font-bold">
               <span>{"Let's"}</span>{" "}
@@ -87,12 +86,12 @@ function Login() {
 
           <form className="flex flex-col gap-6" onSubmit={e => handleSubmit(e)}>
             <div className="flex flex-col relative">
-              <label className=" bg-black sm:bg-[#151515] rounded-md absolute top-0 left-2 text-gray-200 transform -translate-y-2 transition-transform origin-top text-sm px-2">
+              <label className=" bg-black sm:bg-neutral-950 rounded-md absolute top-0 left-2 text-gray-200 transform -translate-y-2 transition-transform origin-top text-sm px-2">
                 Correo electrónico
               </label>
               <input
                 type="email"
-                className="h-12 pl-2 border bg-black sm:bg-[#151515] text-white rounded-md border-[#B5FF16] placeholder:bg-black placeholder:text-white"
+                className="h-12 pl-2 border bg-black sm:bg-neutral-950 text-white rounded-md border-[#B5FF16] placeholder:bg-black placeholder:text-white"
                 value={username}
                 onChange={e => {
                   setUsername(e.target.value);
@@ -101,7 +100,7 @@ function Login() {
             </div>
 
             <div className="flex flex-col relative">
-              <label className="bg-black sm:bg-[#151515] rounded-md absolute top-0 left-2 text-gray-200 transform -translate-y-2 transition-transform origin-top text-sm px-2">
+              <label className="bg-black sm:bg-neutral-950 rounded-md absolute top-0 left-2 text-gray-200 transform -translate-y-2 transition-transform origin-top text-sm px-2">
                 Contraseña
               </label>
               <input

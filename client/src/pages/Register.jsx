@@ -50,9 +50,9 @@ const Register = () => {
   return (
     <>
       <Toaster />
-      <section className="w-full flex flex-col items-center justify-center">
-        <div className="max-w-3xl mx-auto sm:w-[90%] sm:bg-[#151515] p-8 sm:p-12 md:p-16 rounded-2xl shadow-md my-16 text-white">
-          <h1 className="md:text-5xl text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white pb-4">
+      <section className="w-full flex flex-col items-center justify-center background-circle">
+        <div className="max-w-3xl mx-auto w-[95%] sm:w-[90%] bg-neutral-950 p-8 sm:p-12 md:p-16 rounded-2xl shadow-md my-16 text-white">
+          <h1 className="md:text-5xl text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white pb-4">
             Regístrate
           </h1>
           <p className="font-medium mb-6 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">
@@ -66,7 +66,7 @@ const Register = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-5 py-3">
               <div className="flex flex-1 flex-col relative">
                 <label
-                  className="bg-black sm:bg-[#151515] rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm focus:outline-none focus:ring"
+                  className="bg-black sm:bg-neutral-950 rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm focus:outline-none focus:ring"
                   style={{ top: "-0.1rem" }}
                 >
                   &nbsp;Usuario&nbsp;
@@ -81,7 +81,7 @@ const Register = () => {
               </div>
               <div className="flex flex-1 flex-col relative ">
                 <label
-                  className="bg-black sm:bg-[#151515] rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm"
+                  className="bg-black sm:bg-neutral-950 rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm"
                   style={{ top: "-0.1rem" }}
                 >
                   &nbsp;Correo electrónico&nbsp;
@@ -97,7 +97,7 @@ const Register = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col relative">
-                <label className="bg-black sm:bg-[#151515] rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm">
+                <label className="bg-black sm:bg-neutral-950 rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm">
                   Contraseña
                 </label>
                 <input
@@ -124,7 +124,7 @@ const Register = () => {
               <div className="flex flex-1 flex-col relative">
                 <div className="flex flex-col relative">
                   <label
-                    className="bg-black sm:bg-[#151515] rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm"
+                    className="bg-black sm:bg-neutral-950 rounded-md absolute top-0 left-3.5 px-1 transform -translate-y-2 transition-transform origin-top text-sm"
                     style={{ top: "-0.1rem" }}
                   >
                     &nbsp;Confirmar contraseña&nbsp;
