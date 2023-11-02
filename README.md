@@ -35,9 +35,12 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <a href="https://www.linkedin.com/in/cubilla-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/hectordariosol/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/miguel-guerrero-403939194/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/masielvenegas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/yein-e-734a7a233/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href=""><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
   #### 🛠️ Tech Stack:
-  Nodejs - Express - Multer  - Cloudinary - NodeMailer - Mongoose
- ![Python](https://img.shields.io/badge/Python-green?style=for-the-badge&logo=python) 
- ![Fastapi](https://img.shields.io/badge/Fastapi-green?style=for-the-badge&logo=fastapi)
+ ![Nodejs](https://img.shields.io/badge/Nodejs-a89cc4?style=for-the-badge&logo=nodejs&logoColor=white) 
+ ![Express](https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express&logoColor=white)
+ ![Multer](https://img.shields.io/badge/Multer-a89cc4?style=for-the-badge&logo=multer&logoColor=white)
+ ![Cloudinary](https://img.shields.io/badge/Cloudinary-green?style=for-the-badge&logo=cloudinary&logoColor=white)
+ ![NodeMailer](https://img.shields.io/badge/NodeMailer-a89cc4?style=for-the-badge&logo=nodemailer&logoColor=white)
+ ![Mongoose](https://img.shields.io/badge/Mongoose-green?style=for-the-badge&logo=mongoose&logoColor=white)
  
   #### 🧑💻 QA Testers:
 
