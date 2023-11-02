@@ -196,7 +196,7 @@ function Profile() {
 
                 <Sports sports={sportsData.sport} title={"Deportes"} />
 
-                <Sports sports={sportsData.game} title={"Gaming"} />
+                <Sports sports={sportsData.game} title={"Juegos"} />
               </section>
 
               <section className="flex flex-col gap-10">

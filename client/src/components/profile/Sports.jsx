@@ -62,7 +62,7 @@ export default function Sports({ sports, title }) {
             className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black py-1.5 px-3.5 rounded-md font-medium w-fit pressable mt-2"
             type="button"
           >
-            Editar Deportes
+            Agregar {title}
           </Link>
         </>
       )}
