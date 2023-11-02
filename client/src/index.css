@@ -18,6 +18,15 @@ body {
   bottom: -300px;
 }
 
+.border-gradient-green {
+  border: linear-gradient(to right, #18fd77, #09fe1a);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
 .fillMobile {
   background-size: 90% 100%;
   background-repeat: no-repeat;

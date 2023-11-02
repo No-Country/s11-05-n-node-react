@@ -36,6 +36,13 @@ export const authSlice = createSlice({
     setUpdateUser: (state, action) => {
       state.user = action.payload.user;
     },
+    setAddFriends: (state, action) => {
+      console.log(action.payload, "setAdd")
+      state.user = {
+        ...state.user,
+        friends: action.payload
+      };
+    },
     setUpdateAvatar: (state, action) => {
       state.user = {
         ...state.user,
@@ -45,7 +52,7 @@ export const authSlice = createSlice({
   }
 });
 
-export const { setLogin, setLogout, setUpdateUser, setUpdateAvatar } = authSlice.actions;
+export const { setLogin, setLogout, setUpdateUser, setUpdateAvatar, setAddFriends } = authSlice.actions;
 
 export default authSlice.reducer;
 
@@ -113,6 +120,43 @@ export const deleteProfile = id => async dispatch => {
       dispatch(setLogin({}));
     }
     return res?.status;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+export const addFriend = idFriend => async dispatch => {
+  try {
+    const res = await patchRequest({ idFriend }, `/user/friend/${idFriend}`);
+    if (res?.friend) {
+      dispatch(setAddFriends(res.friend));
+      const auth = getLocalStorage("auth")
+      auth.user.friends = res.data.friends
+      setLocalStorage("auth", auth);
+      return { ok: true };
+    }
+    return res;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
+export const deleteFriend = idFriend => async dispatch => {
+
+  try {
+
+    const res = await deleteRequest(`/user/friend/${idFriend}`);
+    console.log(res.data.friends)
+    if (res?.data.friends) {
+      dispatch(setAddFriends(res.data.friends));
+      const auth = getLocalStorage("auth")
+      auth.user.friends = res.data.friends
+      setLocalStorage("auth", auth);
+      return { ok: true };
+    }
+    return res;
   } catch (error) {
     console.log(error);
     return false;

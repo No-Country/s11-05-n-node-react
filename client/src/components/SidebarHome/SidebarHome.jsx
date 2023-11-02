@@ -48,12 +48,12 @@ const SidebarHome = () => {
   return (
     <>
       <section
-        className={`bg-[#1E1F24] text-[#babbbd] fixed ${
+        className={`bg-[#121212] text-[#babbbd] fixed ${
           open ? "-left-0" : "-left-full"
-        }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all z-50`}
+        }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all z-50 border-r border-gray-300`}
       >
         <div>
-          <nav>
+          <nav className="">
             <Link
               to="/"
               aria-describedby="Pagina de Inicio"

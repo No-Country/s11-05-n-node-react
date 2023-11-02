@@ -34,8 +34,8 @@ const TeamBuilding = () => {
 
   return (
     <>
-      <h3 className="flex font-bold">Crea tu equipo</h3>
-      <div className="w-16 h-16 rounded-full bg-[#D9D9D9] relative my-6">
+      <h3 className="flex font-bold my-8">Crea tu equipo</h3>
+      <div className="w-16 h-16 rounded-full bg-[#242424] relative my-10">
         <button
           onClick={() => {
             navigate("/create");
@@ -46,12 +46,13 @@ const TeamBuilding = () => {
           <MdOutlineAddBox />
         </button>
       </div>
-      <h2 className="flex font-bold mt-3 mb-3">Busquedas relacionadas</h2>
-      <div className="border-2 border-solid rounded-xl bg-white max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-2">
+      <h2 className="flex font-bold mb-3">Busquedas relacionadas</h2>
+      <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-neutral-50 rounded-md">
+
         {articles.map((article, index) => (
           <article
             key={index}
-            className="flex flex-col items-center sm:flex-row  sm:justify-evenly  p-2 gap-2 w-full my-1 shadow-sm hover:shadow-xl border-b-2"
+            className="flex flex-col items-center sm:flex-row  sm:justify-evenly  p-2 gap-2 w-full my-1 shadow-sm hover:shadow-xl border-b border-[#c8bfbf]"
           >
             <img
               className="rounded-full w-[55px] h-[55px]"
@@ -64,7 +65,7 @@ const TeamBuilding = () => {
               <p className="text-[13px]">{article.time}</p>
               <span className="text-[13px]">{article.location}</span>
             </div>
-            <button className="text-[13px] font-normal rounded-md bg-slate-600 mt-1 md:mt-0 w-[122px] h-[29px]">
+            <button className="text-[13px] font-normal rounded-md bg-[#B5FF16B2] mt-1 md:mt-0 w-[122px] h-[29px]">
               Solicitar unirme
             </button>
           </article>
@@ -75,46 +76,3 @@ const TeamBuilding = () => {
 };
 
 export default TeamBuilding;
-
-{
-  /* <div className=" border-2 border-solid w-full h-auto my-8  py-3">
-
-    <article className="flex justify-center items-center gap-4">
-        <img
-            className=" rounded-full w-10 h-10"
-            src=" /img/profile_default.webp" alt="" />
-        <div>
-            <h3 className="font-bold">League of Legends</h3>
-            <p>Grieta del invocador 5 vs 5</p>
-            <p> 13.10.23 18:30PM</p>
-            <span>Bs.As Argentina</span>
-        </div>
-        <button className="bg-slate-600">Solicitar unirme</button>
-    </article>
-    <article className="flex justify-center items-center gap-4">
-        <img
-            className=" rounded-full w-10 h-10"
-            src=" /img/profile_default.webp" alt="" />
-        <div>
-            <h3 className="font-bold">Futbol</h3>
-            <p>Futbol 5  5 vs 5</p>
-            <p> 21.10.23 18:30PM</p>
-            <span>Palermo Futbol,CABA Bs.As Argentina</span>
-
-        </div>
-        <button className="bg-slate-600">Solicitar unirme</button>
-    </article>
-    <article className="flex justify-center items-center gap-4">
-        <img
-            className=" rounded-full w-10 h-10"
-            src=" /img/profile_default.webp" alt="" />
-        <div>
-            <h3 className="font-bold">League of Legends</h3>
-            <p>Grieta del invocador 5 vs 5</p>
-            <p> 13.10.23 18:30</p>
-            <span>Bs.As Argentina</span>
-        </div>
-        <button className="bg-slate-600">Solicitar unirme</button>
-    </article>
-</div> */
-}

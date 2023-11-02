@@ -6,7 +6,7 @@ const HeaderHome = () => {
   const user = useSelector(state => state.auth.user);
   return (
     <>
-      <header className="p-2 flex justify-end h-20 border-b border-gray-300 bg-[rgb(17,19,24)] fixed top-0 left-0 w-full z-[49]">
+      <header className="p-2 flex justify-end h-20 bg-[#121212] fixed top-0 left-0 w-full z-[49]">
         <ul className="w-48 flex items-center justify-around gap-4 mr-4">
           <li>
             <Link className="relative text-[#cec6bf] hover:text-white transition-colors text-2xl">

@@ -40,7 +40,9 @@ const CategoriesList = ({ categories, title }) => {
                     isSelected(cat) ? "opacity-40" : null
                   }`}
                 />
-                <p className="absolute text-xl font-semibold text-white bottom-3 inset-x-0">{cat.name}</p>
+                <p className="absolute text-xl font-semibold text-white bottom-3 inset-x-0">
+                  {cat.name}
+                </p>
               </div>
             </button>
           );

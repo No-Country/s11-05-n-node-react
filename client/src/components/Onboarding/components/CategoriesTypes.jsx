@@ -10,7 +10,9 @@ const CategoriesTypes = ({ typesCategories, setTypesCategories, title }) => {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <span className="max-sm:text-center my-10 text-white font-medium text-lg mx-auto">{title}</span>
+      <span className="max-sm:text-center my-10 text-white font-medium text-lg mx-auto">
+        {title}
+      </span>
       <div className="flex max-sm:flex-col max-sm:w-[60%] mx-auto w-full justify-center gap-10">
         {typesCategories.map(cat => {
           return (
@@ -20,9 +22,14 @@ const CategoriesTypes = ({ typesCategories, setTypesCategories, title }) => {
               className="w-full h-full p-1 rounded-2xl aspect-square overflow-hidden bg-gradient-to-b from-[#00ff00] to-[#ffff00]"
               onClick={() => updateSelected(cat.id)}
             >
-              <div className={"text-2xl md:text-xl font-bold grid place-content-center place-items-center gap-2 h-full w-full rounded-2xl transition duration-150 hover:bg-yellow-50 hover:text-gray-800 "+(cat.selected ? " bg-green-50 text-black" : " bg-gray-800 text-white")}>
-              {cat.icon}
-              <span>{cat.name}</span>
+              <div
+                className={
+                  "text-2xl md:text-xl font-bold grid place-content-center place-items-center gap-2 h-full w-full rounded-2xl transition duration-150 hover:bg-yellow-50 hover:text-gray-800 " +
+                  (cat.selected ? " bg-green-50 text-black" : " bg-gray-800 text-white")
+                }
+              >
+                {cat.icon}
+                <span>{cat.name}</span>
               </div>
             </button>
           );
