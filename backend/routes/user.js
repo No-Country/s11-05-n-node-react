@@ -38,7 +38,7 @@ route.patch(
   ValidatorGeneral,
   editUser
 );
-route.put("/friend/:id", verifyJWT, addFriend);
+route.patch("/friend/:id", verifyJWT, addFriend);
 route.delete("/friend/:id", verifyJWT, deleteFriend);
 
 export default route;
