@@ -61,7 +61,7 @@ export default function FormProfile({ user }) {
     <>
       <Toaster />
       <section className="flex flex-col w-full">
-        <span className="block mb-4 font-medium text-2xl">Editar Perfil</span>
+        <span className="block mb-4 font-semibold text-2xl">Editar Perfil</span>
         <form
           onSubmit={onSubmit}
           className="grid grid-cols-1 lg:grid-cols-2 w-full gap-2 lg:gap-32"
@@ -77,8 +77,10 @@ export default function FormProfile({ user }) {
               id="firstName"
               type="text"
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
-                (errors?.firstName ? " outline-red-500 border-red-500" : " outline-indigo-500")
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
+                (errors?.firstName
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.firstName ? (
@@ -97,8 +99,10 @@ export default function FormProfile({ user }) {
               id="lastName"
               type="text"
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
-                (errors?.lastName ? " outline-red-500 border-red-500" : " outline-indigo-500")
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
+                (errors?.lastName
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.lastName ? (
@@ -117,8 +121,10 @@ export default function FormProfile({ user }) {
               id="email"
               type="email"
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
-                (errors?.email ? " outline-red-500 border-red-500" : " outline-indigo-500")
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
+                (errors?.email
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.email ? (
@@ -138,8 +144,10 @@ export default function FormProfile({ user }) {
               type="tel"
               inputMode="numeric"
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
-                (errors?.cellNumber ? " outline-red-500 border-red-500" : " outline-indigo-500")
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
+                (errors?.cellNumber
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.cellNumber ? (
@@ -160,8 +168,10 @@ export default function FormProfile({ user }) {
               id="dateOfBirth"
               type="date"
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
-                (errors?.dateOfBirth ? " outline-red-500 border-red-500" : " outline-indigo-500")
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
+                (errors?.dateOfBirth
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.dateOfBirth ? (
@@ -178,10 +188,10 @@ export default function FormProfile({ user }) {
                   : null
               }
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
                 (errors?.ubication?.country
                   ? " outline-red-500 border-red-500"
-                  : " outline-indigo-500")
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
               name="country"
               id="country"
@@ -207,10 +217,10 @@ export default function FormProfile({ user }) {
               id="city"
               type="text"
               className={
-                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2" +
+                "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
                 (errors?.ubication?.city
                   ? " outline-red-500 border-red-500"
-                  : " outline-indigo-500")
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.["ubication.city"] ? (
@@ -230,7 +240,7 @@ export default function FormProfile({ user }) {
 
               <button
                 className={
-                  "py-1.5 px-3 bg-black text-white font-medium rounded-md sm:mt-5 w-full sm:w-fit" +
+                  "py-1.5 px-3 bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-medium rounded-md sm:mt-5 w-full sm:w-fit" +
                   (uploading ? " animate-pulse" : "")
                 }
                 type="submit"
@@ -275,7 +285,7 @@ export default function FormProfile({ user }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-[70%] sm:max-w-xs p-6 overflow-hidden text-center align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-[70%] sm:max-w-xs p-6 overflow-hidden text-center align-middle transition-all transform bg-slate-800 text-white  shadow-xl rounded-2xl">
                 <span className="font-medium">¿Estas seguro que queres borrar tu cuenta?</span>
                 <div className="flex items-center gap-2 mt-5 w-fit mx-auto">
                   <button
