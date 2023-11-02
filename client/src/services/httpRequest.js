@@ -41,9 +41,9 @@ export const getRequest = async endpoint => {
 
     return data;
   } catch (error) {
+    console.dir(error);
     if (axios.isAxiosError(error)) {
       console.log("error message: ", error.message);
-
       throw new Error(error.message);
     } else {
       console.log("unexpected error: ", error);

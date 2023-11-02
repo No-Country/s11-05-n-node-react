@@ -21,11 +21,15 @@ function LoadTeams({ type }) {
     <>
       <h2 className="font-semibold">Mis equipos</h2>
       <div className="flex flex-wrap bg-black gap-7  p-6 w-full  shadow-md rounded-md justify-center">
-        {showTeams()?.map(team => (
-          <div key={team._id}>
-            <TeamAvatar team={team} />
-          </div>
-        ))}
+        {teams.length > 0 ? (
+          showTeams()?.map(team => (
+            <div key={team._id}>
+              <TeamAvatar team={team} />
+            </div>
+          ))
+        ) : (
+          <p>Aún no tienes equipos creados</p>
+        )}
       </div>
     </>
   );

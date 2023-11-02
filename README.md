@@ -12,7 +12,7 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
 |:---:|
 | **Karen Carranza** |
-| <a href="https://www.linkedin.com/in/alexander-mamani/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a>|
+| <a href="https://www.linkedin.com/in/karemcarranza/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a>|
 
 #### 🧑💻 Developers:
 
@@ -25,19 +25,22 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 
  #### 🛠️ Tech Stack:
  
-![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-E34F26?style=for-the-badge&logo=CSS&logoColor=white) ![JavaScript](https://img.shields.io/badge/JS-E34F26?style=for-the-badge&logo=javascripts&logoColor=white) ![React](https://img.shields.io/badge/react-E34F26?style=for-the-badge&logo=react&logoColor=white) ![Tailwind](https://img.shields.io/badge/tailwind-E34F26?style=for-the-badge&logo=tailwind&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-22A7F2?style=for-the-badge&logo=Visual%20studio&logoColor=white) 
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-green?style=for-the-badge&logo=CSS&logoColor=white) ![JavaScript](https://img.shields.io/badge/JS-E34F26?style=for-the-badge&logo=javascripts&logoColor=white) ![React](https://img.shields.io/badge/react-green?style=for-the-badge&logo=react&logoColor=white) ![Tailwind](https://img.shields.io/badge/tailwind-E34F26?style=for-the-badge&logo=tailwind&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-blueviolet?style=for-the-badge&logo=Visual%20studio&logoColor=white) 
 
 ### ☕ Back End:
 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | **Gustavo Cubilla**| **Hector Dario Sol**| **Manuel Miguel Blanor Guerrero Palma**| **Masiel Venegas**| **Yein España**| **Miguel Beltran**|
-| <a href="https://www.linkedin.com/in/cubilla-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/hectordariosol/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/miguel-guerrero-403939194/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/masielvenegas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/yein-e-734a7a233/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/irene-vargas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://www.linkedin.com/in/cubilla-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/hectordariosol/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/miguel-guerrero-403939194/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/masielvenegas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/yein-e-734a7a233/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href=""><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
   #### 🛠️ Tech Stack:
-  Nodejs - Express - Multer  - Cloudinary - NodeMailer - Mongoose
- ![Python](https://img.shields.io/badge/Python-green?style=for-the-badge&logo=python) 
- ![Fastapi](https://img.shields.io/badge/Fastapi-green?style=for-the-badge&logo=fastapi)
+ ![Nodejs](https://img.shields.io/badge/Nodejs-6c5187?style=for-the-badge&logo=nodejs&logoColor=white) 
+ ![Express](https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express&logoColor=white)
+ ![Multer](https://img.shields.io/badge/Multer-6c5187?style=for-the-badge&logo=multer&logoColor=white)
+ ![Cloudinary](https://img.shields.io/badge/Cloudinary-green?style=for-the-badge&logo=cloudinary&logoColor=white)
+ ![NodeMailer](https://img.shields.io/badge/NodeMailer-6c5187?style=for-the-badge&logo=nodemailer&logoColor=white)
+ ![Mongoose](https://img.shields.io/badge/Mongoose-green?style=for-the-badge&logo=mongoose&logoColor=white)
  
   #### 🧑💻 QA Testers:
 

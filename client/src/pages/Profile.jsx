@@ -1,10 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { Fragment, useState } from "react";
 import { BsFillCameraFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import Platforms from "../components/profile/Platforms";
-import Social from "../components/profile/Social";
 import Teams from "../components/profile/Teams";
-import Habilities from "../components/profile/Habilities";
 import Sports from "../components/profile/Sports";
 import Friends from "../components/profile/Friends";
 import FormProfile from "../components/profile/FormProfile";
@@ -48,25 +46,25 @@ function Profile() {
   return (
     <>
       <Toaster />
-      <section className="flex flex-col gap-5 max-w-screen-2xl w-full mx-auto mb-10 pb-5 rounded-lg bg-white">
+      <section className="flex flex-col gap-5 max-w-screen-2xl w-[90%] mx-auto mb-10 pb-5 rounded-lg text-white">
         <section
-          className="flex py-16 px-[5%] justify-between gap-10 flex-wrap items-center relative"
-          style={{ backgroundImage: `url(${user?.cover || "https://i.imgur.com/habS0MR.jpg"})` }}
+          className="flex py-16 px-[5%] justify-between gap-10 flex-wrap items-center relative bg-cover rounded-3xl"
+          style={{ backgroundImage: `url(/img/bg_default.webp)` }}
         >
           <div className="flex items-center w-fit gap-10">
             <div className="relative">
               <img
-                className="bg-black aspect-square h-full w-[128px] object-cover rounded-full overflow-hidden ring ring-white"
+                className="bg-black aspect-square h-full w-[128px] object-cover rounded-full overflow-hidden ring ring-[#B5FF16]"
                 src={user?.avatar || "/img/profile_default.webp"}
                 alt={"Foto de Perfil de " + user?.firstName + " - " + user?.lastName}
                 loading="lazy"
               />
               <label
                 htmlFor="avatar"
-                className="absolute top-5 -right-3 bg-white p-1.5 rounded-full cursor-pointer"
+                className="absolute top-5 -right-3 bg-gradient-to-b from-[#B5FF16] to-green-300 p-1.5 rounded-full cursor-pointer"
                 aria-label="Cambiar Foto de Perfil"
               >
-                <BsFillCameraFill className="w-4 h-4 md:w-6 md:h-6" />
+                <BsFillCameraFill className="w-4 h-4 md:w-6 md:h-6 fill-black" />
               </label>
               <input
                 className="hidden"
@@ -109,7 +107,7 @@ function Profile() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <div className="inline-block w-full max-w-[90%] sm:max-w-xs p-6 overflow-hidden text-center align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                    <div className="inline-block w-full max-w-[90%] sm:max-w-xs p-6 overflow-hidden text-center align-middle transition-all transform bg-slate-800 text-white shadow-xl rounded-2xl">
                       <small className="font-medium">Cambiar foto de perfil</small>
                       {avatar ? (
                         <img
@@ -148,7 +146,7 @@ function Profile() {
             </Transition>
 
             <div className="flex flex-col">
-              <span className="font-semibold text-xl md:text-2xl capitalize">
+              <span className="font-semibold text-xl md:text-4xl capitalize">
                 {user?.firstName || ""} {user?.lastName || ""}
                 {user?.nickName && user?.firstName && user.lastName ? "" : user?.nickName}{" "}
                 <small className="text-sm opacity-80">
@@ -157,15 +155,16 @@ function Profile() {
                     : ""}
                 </small>
               </span>
-              <span className="font-semibold opacity-80">
-                {user?.age ? user?.age + " Años - " : "21 Años"}{" "}
-                {user?.ubication?.country || "Nowhere"} - {user?.ubication?.city || "Worldwide"}
+              <span className="font-semibold text-lg">
+                {user?.age ? user?.age + " Años - " : ""} {user?.ubication?.country || ""}{" "}
+                {user?.ubication?.country && user?.ubication?.city ? " - " : ""}{" "}
+                {user?.ubication?.city || ""}
               </span>
             </div>
           </div>
 
           <button
-            className="py-1.5 px-3.5 bg-white rounded-2xl ring-2 ring-white font-medium pressable"
+            className="py-1.5 px-5 bg-gradient-to-b from-[#B5FF16] to-green-300 rounded-xl text-lg font-medium pressable text-black"
             onClick={() => setEditProfile(!editProfile)}
             aria-label={editProfile ? "Volver a Perfil" : "Editar Perfil"}
           >
@@ -173,25 +172,19 @@ function Profile() {
           </button>
         </section>
 
-        <section className="flex max-lg:flex-col justify-between gap-10 mx-[5%]">
+        <section className="grid grid-cols-1 xl:grid-cols-2 gap-10 h-full">
           {editProfile ? (
             <FormProfile user={user} />
           ) : (
             <>
               <section className="flex flex-col gap-10">
-                <Friends />
+                <Friends friends={user?.friends} />
 
-                <Sports />
-
-                <Platforms />
-
-                <Social />
+                <Sports sports={user?.category} />
               </section>
 
-              <section className="flex flex-col gap-5 max-w-xl w-full">
+              <section className="flex flex-col gap-10">
                 <Teams />
-
-                <Habilities />
               </section>
             </>
           )}
