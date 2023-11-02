@@ -156,8 +156,9 @@ function Profile() {
                 </small>
               </span>
               <span className="font-semibold text-xl">
-                {user?.age ? user?.age + " Años - " : ""}{" "}
-                {user?.ubication?.country || ""} {user?.ubication?.country && user?.ubication?.city? " - " : ""} {user?.ubication?.city || ""}
+                {user?.age ? user?.age + " Años - " : ""} {user?.ubication?.country || ""}{" "}
+                {user?.ubication?.country && user?.ubication?.city ? " - " : ""}{" "}
+                {user?.ubication?.city || ""}
               </span>
             </div>
           </div>

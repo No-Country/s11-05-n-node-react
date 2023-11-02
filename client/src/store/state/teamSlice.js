@@ -13,16 +13,16 @@ export const teamSlice = createSlice({
   reducers: {
     setMyTeams: (state, action) => {
       state.myTeams = action.payload;
-      state.loading = false
+      state.loading = false;
     },
     setAddTeam: (state, action) => {
       let newTeam = action.payload;
       state.myTeams.push(newTeam);
-      state.loading = false
+      state.loading = false;
     },
-    setLoading: (state) => {
+    setLoading: state => {
       state.loading = true;
-    },
+    }
   }
 });
 
@@ -32,27 +32,27 @@ export default teamSlice.reducer;
 
 export const listMyTeams = () => async dispatch => {
   try {
-    dispatch(setLoading())
+    dispatch(setLoading());
     const teams = await getRequest("/team/getMyTeams");
     if (teams.message) {
       dispatch(setMyTeams(teams.team.teams));
     }
   } catch (error) {
-    dispatch(setLoading())
+    dispatch(setLoading());
     return { login: false, msg: error.toString() };
   }
 };
 
 export const createTeam = team => async dispatch => {
   try {
-    dispatch(setLoading())
+    dispatch(setLoading());
     const newTeam = await postRequest(team, "/team/createTeam");
     if (newTeam.captain) {
       dispatch(setAddTeam(newTeam));
       return { message: "Equipo creado correctamente" };
     }
   } catch (error) {
-    dispatch(setLoading())
+    dispatch(setLoading());
     return { login: false, msg: error.toString() };
   }
 };

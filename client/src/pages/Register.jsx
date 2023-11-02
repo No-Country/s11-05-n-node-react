@@ -31,17 +31,17 @@ const Register = () => {
         );
 
         console.log(response);
-        toast.success("Bienvenido")
+        toast.success("Bienvenido");
 
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       } catch (error) {
-        toast.error("Error al intentar registrarse")
+        toast.error("Error al intentar registrarse");
         setErrores("Error al intentar registrarse");
       }
     } else {
-      setErrores(validate.msg)
+      setErrores(validate.msg);
     }
   };
 
@@ -50,14 +50,15 @@ const Register = () => {
       <Toaster />
       <section className="w-full flex flex-col items-center justify-center">
         <div className="max-w-3xl mx-auto sm:w-[90%] sm:bg-[#151515] p-8 sm:p-12 md:p-16 rounded-2xl shadow-md my-16 text-white">
-          <h1 className="md:text-5xl text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white pb-4">Regístrate</h1>
+          <h1 className="md:text-5xl text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white pb-4">
+            Regístrate
+          </h1>
           <p className="font-medium mb-6 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">
-            Crea tu usuario en{" "}
-            <span>{"Let's"}</span>{" "}
+            Crea tu usuario en <span>{"Let's"}</span>{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
               Play
-            </span>
-            {" "}y comienza con la diversión
+            </span>{" "}
+            y comienza con la diversión
           </p>
           <form className="flex flex-col gap-6 " onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-5 py-3">
@@ -108,10 +109,12 @@ const Register = () => {
 
                 <span
                   className="absolute inset-y-0 right-3 h-fit my-auto cursor-pointer"
-                  onClick={() => setShowPassword({
-                    ...showPassword,
-                    password: !showPassword.password
-                  })}
+                  onClick={() =>
+                    setShowPassword({
+                      ...showPassword,
+                      password: !showPassword.password
+                    })
+                  }
                 >
                   {showPassword.password ? <BsEyeFill size={20} /> : <BsEyeSlashFill size={20} />}
                 </span>
@@ -134,10 +137,12 @@ const Register = () => {
 
                   <span
                     className="absolute inset-y-0 right-3 h-fit my-auto cursor-pointer"
-                    onClick={() => setShowPassword({
-                      ...showPassword,
-                      confirm: !showPassword.confirm
-                    })}
+                    onClick={() =>
+                      setShowPassword({
+                        ...showPassword,
+                        confirm: !showPassword.confirm
+                      })
+                    }
                   >
                     {showPassword.confirm ? <BsEyeFill size={20} /> : <BsEyeSlashFill size={20} />}
                   </span>
@@ -152,8 +157,13 @@ const Register = () => {
               </label>
             </div>
 
-            {errores && <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md">{errores}</p>}
-            <button onMouseOver={() => setErrores(null)} className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-semibold h-12 px-6 max-sm:w-full text-lg rounded-md self-start pressable">
+            {errores && (
+              <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md">{errores}</p>
+            )}
+            <button
+              onMouseOver={() => setErrores(null)}
+              className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-semibold h-12 px-6 max-sm:w-full text-lg rounded-md self-start pressable"
+            >
               Crear cuenta
             </button>
           </form>

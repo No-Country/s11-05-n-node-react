@@ -68,7 +68,9 @@ function Login() {
             </span>
           </h1>
 
-          <h2 className="mt-5 mb-7 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">Ingresa con tu cuenta</h2>
+          <h2 className="mt-5 mb-7 text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white">
+            Ingresa con tu cuenta
+          </h2>
         </div>
 
         <form className="flex flex-col gap-6" onSubmit={e => handleSubmit(e)}>
@@ -109,7 +111,11 @@ function Login() {
           <Link to={"/recover"} className="text-links text-center text-xs mt-1 font-medium">
             ¿Olvidó su contraseña?
           </Link>
-          {errores && <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md text-center text-sm mx-auto">{errores} </p>}
+          {errores && (
+            <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md text-center text-sm mx-auto">
+              {errores}{" "}
+            </p>
+          )}
           <button className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-semibold h-12 px-6 max-sm:w-full text-lg rounded-md pressable">
             Iniciar sesión{" "}
           </button>

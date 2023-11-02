@@ -78,7 +78,9 @@ export default function FormProfile({ user }) {
               type="text"
               className={
                 "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
-                (errors?.firstName ? " outline-red-500 border-red-500" : " outline-indigo-500 border-[#B5FF16]")
+                (errors?.firstName
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.firstName ? (
@@ -98,7 +100,9 @@ export default function FormProfile({ user }) {
               type="text"
               className={
                 "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
-                (errors?.lastName ? " outline-red-500 border-red-500" : " outline-indigo-500 border-[#B5FF16]")
+                (errors?.lastName
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.lastName ? (
@@ -118,7 +122,9 @@ export default function FormProfile({ user }) {
               type="email"
               className={
                 "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
-                (errors?.email ? " outline-red-500 border-red-500" : " outline-indigo-500 border-[#B5FF16]")
+                (errors?.email
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.email ? (
@@ -139,7 +145,9 @@ export default function FormProfile({ user }) {
               inputMode="numeric"
               className={
                 "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
-                (errors?.cellNumber ? " outline-red-500 border-red-500" : " outline-indigo-500 border-[#B5FF16]")
+                (errors?.cellNumber
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.cellNumber ? (
@@ -161,7 +169,9 @@ export default function FormProfile({ user }) {
               type="date"
               className={
                 "border py-1 px-2 rounded-md focus-within:outline-1 mb-2 bg-white/10" +
-                (errors?.dateOfBirth ? " outline-red-500 border-red-500" : " outline-indigo-500 border-[#B5FF16]")
+                (errors?.dateOfBirth
+                  ? " outline-red-500 border-red-500"
+                  : " outline-indigo-500 border-[#B5FF16]")
               }
             />
             {errors?.dateOfBirth ? (
