@@ -14,10 +14,23 @@ const Profile = lazy(() => import("../pages/Profile"));
 const Matches = lazy(() => import("../pages/Matches"));
 const Onboarding = lazy(() => import("../components/Onboarding/Onboarding"));
 
+export const LoadingSplash = () => {
+  return (
+    <div className="text-5xl font-bold bg-black grid place-content-center h-[100dvh] text-white w-full">
+      <span className="flex">
+        <span>{"Let's"}</span>{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
+          Play
+        </span>
+      </span>
+    </div>
+  )
+}
+
 const Router = () => {
   return (
     <>
-      <Suspense fallback={"Loading..."}>
+      <Suspense fallback={<LoadingSplash />}>
         <BrowserRouter>
           <Routes>
             <Route element={<AuthGuard privateValidation={true} />}>
