@@ -22,11 +22,7 @@ export const postRequest = async (dataSend, endpoint, content) => {
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      if (error.response) {
-        return error.response.data;
-      } else {
-        throw new Error(error.message);
-      }
+      throw new Error(error);
     } else {
       return "An unexpected error occurred";
     }
