@@ -40,7 +40,8 @@ const Register = () => {
         }
         else
         {
-          toast.error(res.message);  
+          toast.error(res.message);
+          document.querySelector('button[type="submit"]').innerText = "Crear cuenta";
         }
       } catch (error) {
         toast.error(error.message);
