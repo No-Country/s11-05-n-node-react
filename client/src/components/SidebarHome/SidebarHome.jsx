@@ -23,9 +23,13 @@ const links = [
     icon: <RiUserFill className="w-[16px] h-[16px]" />
   },
   { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[16px] h-[16px]" /> },
-  { to: "/matches", label: "Partidos", icon: <GiSoccerField className="w-[19px] h-[19px]" /> },
   {
-    to: "/partidas",
+    to: "/matches/sport",
+    label: "Partidos",
+    icon: <GiSoccerField className="w-[19px] h-[19px]" />
+  },
+  {
+    to: "/matches/game",
     label: "Partidas",
     icon: <IoGameControllerOutline className="w-[16px] h-[16px]" />
   },
@@ -48,18 +52,20 @@ const SidebarHome = () => {
   return (
     <>
       <section
-        className={`bg-[#121212] text-[#babbbd] fixed ${
-          open ? "-left-0" : "-left-full"
-        }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all z-50 border-r border-gray-300`}
+        className={`bg-[#101010] text-[#babbbd] fixed ${open ? "-left-0" : "-left-full"
+          }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all duration-300 z-50`}
       >
         <div>
           <nav className="">
             <Link
               to="/"
               aria-describedby="Pagina de Inicio"
-              className="flex mb-8 w-[100%] justify-center items-center h-[10%] text-white font-bold text-[2rem]"
+              className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white text-4xl font-bold mb-5 block"
             >
-              Let’s play
+              <span>{"Let's"}</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
+                Play
+              </span>
             </Link>
             {links.map((link, index) => (
               <Link
@@ -67,7 +73,7 @@ const SidebarHome = () => {
                 to={link.to}
                 className="flex items-center gap-4 py-4 hover:text-white font-bold text-[1rem]"
               >
-                <span className="flex ml-2 justify-center items-center hover:text-white">
+                <span className="flex justify-center items-center hover:text-white">
                   {link.icon}
                 </span>
                 {link.label}
@@ -86,7 +92,7 @@ const SidebarHome = () => {
               dispatch(setLogout());
               navigate("/home");
             }}
-            className="flex items-center gap-2 hover:text-white transition-colors text-[1.1rem] font-bold"
+            className="flex items-center gap-4 hover:text-white transition-colors text-[1.1rem] font-bold"
           >
             <RiLogoutBoxRLine />
             Salir
@@ -94,7 +100,7 @@ const SidebarHome = () => {
         </div>
         <button
           onClick={toggle}
-          className="lg:hidden fixed right-4 bottom-4 bg-[#1E1F24] text-[#914a08] rounded-full text-xl p-3 z-50"
+          className="lg:hidden fixed right-4 bottom-4 bg-[#B5FF16] text-black rounded-full text-xl p-3 z-50"
         >
           {open ? <RiCloseLine /> : <RiMenu3Fill />}
         </button>

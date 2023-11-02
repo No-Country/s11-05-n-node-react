@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const HomeLayout = () => {
   return (
     <>
-      <div className="">
+      <div>
         <SidebarHome />
         <section className="lg:pl-[25%] xl:pl-[2%] 2xl:pl-[13%]">
           <HeaderHome />

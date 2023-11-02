@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import { RiTeamFill } from "react-icons/ri";
+import { IoGameControllerOutline } from "react-icons/io5";
+import { BiFootball } from "react-icons/bi";
+import { BsOutlet } from "react-icons/bs";
 
 const TeamAvatar = ({ team }) => {
   return (
@@ -20,9 +23,14 @@ const TeamAvatar = ({ team }) => {
         ) : (
           <RiTeamFill size={42} color="#726d6d" />
         )}
+        <div className="absolute -top-1 -right-3 bg-[#B5FF16] p-1 rounded-full">
+          {team?.category?.type === "game" && <IoGameControllerOutline size={20} />}
+          {team?.category?.type === "sport" && <BiFootball size={20} />}
+          {!team?.category?.type && <BsOutlet size={20} />}
+        </div>
       </div>
       <div className="flex w-16 justify-center text-center">
-        <span className="text-center truncate">{team.name}</span>
+        <span className="text-center text-white truncate">{team.name}</span>
       </div>
     </>
   );

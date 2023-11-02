@@ -1,49 +1,62 @@
-import { Children } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listMyTeams } from "../../store/state/teamSlice";
+import { HiUserGroup } from "react-icons/hi";
+import { AiOutlineLoading } from "react-icons/ai";
 
 export default function Teams() {
-  const data = [
-    {
-      id: 1593,
-      name: "Los de Backend",
-      position: "Delantero",
-      team: "...",
-      classified: "No Clasifico",
-      image: "/img/profile_default.webp"
-    },
-    {
-      id: 4239,
-      name: "Los de Frontend",
-      position: "Trasero",
-      team: "...",
-      classified: "Clasifico",
-      image: "/img/profile_default.webp"
-    }
-  ];
+  const dispatch = useDispatch();
+  const teams = useSelector(state => state.team.myTeams);
+  const loading = useSelector(state => state.team.loading);
+
+  useEffect(() => {
+    dispatch(dispatch(listMyTeams));
+  }, [dispatch]);
 
   return (
-    <div className="border rounded-2xl p-4 shadow-xl shadow-black/[3%]">
-      <span className="text-xl font-semibold mb-2.5 block">Equipos</span>
-      {Children.toArray(
-        // eslint-disable-next-line react/prop-types
-        data.map(e => (
-          <div className="grid grid-cols-[35%,65%] mb-4 border-y py-4 gap-5">
-            <img
-              className="w-[64px] md:w-[96px] h-fit my-auto rounded-xl overflow-hidden ring ring-white"
-              src={e.image}
-              alt={"Foto de " + e.name}
-              loading="lazy"
-            />
+    <section>
+      <span className="text-2xl font-semibold mb-2.5 block">Mis Equipos</span>
+      {loading ? (
+        <span className="flex items-center gap-2 text-xl mt-6 mb-2">
+          <AiOutlineLoading size={20} className="animate-spin" /> Cargando
+        </span>
+      ) : teams?.length > 0 ? (
+        <div className="flex flex-col gap-4">
+          {teams.map((team, index) => (
+            <button
+              type="button"
+              key={team?._id}
+              className={
+                "w-full flex items-center p-4 gap-5 rounded-xl relative overflow-hidden transition duration-200 hover:brightness-110" +
+                (!index % 2
+                  ? " bg-gradient-to-t bg-green-600/90 from-green-800/30"
+                  : " bg-gradient-to-t bg-green-500/90 from-green-600/30")
+              }
+            >
+              <span className="block absolute w-[60%] h-full ml-auto inset-x-0 bottom-0 bg-gradient-to-l from-green-900 to-transparent"></span>
+              <div className="max-w-[64px] w-full">
+                {team?.image ? (
+                  <img
+                    className="w-[64px] h-fit my-auto aspect-square object-cover rounded-xl overflow-hidden ring ring-white"
+                    src={team?.image}
+                    alt={"Foto de " + team?.name}
+                    loading="lazy"
+                  />
+                ) : (
+                  <HiUserGroup size={64} />
+                )}
+              </div>
 
-            <div className="flex flex-col text-sm">
-              <span>Nombre: {e.name}</span>
-              <span>ID: {e.id}</span>
-              <span>Posición: {e.position}</span>
-              <span>Equipo: {e.team}</span>
-              <span>Clasificación: {e.classified}</span>
-            </div>
-          </div>
-        ))
+              <div className="flex flex-col text-left">
+                <span className="text-2xl font-semibold">{team?.name}</span>
+                <span className="text-lg">{team?.players?.length} Jugadores</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <span className="block text-xl mt-6 mb-2">No tienes equipos cargados.</span>
       )}
-    </div>
+    </section>
   );
 }

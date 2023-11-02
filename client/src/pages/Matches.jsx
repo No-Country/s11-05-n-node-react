@@ -5,13 +5,15 @@ import LoadPlayers from "../components/Team/LoadPlayers";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listMembers } from "../store/state/membersSlice";
+import { useParams } from "react-router-dom";
 
-function Team() {
+function Matches() {
   const members = useSelector(state => state.members.listMembers);
 
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
+  const { type } = useParams();
 
   useEffect(() => {
     dispatch(dispatch(listMembers));
@@ -19,8 +21,11 @@ function Team() {
 
   return (
     <section className="flex  flex-col gap-5   max-w-screen-lg w-full mx-auto mb-10">
-      <LoadTeams />
-      <div className="flex gap-5">
+      <div className="flex flex-col gap-5">
+        <h2>My Teams {type}</h2>
+        <button onClick={() => setShow(!show)}>{!show ? "Add team" : "Close"} </button>
+        <LoadTeams type={type} />
+
         <CreateTeam setShow={setShow} />
 
         {show ? <LoadPlayers members={members} /> : ""}
@@ -29,4 +34,4 @@ function Team() {
   );
 }
 
-export default Team;
+export default Matches;

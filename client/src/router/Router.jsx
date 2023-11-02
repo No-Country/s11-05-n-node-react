@@ -11,6 +11,7 @@ const Home = lazy(() => import("../pages/Home"));
 const Landing = lazy(() => import("../pages/Landing"));
 const Register = lazy(() => import("../pages/Register"));
 const Profile = lazy(() => import("../pages/Profile"));
+const Matches = lazy(() => import("../pages/Matches"));
 const Onboarding = lazy(() => import("../components/Onboarding/Onboarding"));
 
 const Router = () => {
@@ -44,6 +45,7 @@ const Router = () => {
                 <Route index={true} element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/create" element={<Team />} />
+                <Route path="/matches/:type" element={<Matches />} />
                 {/* Aqui sigan poniendo las paginas  para que tomen el layout del home layout  */}
               </Route>
             </Route>

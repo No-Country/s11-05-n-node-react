@@ -4,7 +4,7 @@ import RelatedSearch from "../components/HomeComponents/RelatedSearch";
 import TeamBuilding from "../components/HomeComponents/TeamBuilding";
 import { useEffect } from "react";
 import { listMembers } from "../store/state/membersSlice";
-
+import { listCategories } from "../store/state/categorySlice";
 const Home = () => {
   const members = useSelector(state => state.members.listMembers);
   const friends = useSelector(state => state.auth.user.friends);
@@ -13,6 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(listMembers());
+    dispatch(listCategories());
   }, []);
   return (
     <>
