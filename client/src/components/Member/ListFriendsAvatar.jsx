@@ -23,7 +23,7 @@ const ListFriendsAvatar = ({ member }) => {
           e.target.src = "/img/profile_default.webp";
         }}
         alt={member.firstName}
-        className="rounded-full"
+        className="rounded-full object-cover w-full h-full"
       />
       {isSelected() ? (
         <button

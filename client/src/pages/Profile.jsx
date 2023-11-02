@@ -172,7 +172,9 @@ function Profile() {
           </button>
         </section>
 
-        <section className={"h-full"+(editProfile? "" : " grid grid-cols-1 xl:grid-cols-2 gap-10")}>
+        <section
+          className={"h-full" + (editProfile ? "" : " grid grid-cols-1 xl:grid-cols-2 gap-10")}
+        >
           {editProfile ? (
             <FormProfile user={user} />
           ) : (
