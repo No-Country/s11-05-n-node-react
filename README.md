@@ -35,9 +35,12 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 | <a href="https://www.linkedin.com/in/cubilla-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/hectordariosol/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/miguel-guerrero-403939194/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/masielvenegas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://www.linkedin.com/in/yein-e-734a7a233/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href=""><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
   #### 🛠️ Tech Stack:
-  Nodejs - Express - Multer  - Cloudinary - NodeMailer - Mongoose
- ![Python](https://img.shields.io/badge/Python-green?style=for-the-badge&logo=python) 
- ![Fastapi](https://img.shields.io/badge/Fastapi-green?style=for-the-badge&logo=fastapi)
+ ![Nodejs](https://img.shields.io/badge/Nodejs-green?style=for-the-badge&logo=nodejs) 
+ ![Express](https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express)
+ ![Multer](https://img.shields.io/badge/Multer-green?style=for-the-badge&logo=multer)
+ ![Cloudinary](https://img.shields.io/badge/Cloudinary-green?style=for-the-badge&logo=cloudinary)
+ ![NodeMailer](https://img.shields.io/badge/NodeMailer-green?style=for-the-badge&logo=nodemailer)
+ ![Mongoose](https://img.shields.io/badge/Mongoose-green?style=for-the-badge&logo=mongoose)
  
   #### 🧑💻 QA Testers:
 
