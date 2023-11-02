@@ -126,7 +126,7 @@ const editUser = async (req, res) => {
 
     const userPatch = await User.findOneAndUpdate({ _id: userId }, userEdited, {
       new: true,
-    });
+    }).select("-passwordHash").populate({ path: "category friends" }).exec();
 
     res
       .status(200)

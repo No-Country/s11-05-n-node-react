@@ -67,11 +67,15 @@ const createTeam = async (req, res) => {
       image,
       players, // deben pasarse del front los id de usuarios ya registrados
       category,
-    });
+    })
+    const team = await newTeam.save()
+ 
+    const teamFound = await Team.findById(team._id)
+    .populate({ path: "category"})
+    .exec();
+    
 
-    await newTeam.save();
-
-    res.status(201).json(newTeam);
+    res.status(201).json(teamFound);
   } catch (error) {
     res
       .status(500)

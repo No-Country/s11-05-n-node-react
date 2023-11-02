@@ -20,7 +20,7 @@ function LoadTeams({ type }) {
   return (
     <>
       <h2 className="font-semibold">Mis equipos</h2>
-      <div className="flex flex-wrap bg-black gap-7  p-6 w-full  shadow-md rounded-md justify-center">
+      <div className="flex flex-wrap bg-black gap-7 border border-white  p-6 w-full  shadow-md rounded-md justify-center">
         {teams.length > 0 ? (
           showTeams()?.map(team => (
             <div key={team._id}>
