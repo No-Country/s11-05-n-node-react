@@ -56,15 +56,15 @@ export default function LandingBottom() {
         </div>
         <div className="relative w-full">
           <img
-            src="img/iphone14.png"
-            style={{ backgroundImage: `url(img/phone_${customBG}.png)` }}
+            src="/img/iphone14.png"
+            style={{ backgroundImage: `url(/img/phone_${customBG}.png)` }}
             className="fillMobile w-full max-w-[196px] overflow-hidden rounded-3xl drop-shadow-2xl max-[420px]:max-w-[128px] md:rounded-[2.15rem]"
             alt="Pagina desde el celular"
           />
 
           <img
-            src="img/macbook.png"
-            style={{ backgroundImage: `url(img/bg_${customBG}.webp)` }}
+            src="/img/macbook.png"
+            style={{ backgroundImage: `url(/img/bg_${customBG}.webp)` }}
             className="fillDesktop absolute -bottom-32 right-0 w-full max-w-lg drop-shadow-2xl"
             alt="Pagina desde la notebook"
           />

@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { postRequest } from "../services/httpRequest";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import toast, { Toaster } from "react-hot-toast";
+import { RiCloseLine } from "react-icons/ri";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -159,12 +160,12 @@ const Register = () => {
             </div>
 
             {errores && (
-              <p
-                onMouseOver={() => setErrores(null)}
-                className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md"
-              >
+              <div className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md relative">
                 {errores}
-              </p>
+                <button className="absolute -right-3 -top-3 bg-red-100 p-1 rounded-full text-sm" type="button" onClick={() => setErrores(null)}>
+                  <RiCloseLine size={18} />
+                </button>
+              </div>
             )}
             <button
               type="submit"
