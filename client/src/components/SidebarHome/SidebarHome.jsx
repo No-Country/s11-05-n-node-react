@@ -23,9 +23,13 @@ const links = [
     icon: <RiUserFill className="w-[16px] h-[16px]" />
   },
   { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[16px] h-[16px]" /> },
-  { to: "/matches", label: "Partidos", icon: <GiSoccerField className="w-[19px] h-[19px]" /> },
   {
-    to: "/partidas",
+    to: "/matches/sport",
+    label: "Partidos",
+    icon: <GiSoccerField className="w-[19px] h-[19px]" />
+  },
+  {
+    to: "/matches/game",
     label: "Partidas",
     icon: <IoGameControllerOutline className="w-[16px] h-[16px]" />
   },

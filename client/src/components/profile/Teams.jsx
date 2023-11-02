@@ -35,16 +35,16 @@ export default function Teams() {
             >
               <span className="block absolute w-[60%] h-full ml-auto inset-x-0 bottom-0 bg-gradient-to-l from-green-900 to-transparent"></span>
               <div className="max-w-[64px] w-full">
-              {team?.image ? (
-                <img
-                  className="w-[64px] h-fit my-auto aspect-square object-cover rounded-xl overflow-hidden ring ring-white"
-                  src={team?.image}
-                  alt={"Foto de " + team?.name}
-                  loading="lazy"
-                />
-              ) : (
-                <HiUserGroup size={64} />
-              )}
+                {team?.image ? (
+                  <img
+                    className="w-[64px] h-fit my-auto aspect-square object-cover rounded-xl overflow-hidden ring ring-white"
+                    src={team?.image}
+                    alt={"Foto de " + team?.name}
+                    loading="lazy"
+                  />
+                ) : (
+                  <HiUserGroup size={64} />
+                )}
               </div>
 
               <div className="flex flex-col text-left">
