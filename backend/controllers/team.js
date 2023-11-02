@@ -137,7 +137,7 @@ const getMyteams = async (req, res) => {
   try {
     const teams = await Team.find({
       $or: [{ captain: userId }, { players: userId }],
-    }).populate("players");
+    }).populate("players category");
 
     res.status(201).json({ message: "Equipos encontrados", team: { teams } });
   } catch (error) {

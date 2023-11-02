@@ -14,13 +14,17 @@ const teamSchema = new Schema(
     name: {
       type: String,
     },
-    players: [  
+    players: [
       {
-        type: Schema.Types.ObjectId, ref: "User", default: null
-      }
-    ], 
-     category: {
-        type: Schema.Types.ObjectId, ref: "Catergory", default: null
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        default: null,
+      },
+    ],
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      default: null,
     },
   },
   { timestamps: true }

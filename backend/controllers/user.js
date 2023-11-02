@@ -67,7 +67,7 @@ const auth = async (req, res) => {
     const findUser = email
       ? await User.findOne({ email })
           .select("-passwordHash")
-          .populate({ path: "category" })
+          .populate({ path: "category friends" })
           .exec()
       : await User.findOne({ nickName }).select("-passwordHash");
 
@@ -144,10 +144,12 @@ const addFriend = async (req, res) => {
       { _id: user },
       { $push: { friends: friend } },
       { new: true }
-    );
+    ).populate({
+      path: "friends",
+    });
     return res
       .status(200)
-      .send({ message: "Amigo Agregado", friend: friendAdd.friends });
+      .send({ message: "Amigo Agregado", friends: friendAdd.friends });
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "no se pudo agregar al amigo" });
@@ -162,7 +164,9 @@ const deleteFriend = async (req, res) => {
       { _id: user },
       { $pull: { friends: friend } },
       { new: true }
-    );
+    ).populate({
+      path: "friends",
+    });
     return res
       .status(200)
       .send({ message: "Amigo eliminado", friends: friendDelete.friends });
