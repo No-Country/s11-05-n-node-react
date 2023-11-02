@@ -6,15 +6,22 @@ import MemberAvatar from "../Member/MemberAvatar";
 import { useEffect, useState } from "react";
 import { createTeam } from "../../store/state/teamSlice";
 import { clearAllMembers } from "../../store/state/membersSlice";
+import { listCategories } from "../../store/state/categorySlice";
 
 function CreateTeam({ setShow }) {
   const dispatch = useDispatch();
   const membersSelected = useSelector(state => state.members.listMembersSelected);
+  const categoriesList = useSelector(state => state.category.listCategories);
+
+  useEffect(() => {
+    dispatch(listCategories());
+  }, []);
 
   const [newTeam, setNewTeam] = useState({
     name: "",
     players: [],
-    image: null
+    image: null,
+    category: ""
   });
 
   const createNewTeam = async () => {
@@ -22,7 +29,7 @@ function CreateTeam({ setShow }) {
       const team = await dispatch(createTeam(newTeam));
       if (team.message) {
         await dispatch(clearAllMembers());
-        setNewTeam({ ...newTeam, name: " ", image: null });
+        setNewTeam({ ...newTeam, name: " ", image: null, category: "" });
       }
     } catch (error) {
       console.log(error);
@@ -38,7 +45,10 @@ function CreateTeam({ setShow }) {
   }, [membersSelected]);
 
   return (
-    <div className="w-[500px] flex flex-col gap-3 p-12 bg-blue-50 shadow-md rounded-lg  ">
+    <div
+      className="md:min-w-[500px] max-w-[500px] flex flex-col gap-3 text-white p-12 bg-[ #121212;
+    ] shadow-md rounded-lg border border-white   "
+    >
       <h1 className="font-semibold">Crea tu equipo</h1>
 
       <form className="flex flex-col justify-center gap-5">
@@ -48,15 +58,24 @@ function CreateTeam({ setShow }) {
             name="name"
             value={newTeam.name}
             type="text "
-            className="w-[393px]  p-2 h-12 rounded-lg"
+            className="max-w-[393px]  p-2 h-12 rounded-lg"
             onChange={e => handleChange(e)}
           />
         </div>
         <div className="flex flex-col w-[95%] gap-1">
           <label className="text-sm">Selecciona juego</label>
-          <select className="w-[393px] h-12 rounded-lg p-2">
+          <select
+            className="max-w-[393px] h-12 rounded-lg p-2"
+            name="category"
+            onChange={e => handleChange(e)}
+          >
             <optgroup>
-              <option value="0">Selecciona tu juego </option>
+              {categoriesList?.map(cat => (
+                <option key={cat._id} value={cat._id}>
+                  {" "}
+                  {cat.name}{" "}
+                </option>
+              ))}
             </optgroup>
           </select>
         </div>
@@ -80,7 +99,10 @@ function CreateTeam({ setShow }) {
           );
         })}
       </div>
-      <button className="w-[60%] mx-auto  bg-slate-300 p-1 rounded-md mt-8" onClick={createNewTeam}>
+      <button
+        className="w-[60%] mx-auto text-black bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16] p-1 rounded-md mt-8"
+        onClick={createNewTeam}
+      >
         Crear
       </button>
     </div>

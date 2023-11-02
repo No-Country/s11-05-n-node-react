@@ -3,7 +3,10 @@ import MemberAvatar from "../Member/MemberAvatar";
 
 function LoadPlayers({ members }) {
   return (
-    <div className="w-[500px] flex flex-col gap-3 p-12 bg-blue-50 shadow-md rounded-lg  ">
+    <div
+      className="md:min-w-[500px]  max-w-[500px] border border-white text-white flex flex-col gap-3 p-12 bg-[ #121212;
+    ]shadow-md rounded-lg  "
+    >
       <h1 className="font-semibold">Seleccione sus miembros</h1>
 
       <div className="flex flex-col justify-center max-h-[30rem]">
