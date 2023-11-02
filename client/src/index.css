@@ -45,13 +45,13 @@ body {
 }
 
 .background-circle::before {
-  background-image: radial-gradient(circle at 50% 50%, rgba(0, 255, 183, 0.25), transparent 70%);
+  background-image: radial-gradient(circle at 50% 50%, rgba(0, 255, 183, 0.2), transparent 70%);
   top: 10dvh;
   right: 5dvw;
 }
 
 .background-circle::after {
-  background-image: radial-gradient(circle at 50% 50%, rgba(179, 255, 0, 0.4), transparent 70%);
+  background-image: radial-gradient(circle at 50% 50%, rgba(179, 255, 0, 0.3), transparent 70%);
   top: 30dvh;
   right: -20dvw;
 }

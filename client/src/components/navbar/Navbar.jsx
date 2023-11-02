@@ -6,7 +6,7 @@ const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 text-white bg-white/5 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 text-white bg-white/5 backdrop-blur-md border-b border-white/5">
       <nav className="max-w-screen-xl mx-auto max-sm:py-5 py-2 flex max-md:flex-col items-center justify-between w-[90%]">
         <div className="md:w-fit w-full flex items-center justify-between md:min-h-[70px]">
           <Link to="/home" aria-describedby="Pagina de Inicio" className="font-bold text-3xl">
