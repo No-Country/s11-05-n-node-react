@@ -19,12 +19,12 @@ function Team() {
 
   return (
     <section className="flex  flex-col gap-5   max-w-screen-lg w-full mx-auto mb-10">
+      <LoadTeams />
       <div className="flex gap-5">
         <CreateTeam setShow={setShow} />
 
         {show ? <LoadPlayers members={members} /> : ""}
       </div>
-      <LoadTeams />
     </section>
   );
 }
