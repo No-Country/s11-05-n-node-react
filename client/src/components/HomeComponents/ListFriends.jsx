@@ -2,35 +2,29 @@
 import ListFriendsAvatar from "../Member/ListFriendsAvatar";
 
 function ListFriends({ members, friends }) {
-
-  const isNotFriend = (idMember) => {
-    const exist = friends?.find(friend => friend?._id === idMember)
-    if (exist) return false
-    return true
-  }
+  const isNotFriend = idMember => {
+    const exist = friends?.find(friend => friend?._id === idMember);
+    if (exist) return false;
+    return true;
+  };
 
   return (
-
-
     <div className="w-[500px] flex flex-col gap-3 p-12 bg-[#121212] shadow-md rounded-lg border border-white ">
-
       <div className="flex flex-col justify-center max-h-[30rem]">
         <h2 className="font-semibold">Favoritos</h2>
 
         <div className="flex flex-wrap gap-8 justify-center h-full overflow-auto items-center p-2">
-          {
-
-            friends?.length > 0 ? friends?.map(friend => {
+          {friends?.length > 0 ? (
+            friends?.map(friend => {
               return (
                 <div key={`${friend?._id}-friend`}>
                   <ListFriendsAvatar member={friend} />
                 </div>
               );
             })
-              : <span className=" text-white ">
-                Aun no tienes favoritos
-              </span>
-          }
+          ) : (
+            <span className=" text-white ">Aun no tienes favoritos</span>
+          )}
         </div>
       </div>
       <div className="flex flex-col justify-center max-h-[30rem]">
@@ -39,14 +33,12 @@ function ListFriends({ members, friends }) {
           {members?.map(member => {
             return (
               <div key={`${member._id}-member`}>
-                {
-                  isNotFriend(member._id) && <ListFriendsAvatar member={member} />}
+                {isNotFriend(member._id) && <ListFriendsAvatar member={member} />}
               </div>
             );
           })}
         </div>
       </div>
-
     </div>
   );
 }

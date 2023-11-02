@@ -78,7 +78,7 @@ export const patchRequest = async (dataSend, endpoint) => {
 
 export const putRequest = async (dataSend, endpoint) => {
   try {
-    console.log(getToken())
+    console.log(getToken());
     const { data } = await axios.put(URL + endpoint, dataSend, {
       headers: {
         "Content-Type": "application/json",

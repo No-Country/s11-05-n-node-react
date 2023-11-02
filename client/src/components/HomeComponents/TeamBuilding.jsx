@@ -48,7 +48,6 @@ const TeamBuilding = () => {
       </div>
       <h2 className="flex font-bold mb-3">Busquedas relacionadas</h2>
       <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-neutral-50 rounded-md">
-
         {articles.map((article, index) => (
           <article
             key={index}
