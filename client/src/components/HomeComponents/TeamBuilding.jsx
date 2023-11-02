@@ -34,8 +34,8 @@ const TeamBuilding = () => {
 
   return (
     <>
-      <h3 className="flex font-bold my-8">Crea tu equipo</h3>
-      <div className="w-16 h-16 rounded-full bg-[#242424] relative my-10">
+      <h3 className="flex font-bold mt-8">Crea tu equipo</h3>
+      <div className="w-16 h-16 rounded-full bg-[#242424] relative my-6">
         <button
           onClick={() => {
             navigate("/create");
@@ -47,11 +47,11 @@ const TeamBuilding = () => {
         </button>
       </div>
       <h2 className="flex font-bold mb-3">Busquedas relacionadas</h2>
-      <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-neutral-50 rounded-md">
+      <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-white/10 rounded-md">
         {articles.map((article, index) => (
           <article
             key={index}
-            className="flex flex-col items-center sm:flex-row  sm:justify-evenly  p-2 gap-2 w-full my-1 shadow-sm hover:shadow-xl border-b border-[#c8bfbf]"
+            className="flex flex-col items-center sm:flex-row  sm:justify-evenly  p-2 gap-2 w-full my-1 shadow-sm hover:shadow-xl border-b border-white/10"
           >
             <img
               className="rounded-full w-[55px] h-[55px]"

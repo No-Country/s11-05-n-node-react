@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   RiTeamFill,
   RiLogoutBoxRLine,
@@ -15,33 +15,34 @@ import { setLogout } from "../../store/state/authSlice";
 import { useDispatch } from "react-redux";
 
 const links = [
-  { to: "/home", label: "Inicio", icon: <RiHome2Line className="w-[16px] h-[16px]" /> },
+  { to: "/", label: "Inicio", icon: <RiHome2Line className="w-[24px] h-[24px]" /> },
 
   {
     to: "/profile",
     label: "Perfil",
-    icon: <RiUserFill className="w-[16px] h-[16px]" />
+    icon: <RiUserFill className="w-[24px] h-[24px]" />
   },
-  { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[16px] h-[16px]" /> },
+  { to: "/create", label: "Mis Equipo", icon: <RiTeamFill className="w-[24px] h-[24px]" /> },
   {
     to: "/matches/sport",
     label: "Partidos",
-    icon: <GiSoccerField className="w-[19px] h-[19px]" />
+    icon: <GiSoccerField className="w-[24px] h-[24px]" />
   },
   {
     to: "/matches/game",
     label: "Partidas",
-    icon: <IoGameControllerOutline className="w-[16px] h-[16px]" />
+    icon: <IoGameControllerOutline className="w-[24px] h-[24px]" />
   },
   {
     to: "/events",
     label: "Evento/Torneo",
-    icon: <RiCalendarEventFill className="w-[16px] h-[16px]" />
+    icon: <RiCalendarEventFill className="w-[24px] h-[24px]" />
   }
 ];
 
 const SidebarHome = () => {
   const [open, setOpen] = useState(false);
+  const {pathname} = useLocation()
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -56,36 +57,35 @@ const SidebarHome = () => {
           open ? "-left-0" : "-left-full"
         }  lg:left-0 top-0 w-64 h-full p-8 flex flex-col justify-between transition-all duration-300 z-50`}
       >
-        <div>
-          <nav className="">
+        <span className="greenline" />
+        <nav>
+          <Link
+            to="/"
+            aria-describedby="Pagina de Inicio"
+            className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white text-4xl font-bold mb-5 block"
+          >
+            <span>{"Let's"}</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
+              Play
+            </span>
+          </Link>
+          {links.map((link, index) => (
             <Link
-              to="/"
-              aria-describedby="Pagina de Inicio"
-              className="text-transparent bg-clip-text bg-gradient-to-t from-slate-300 to-white text-4xl font-bold mb-5 block"
+              key={index}
+              to={link.to}
+              className={(pathname === link.to? "text-white " : "hover:text-white ") + "flex items-center gap-4 py-4 font-bold text-[1rem]"}
             >
-              <span>{"Let's"}</span>{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-t from-green-700 via-[#B5FF16] to-[#B5FF16]">
-                Play
+              <span className="flex justify-center items-center hover:text-white">
+                {link.icon}
               </span>
+              {link.label}
             </Link>
-            {links.map((link, index) => (
-              <Link
-                key={index}
-                to={link.to}
-                className="flex items-center gap-4 py-4 hover:text-white font-bold text-[1rem]"
-              >
-                <span className="flex justify-center items-center hover:text-white">
-                  {link.icon}
-                </span>
-                {link.label}
-              </Link>
-            ))}
+          ))}
 
-            {/* Error en consola */}
+          {/* Error en consola */}
 
-            <div className="flex flex-col w-full gap-4 py-4 rounded-lg font-bold text-[1rem]"></div>
-          </nav>
-        </div>
+          <div className="flex flex-col w-full gap-4 py-4 rounded-lg font-bold text-[1rem]"></div>
+        </nav>
 
         <div>
           <button
@@ -95,7 +95,7 @@ const SidebarHome = () => {
             }}
             className="flex items-center gap-4 hover:text-white transition-colors text-[1.1rem] font-bold"
           >
-            <RiLogoutBoxRLine />
+            <RiLogoutBoxRLine className="w-[24px] h-[24px]" />
             Salir
           </button>
         </div>

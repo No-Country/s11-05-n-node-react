@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b5ff16;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 body {
   font-family: "Poppins";
   background-color: #000;
@@ -55,6 +69,15 @@ body {
   }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 .hamburger span {
   width: 32px;
   height: 2px;
@@ -78,4 +101,14 @@ body {
 
 .transition-height {
   transition: height 0.5s;
+}
+
+.greenline{
+  inset-block: 0;
+  right: 0;
+  width: 0.5%;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(to top, #b5ff16e1, #fff200e8);
+  transition: width 300ms;
 }
