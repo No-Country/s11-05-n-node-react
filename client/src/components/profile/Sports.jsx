@@ -53,13 +53,13 @@ export default function Sports({ sports }) {
         </div>
       ) : (
         <>
-          <span className="font-medium opacity-80">
+          <span className="font-medium opacity-90">
             Aqui van los deportes que se han seleccionado.
           </span>
 
           <Link
             to="/onboarding"
-            className="bg-black py-1.5 px-3.5 rounded-md font-medium text-white w-fit pressable"
+            className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black py-1.5 px-3.5 rounded-md font-medium w-fit pressable mt-2"
             type="button"
           >
             Editar Deportes

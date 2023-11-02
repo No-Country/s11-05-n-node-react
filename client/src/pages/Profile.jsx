@@ -54,7 +54,7 @@ function Profile() {
           <div className="flex items-center w-fit gap-10">
             <div className="relative">
               <img
-                className="bg-black aspect-square h-full w-[128px] object-cover rounded-full overflow-hidden ring ring-white"
+                className="bg-black aspect-square h-full w-[128px] object-cover rounded-full overflow-hidden ring ring-[#B5FF16]"
                 src={user?.avatar || "/img/profile_default.webp"}
                 alt={"Foto de Perfil de " + user?.firstName + " - " + user?.lastName}
                 loading="lazy"
@@ -146,7 +146,7 @@ function Profile() {
             </Transition>
 
             <div className="flex flex-col">
-              <span className="font-semibold text-xl md:text-5xl capitalize">
+              <span className="font-semibold text-xl md:text-4xl capitalize">
                 {user?.firstName || ""} {user?.lastName || ""}
                 {user?.nickName && user?.firstName && user.lastName ? "" : user?.nickName}{" "}
                 <small className="text-sm opacity-80">
@@ -155,7 +155,7 @@ function Profile() {
                     : ""}
                 </small>
               </span>
-              <span className="font-semibold text-xl">
+              <span className="font-semibold text-lg">
                 {user?.age ? user?.age + " Años - " : ""} {user?.ubication?.country || ""}{" "}
                 {user?.ubication?.country && user?.ubication?.city ? " - " : ""}{" "}
                 {user?.ubication?.city || ""}
@@ -172,7 +172,7 @@ function Profile() {
           </button>
         </section>
 
-        <section className="flex max-xl:flex-col justify-between gap-10">
+        <section className="grid grid-cols-1 xl:grid-cols-2 gap-10 h-full">
           {editProfile ? (
             <FormProfile user={user} />
           ) : (
@@ -183,10 +183,8 @@ function Profile() {
                 <Sports sports={user?.category} />
               </section>
 
-              <section className="flex flex-col gap-5 lg:max-w-xl w-full">
+              <section className="flex flex-col gap-10">
                 <Teams />
-
-                {/* <Habilities /> */}
               </section>
             </>
           )}

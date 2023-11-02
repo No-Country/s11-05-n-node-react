@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../store/state/authSlice";
 import { useNavigate } from "react-router-dom";
 import clearStateErrors from "../hooks/clearStateErrors";
+import toast, { Toaster } from "react-hot-toast";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -28,34 +29,47 @@ function Login() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    document.querySelector('button[type="submit"]').innerText = "Ingresando.."
     if (!username || !password) {
       setErrores("Por favor, complete todos los campos.");
       clearStateErrors("", setErrores);
+      document.querySelector('button[type="submit"]').innerText = "Iniciar sesión"
       return;
     }
 
     if (!isEmailValid(username)) {
       setErrores("Correo electrónico inválido.");
       clearStateErrors("", setErrores);
+      document.querySelector('button[type="submit"]').innerText = "Iniciar sesión"
       return;
     }
 
     if (!isPasswordValid(password)) {
       setErrores("Contraseña inválida.");
       clearStateErrors("", setErrores);
+      document.querySelector('button[type="submit"]').innerText = "Iniciar sesión"
       return;
     }
 
     const isLogin = await dispatch(loginUser({ email: username, password: password }));
 
     if (isLogin.login) {
+      toast.success("Bienvenido");
       if (isLogin.user.status) return navigate("/");
-      navigate("/onboarding");
+
+      setTimeout(() => {
+        navigate("/onboarding");
+      }, 2000);
+    }
+    else
+    {
+      document.querySelector('button[type="submit"]').innerText = "Iniciar sesión"
     }
   };
 
   return (
+    <>
+    <Toaster />
     <section className="relative max-w-screen-xl w-[90%] mx-auto">
       <span className="gradient"></span>
 
@@ -116,8 +130,8 @@ function Login() {
               {errores}{" "}
             </p>
           )}
-          <button className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-semibold h-12 px-6 max-sm:w-full text-lg rounded-md pressable">
-            Iniciar sesión{" "}
+          <button type="submit" className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-semibold h-12 px-6 max-sm:w-full text-lg rounded-md pressable">
+            Iniciar sesión
           </button>
         </form>
 
@@ -129,6 +143,7 @@ function Login() {
         </p>
       </div>
     </section>
+    </>
   );
 }
 

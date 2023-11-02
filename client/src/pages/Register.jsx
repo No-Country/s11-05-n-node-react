@@ -20,7 +20,7 @@ const Register = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    document.querySelector('button[type="submit"]').innerText = "Creando cuenta..."
     const validate = validateRegister(username, email, password, repeatPassword);
 
     if (validate.status) {
@@ -32,7 +32,7 @@ const Register = () => {
 
         console.log(response);
         toast.success("Bienvenido");
-
+        document.querySelector('button[type="submit"]').innerText = "Crear cuenta"
         setTimeout(() => {
           navigate("/login");
         }, 2000);
@@ -42,6 +42,7 @@ const Register = () => {
       }
     } else {
       setErrores(validate.msg);
+      document.querySelector('button[type="submit"]').innerText = "Crear cuenta"
     }
   };
 
@@ -158,10 +159,10 @@ const Register = () => {
             </div>
 
             {errores && (
-              <p className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md">{errores}</p>
+              <p onMouseOver={() => setErrores(null)} className="py-1.5 px-2.5 bg-red-100 text-red-500 w-fit rounded-md">{errores}</p>
             )}
             <button
-              onMouseOver={() => setErrores(null)}
+              type="submit"
               className="bg-gradient-to-b from-[#B5FF16] to-green-300 text-black font-semibold h-12 px-6 max-sm:w-full text-lg rounded-md self-start pressable"
             >
               Crear cuenta
