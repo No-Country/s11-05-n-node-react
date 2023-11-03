@@ -27,9 +27,9 @@ export default function Teams() {
               type="button"
               key={team?._id}
               className={
-                "w-full flex items-center p-4 gap-5 rounded-xl relative overflow-hidden transition duration-200 hover:brightness-110" +
-                (!index % 2
-                  ? " bg-gradient-to-t bg-green-600/90 from-green-800/30"
+                "w-full flex items-center p-4 gap-4 rounded-xl relative overflow-hidden transition duration-200 hover:brightness-110" +
+                (index % 2
+                  ? " bg-gradient-to-t bg-green-600/90 from-green-900/30"
                   : " bg-gradient-to-t bg-green-500/90 from-green-600/30")
               }
             >
@@ -47,9 +47,10 @@ export default function Teams() {
                 )}
               </div>
 
-              <div className="flex flex-col text-left">
-                <span className="text-2xl font-semibold">{team?.name}</span>
+              <div className="flex flex-col text-left relative w-full">
+                <span className="text-2xl font-semibold">{team?.name} <small>({team.category.name})</small></span>
                 <span className="text-lg">{team?.players?.length} Jugadores</span>
+                <span className="md:text-3xl uppercase md:absolute right-0 inset-y-0 my-auto h-fit tracking-widest opacity-90 italic font-mono font-medium">{team.category.type}</span>
               </div>
             </button>
           ))}
