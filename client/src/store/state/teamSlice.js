@@ -79,7 +79,6 @@ export const listTeams = () => async dispatch => {
   try {
     dispatch(setLoading());
     const teams = await getRequest("/team");
-    console.log(teams);
     if (teams.message) {
       dispatch(setListTeams(teams.allTeams));
     }
