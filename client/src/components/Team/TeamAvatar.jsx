@@ -28,9 +28,9 @@ const TeamAvatar = ({ team }) => {
           <RiTeamFill size={42} color="#726d6d" />
         )}
         <div className="absolute -top-1 -right-3 bg-[#B5FF16] p-1 rounded-full">
-          {team?.category?.type === "game" && <IoGameControllerOutline size={20} />}
-          {team?.category?.type === "sport" && <BiFootball size={20} />}
-          {!team?.category?.type && <BsOutlet size={20} />}
+          {team?.category?.type === "game" && <IoGameControllerOutline size={20} color="#000000" />}
+          {team?.category?.type === "sport" && <BiFootball size={20} color="#000000" />}
+          {!team?.category?.type && <BsOutlet size={20} color="#000000" />}
         </div>
       </div>
       <div className="flex w-16 justify-center text-center">

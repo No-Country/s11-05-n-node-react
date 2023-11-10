@@ -59,7 +59,7 @@ const Router = () => {
               >
                 <Route index={true} element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/create" element={<Team />} />
+                <Route path="/teams" element={<Team />} />
                 <Route path="/matches/:type" element={<Matches />} />
                 {/* Aqui sigan poniendo las paginas  para que tomen el layout del home layout  */}
               </Route>

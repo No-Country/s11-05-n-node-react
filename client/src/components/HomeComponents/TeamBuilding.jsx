@@ -38,7 +38,7 @@ const TeamBuilding = () => {
       <div className="w-16 h-16 rounded-full bg-[#B5FF16] relative my-6">
         <button
           onClick={() => {
-            navigate("/create");
+            navigate("/teams");
           }}
           className="absolute -bottom-1 -right-1 bg-white text-black p-1.5 rounded-full"
         >
@@ -47,11 +47,11 @@ const TeamBuilding = () => {
         </button>
       </div>
       <h2 className="flex font-bold mb-3 text-xl">Busquedas relacionadas</h2>
-      <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-white/10 rounded-md">
+      <div className="bg-[#121212] max-w-[494px] h-auto flex flex-col items-center sm:justify-center p-1 border border-white/50 rounded-md">
         {articles.map((article, index) => (
           <article
             key={index}
-            className="flex flex-col items-center sm:flex-row  sm:justify-evenly  p-2 gap-2 w-full my-1 shadow-sm hover:shadow-xl border-b border-white/10"
+            className="flex flex-col items-center sm:flex-row  sm:justify-evenly  p-2 gap-2 w-full my-1 shadow-sm hover:shadow-xl border-b border-white/30"
           >
             <img
               className="rounded-full w-[55px] h-[55px]"
