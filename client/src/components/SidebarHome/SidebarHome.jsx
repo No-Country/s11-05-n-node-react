@@ -22,7 +22,7 @@ const links = [
     label: "Mi Perfil",
     icon: <RiUserFill className="w-[24px] h-[24px]" />
   },
-  { to: "/create", label: "Mis Equipos", icon: <RiTeamFill className="w-[24px] h-[24px]" /> },
+  { to: "/teams", label: "Mis Equipos", icon: <RiTeamFill className="w-[24px] h-[24px]" /> },
   {
     to: "/matches/sport",
     label: "Deportes",

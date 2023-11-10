@@ -48,9 +48,13 @@ export default function Teams() {
               </div>
 
               <div className="flex flex-col text-left relative w-full">
-                <span className="text-2xl font-semibold">{team?.name} <small>({team.category.name})</small></span>
+                <span className="text-2xl font-semibold">
+                  {team?.name} <small>({team?.category?.name})</small>
+                </span>
                 <span className="text-lg">{team?.players?.length} Jugadores</span>
-                <span className="md:text-3xl uppercase md:absolute right-0 inset-y-0 my-auto h-fit tracking-widest opacity-90 italic font-mono font-medium">{team.category.type}</span>
+                <span className="md:text-3xl uppercase md:absolute right-0 inset-y-0 my-auto h-fit tracking-widest opacity-90 italic font-mono font-medium">
+                  {team?.category?.type}
+                </span>
               </div>
             </button>
           ))}

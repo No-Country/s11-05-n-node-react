@@ -1,10 +1,9 @@
-import { useState } from "react";
-import LoadTeams from "../components/Team/LoadTeams";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import CreateMatches from "../components/Matches/CreateMatches";
 import { listTeams } from "../store/state/teamSlice";
+import LoadTeams from "../components/Team/LoadTeams";
+import CreateMatches from "../components/Matches/CreateMatches";
 import LoadTeamsMatches from "../components/Matches/LoadTeamsMatches";
 
 function Matches() {

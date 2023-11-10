@@ -15,13 +15,22 @@ function CreateTeam({ setShow }) {
 
   useEffect(() => {
     dispatch(listCategories());
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (categoriesList && categoriesList.length > 0) {
+      setNewTeam(prevState => ({
+        ...prevState,
+        category: categoriesList[0]._id
+      }));
+    }
+  }, [categoriesList]);
 
   const [newTeam, setNewTeam] = useState({
     name: "",
     players: [],
     image: null,
-    category: ""
+    category: null
   });
 
   const createNewTeam = async () => {
@@ -29,7 +38,7 @@ function CreateTeam({ setShow }) {
       const team = await dispatch(createTeam(newTeam));
       if (team.message) {
         await dispatch(clearAllMembers());
-        setNewTeam({ ...newTeam, name: " ", image: null, category: "" });
+        setNewTeam({ ...newTeam, name: " ", image: null, category: null });
       }
     } catch (error) {
       console.log(error);

@@ -9,10 +9,10 @@ function LoadTeams({ type }) {
   const dispatch = useDispatch();
   const showTeams = () => {
     if (type) {
-      return teams?.filter(team => team.category.type === type); 
+      return teams?.filter(team => team?.category?.type === type);
     }
-    
-    return teams
+
+    return teams;
   };
 
   useEffect(() => {
