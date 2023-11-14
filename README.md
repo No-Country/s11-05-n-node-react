@@ -75,4 +75,4 @@ Es una pagina o una aplicación de moviles para agendar partidos presenciales o 
 Les dejamos el plan de pruebas que hicimos: [Diseño de Plan de pruebas](https://drive.google.com/file/d/1UrA9jw21BFY8ErlVpJmX54ApW6bMe2ej/view?usp=drive_link)
 
 ## Reporte de Testing
-Si les interesa sabes los resultados de los test, aca estan todos manualmente conseguidos:  [Ejecucuión de Plan de pruebas](https://drive.google.com/file/d/1QFFWLFXE4obrgVPRYNIWSIra_Sp8on1Q/view?usp=drive_link) Si le interesa lo automatizado, aca podes verlos: Automatización
+Si les interesa sabes los resultados de los test, aca estan todos manualmente conseguidos:  [Ejecucuión de Plan de pruebas](https://drive.google.com/file/d/1QFFWLFXE4obrgVPRYNIWSIra_Sp8on1Q/view?usp=drive_link) Si le interesa lo automatizado, aca podes verlos: [Automatización](https://youtu.be/OUXO849lgRs) 
